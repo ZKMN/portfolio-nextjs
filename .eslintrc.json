@@ -49,6 +49,7 @@
         ]
       }
     ],
+    "max-len": ["error", { "code": 200, "tabWidth": 4 }],
     "no-shadow": "off",
     "no-use-before-define": "off",
     "import/extensions": "off",
@@ -58,6 +59,9 @@
     "react/react-in-jsx-scope": "off",
     "react-hooks/exhaustive-deps": "off",
     "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": ["warn", {
+      "custom": "ignore"
+    }],
     "react/require-default-props": "off",
     "@typescript-eslint/ban-ts-comment": "warn"
   }
