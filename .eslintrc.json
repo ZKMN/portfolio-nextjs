@@ -24,7 +24,7 @@
     "simple-import-sort"
   ],
   "rules": {
-    "no-unused-vars": "off",
+    "no-unused-vars": "warn",
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "simple-import-sort/imports": [
       "error",

@@ -30,19 +30,13 @@ export function AboutMe() {
             <Image
               width={150}
               height={200}
-              objectFit="contain"
               alt="Denis Klymenko"
               src="/images/photo.jpg"
-              style={{ borderRadius: '20px' }}
+              style={{ borderRadius: '20px', objectFit: 'contain' }}
             />
           </Grid>
 
           <Grid item {...textBreaks}>
-
-            <Typography mb="20px">
-              I have over 6 years of experience. I have no expired estimates. I have
-              experience working with large companies and large teams.
-            </Typography>
 
             <Typography mb="20px">
               First of all I&apos;m always aimed on fast and best result.

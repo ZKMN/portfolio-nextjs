@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material';
+import { circularProgressClasses, createTheme } from '@mui/material';
 
 const options = {
   components: {
@@ -21,7 +21,23 @@ const options = {
         },
       },
     },
+    MuiCircularProgress: {
+      defaultProps: {
+        value: 100,
+        size: '10em',
+      },
+      styleOverrides: {
+        root: {
+          [`& .${circularProgressClasses.circle}`]: {
+            strokeLinecap: 'round',
+            strokeWidth: 1.5,
+            color: '#fa923c',
+          },
+        },
+      },
+    },
   },
+
   palette: {
     primary: {
       main: '#FFFFFF',
