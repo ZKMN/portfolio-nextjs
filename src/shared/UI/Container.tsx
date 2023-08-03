@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box, Grid } from '@mui/material';
 
 export function Container({ black, children }: React.PropsWithChildren<{ black?: boolean; }>) {

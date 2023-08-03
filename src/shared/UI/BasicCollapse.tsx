@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ChevronRight } from '@mui/icons-material';
 import { Grid, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
