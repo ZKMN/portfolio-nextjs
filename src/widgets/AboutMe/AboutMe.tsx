@@ -1,6 +1,7 @@
 import {
   Grid, Typography, useMediaQuery, useTheme,
 } from '@mui/material';
+import Image from 'next/image';
 
 import { Container, Title } from '@/shared/UI';
 
@@ -26,9 +27,10 @@ export function AboutMe() {
           spacing={3}
         >
           <Grid item {...imgBreaks}>
-            <img
-              width={200}
+            <Image
+              width={150}
               height={200}
+              objectFit="contain"
               alt="Denis Klymenko"
               src="/images/photo.jpg"
               style={{ borderRadius: '20px' }}
@@ -38,7 +40,7 @@ export function AboutMe() {
           <Grid item {...textBreaks}>
 
             <Typography mb="20px">
-              I have over 6 years of experience. I have 0 expired estimates. I have
+              I have over 6 years of experience. I have no expired estimates. I have
               experience working with large companies and large teams.
             </Typography>
 

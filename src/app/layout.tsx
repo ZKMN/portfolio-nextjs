@@ -13,19 +13,19 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Denis Klymenko Frontend',
-  description: 'My name is Denis Klymenko and I\'m a frontend developer.',
+  description: 'I have over 6 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
   openGraph: {
     title: 'Denis Klymenko Frontend',
-    images: [{
-      url: 'https://media.licdn.com/dms/image/C5603AQH_4L0IFOsvUA/profile-displayphoto-shrink_800_800/0/1572770938564?e=1696464000&v=beta&t=hEOllCf5-2q6Obo6DiS-BM_2Ik6XH2CBGK24_GXzqzk',
-      width: 200,
-      height: 200,
-    }],
     description: 'My name is Denis Klymenko and I\'m a frontend developer.',
     siteName: 'Denis Klymenko Frontend',
     url: 'https://denisklymenko-soft.com/',
     locale: 'en_US',
     type: 'website',
+    images: [{
+      url: 'https://media.licdn.com/dms/image/C5603AQH_4L0IFOsvUA/profile-displayphoto-shrink_800_800/0/1572770938564?e=1696464000&v=beta&t=hEOllCf5-2q6Obo6DiS-BM_2Ik6XH2CBGK24_GXzqzk',
+      width: 100,
+      height: 100,
+    }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     creator: '@creator',
     images: [{
       url: 'https://media.licdn.com/dms/image/C5603AQH_4L0IFOsvUA/profile-displayphoto-shrink_800_800/0/1572770938564?e=1696464000&v=beta&t=hEOllCf5-2q6Obo6DiS-BM_2Ik6XH2CBGK24_GXzqzk',
-      width: 200,
-      height: 200,
+      width: 100,
+      height: 100,
     }],
   },
 };
