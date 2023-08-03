@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: 'I have over 6 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
   openGraph: {
     title: 'Denis Klymenko Frontend',
-    description: 'My name is Denis Klymenko and I\'m a frontend developer.',
+    description: 'I have over 6 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
     siteName: 'Denis Klymenko Frontend',
     url: 'https://denisklymenko-soft.com/',
     locale: 'en_US',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Denis Klymenko Frontend',
-    description: 'My name is Denis Klymenko and I\'m a frontend developer.',
+    description: 'I have over 6 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
     site: '@site',
     creator: '@creator',
     images: [{
