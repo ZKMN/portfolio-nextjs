@@ -30,19 +30,19 @@ export function AboutMe() {
               width={200}
               height={200}
               alt="Denis Klymenko"
-              src="https://media.licdn.com/dms/image/C5603AQH_4L0IFOsvUA/profile-displayphoto-shrink_800_800/0/1572770938564?e=1696464000&v=beta&t=hEOllCf5-2q6Obo6DiS-BM_2Ik6XH2CBGK24_GXzqzk"
+              src="/images/photo.jpg"
               style={{ borderRadius: '20px' }}
             />
           </Grid>
 
           <Grid item {...textBreaks}>
 
-            <Typography mb="10px">
+            <Typography mb="20px">
               I have over 6 years of experience. I have 0 expired estimates. I have
               experience working with large companies and large teams.
             </Typography>
 
-            <Typography mb="10px">
+            <Typography mb="20px">
               First of all I&apos;m always aimed on fast and best result.
               My background is a mix of SPA/PWA system, B2B and B2C applications.
               I prefer to develop CRM systems, but I have a bagatelle of experience developing different applications.

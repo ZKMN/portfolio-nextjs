@@ -25,10 +25,9 @@ export function SkillCard({ src, title }: { src: string; title: string; }) {
               height: 50,
             },
           })}
-
         >
           <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <image style={{ width: '100%' }} href={`${process.env.PUBLIC_URL}/images/icons/${src}`} />
+            <image style={{ width: '100%' }} href={`/images/icons/${src}`} />
           </svg>
         </SvgIcon>
 
