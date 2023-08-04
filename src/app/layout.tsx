@@ -14,6 +14,9 @@ const inter = Inconsolata({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Denis Klymenko Frontend',
   description: 'I have over 6 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
+  applicationName: 'Denis Klymenko Portfolio',
+  authors: { name: 'Denis Klymenko', url: 'https://www.linkedin.com/in/denis-klymenko/' },
+  keywords: ['React', 'Frontend Developer', 'Denis Klymenko'],
   openGraph: {
     title: 'Denis Klymenko Frontend',
     description: 'I have over 6 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
@@ -31,8 +34,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Denis Klymenko Frontend',
     description: 'I have over 6 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
-    site: '@site',
-    creator: '@creator',
+    site: 'https://denisklymenko-soft.com/',
+    creator: 'Denis Klymenko',
     images: [{
       url: 'https://media.licdn.com/dms/image/C5603AQH_4L0IFOsvUA/profile-displayphoto-shrink_800_800/0/1572770938564?e=1696464000&v=beta&t=hEOllCf5-2q6Obo6DiS-BM_2Ik6XH2CBGK24_GXzqzk',
       width: 100,
