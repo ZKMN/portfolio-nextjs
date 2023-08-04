@@ -24,8 +24,6 @@
     "simple-import-sort"
   ],
   "rules": {
-    "no-unused-vars": "warn",
-    "no-console": ["warn", { "allow": ["warn", "error"] }],
     "simple-import-sort/imports": [
       "error",
       {
@@ -53,6 +51,8 @@
     "max-len": ["error", { "code": 200, "tabWidth": 4 }],
     "no-shadow": "off",
     "no-use-before-define": "off",
+    "no-unused-vars": "warn",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
     "import/extensions": "off",
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",

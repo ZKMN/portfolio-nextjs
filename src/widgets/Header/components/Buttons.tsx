@@ -10,6 +10,7 @@ export function Buttons() {
     >
       <Grid item>
         <Button
+          size="large"
           href="https://drive.google.com/file/d/1uk44BO-0_IyZA_ne__DP4Mt4BzG4gPTM/view"
           target="_blank"
           variant="outlined"
@@ -21,6 +22,7 @@ export function Buttons() {
 
       <Grid item>
         <Button
+          size="large"
           variant="outlined"
           onClick={() => {
             document.getElementById('contact')?.scrollIntoView({
