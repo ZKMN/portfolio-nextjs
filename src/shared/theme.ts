@@ -37,7 +37,6 @@ const options = {
       },
     },
   },
-
   palette: {
     primary: {
       main: '#FFFFFF',
@@ -60,6 +59,7 @@ const options = {
     },
   },
   typography: {
+    fontFamily: ['Inconsolata', 'Roboto', 'monospace'].join(','),
     body1: {
       color: '#FFFFFF',
       fontSize: 16,

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inconsolata } from 'next/font/google';
 
 import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
@@ -9,7 +9,7 @@ import { MUIThemeProvider } from '@/shared/providers';
 
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inconsolata({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Denis Klymenko Frontend',
