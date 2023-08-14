@@ -6,14 +6,18 @@ import { Grid, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 
-export function SimpleCollapse({
+export function BasicCollapse({
   open,
   label,
+  onClick,
   children,
-}: React.PropsWithChildren<{ open?: boolean; label: string }>) {
+}: React.PropsWithChildren<{ open?: boolean; onClick?: () => void; label: string }>) {
   const [checked, setChecked] = useState(open);
 
-  const handleChange = () => setChecked((prev) => !prev);
+  const handleChange = () => {
+    onClick?.();
+    setChecked((prev) => !prev);
+  };
 
   return (
     <>
@@ -26,8 +30,8 @@ export function SimpleCollapse({
       >
         <Grid
           container
-          justifyContent="space-between"
           py={2}
+          justifyContent="space-between"
         >
           <Typography>
             {label}

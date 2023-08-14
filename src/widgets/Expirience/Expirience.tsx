@@ -1,6 +1,9 @@
 import { Button, Grid, Typography } from '@mui/material';
+import { logEvent } from 'firebase/analytics';
 
-import { Container, SimpleCollapse, Title } from '@/shared/UI';
+import { BasicCollapse, Container, Title } from '@/shared/UI';
+
+import { fbAnalytics } from '@/firebase.config';
 
 import { ExperienceInfo, ProjectInfo } from './components';
 import { EXPERIENCE } from './consts';
@@ -21,8 +24,15 @@ export function Expirience() {
           companyLink,
           achievements,
           responsibilities,
-        }) => (
-          <SimpleCollapse key={name} label={name} open={open}>
+        }, index) => (
+          <BasicCollapse
+            key={name}
+            open={open}
+            label={name}
+            onClick={() => {
+              logEvent(fbAnalytics, `CLICK_ON_EXP_COLLAPSE_${index + 1}`, { name });
+            }}
+          >
             <Grid
               container
               alignItems="center"
@@ -35,18 +45,21 @@ export function Expirience() {
               </Typography>
 
               {companyLink && (
-              <Button
-                size="small"
-                href={companyLink}
-                target="_blank"
-                variant="text"
-                sx={{
-                  color: 'rgb(144, 202, 249)',
-                  textTransform: 'none',
-                }}
-              >
-                Link
-              </Button>
+                <Button
+                  size="small"
+                  href={companyLink}
+                  target="_blank"
+                  variant="text"
+                  sx={{
+                    color: 'rgb(144, 202, 249)',
+                    textTransform: 'none',
+                  }}
+                  onClick={() => {
+                    logEvent(fbAnalytics, 'CLICK_ON_COMPANY_LINK', { name });
+                  }}
+                >
+                  Link
+                </Button>
               )}
             </Grid>
 
@@ -58,21 +71,21 @@ export function Expirience() {
             </Grid>
 
             {testing && (
-            <Grid container mb="10px">
-              <ExperienceInfo
-                label="Testing:"
-                content={testing}
-              />
-            </Grid>
+              <Grid container mb="10px">
+                <ExperienceInfo
+                  label="Testing:"
+                  content={testing}
+                />
+              </Grid>
             )}
 
             {achievements && (
-            <Grid container mb="10px">
-              <ExperienceInfo
-                label="Achievements:"
-                content={achievements}
-              />
-            </Grid>
+              <Grid container mb="10px">
+                <ExperienceInfo
+                  label="Achievements:"
+                  content={achievements}
+                />
+              </Grid>
             )}
 
             <Grid container mb="10px">
@@ -83,27 +96,27 @@ export function Expirience() {
             </Grid>
 
             {projects?.length && (
-            <>
-              <Grid container>
-                <Typography
-                  color="text.secondary"
-                  fontWeight="bold"
-                >
-                  Projects:
-                </Typography>
-              </Grid>
+              <>
+                <Grid container>
+                  <Typography
+                    color="text.secondary"
+                    fontWeight="bold"
+                  >
+                    Projects:
+                  </Typography>
+                </Grid>
 
-              {projects.map(({ name, link, description }) => (
-                <ProjectInfo
-                  key={name}
-                  name={name}
-                  link={link}
-                  description={description}
-                />
-              ))}
-            </>
+                {projects.map(({ name, link, description }) => (
+                  <ProjectInfo
+                    key={name}
+                    name={name}
+                    link={link}
+                    description={description}
+                  />
+                ))}
+              </>
             )}
-          </SimpleCollapse>
+          </BasicCollapse>
         ))}
       </Container>
     </section>

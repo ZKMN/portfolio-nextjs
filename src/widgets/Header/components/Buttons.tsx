@@ -1,5 +1,8 @@
 import { Download } from '@mui/icons-material';
 import { Button, Grid } from '@mui/material';
+import { logEvent } from 'firebase/analytics';
+
+import { fbAnalytics } from '@/firebase.config';
 
 export function Buttons() {
   return (
@@ -15,6 +18,9 @@ export function Buttons() {
           target="_blank"
           variant="outlined"
           endIcon={<Download />}
+          onClick={() => {
+            logEvent(fbAnalytics, 'CLICK_ON_CV');
+          }}
         >
           CV
         </Button>
@@ -25,6 +31,7 @@ export function Buttons() {
           size="large"
           variant="outlined"
           onClick={() => {
+            logEvent(fbAnalytics, 'CLICK_ON_CONTACT');
             document.getElementById('contact')?.scrollIntoView({
               behavior: 'smooth',
             });

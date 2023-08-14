@@ -1,4 +1,7 @@
 import { Button, Grid, Typography } from '@mui/material';
+import { logEvent } from 'firebase/analytics';
+
+import { fbAnalytics } from '@/firebase.config';
 
 export function ProjectInfo({ name, link, description }: { name: string; link?: string; description: string }) {
   return (
@@ -21,6 +24,9 @@ export function ProjectInfo({ name, link, description }: { name: string; link?: 
               sx={{
                 color: 'rgb(144, 202, 249)',
                 textTransform: 'none',
+              }}
+              onClick={() => {
+                logEvent(fbAnalytics, 'CLICK_ON_PROJECT_LINK', { name });
               }}
             >
               Link

@@ -2,10 +2,13 @@
 
 import { AlternateEmail, LinkedIn } from '@mui/icons-material';
 import { Button, Grid, Typography } from '@mui/material';
+import { logEvent } from 'firebase/analytics';
 
 import {
   Container, Form, ScrollButton, Title,
 } from '@/shared/UI';
+
+import { fbAnalytics } from '@/firebase.config';
 
 import { FIELDS } from './consts';
 import { validationSchema } from './lib';
@@ -25,8 +28,9 @@ export function Footer() {
                 subject: '',
                 message: '',
               }}
-              onSubmit={({ subject, message }) => {
+              onSubmit={({ subject, message, email }) => {
                 window.location.href = `mailto:klymdenis@gmail.com?subject=${subject}&body=${message}`;
+                logEvent(fbAnalytics, 'CLICK_ON_SEND_MESSAGE', { email, message, subject });
               }}
             />
           </Grid>
@@ -47,6 +51,9 @@ export function Footer() {
                   variant="text"
                   href="mailto:klymdenis@gmail.com"
                   startIcon={<AlternateEmail color="primary" />}
+                  onClick={() => {
+                    logEvent(fbAnalytics, 'CLICK_ON_EMAIL');
+                  }}
                 >
                   klymdenis@gmail.com
                 </Button>
@@ -61,6 +68,9 @@ export function Footer() {
                   href="https://www.linkedin.com/in/denis-klymenko/"
                   target="_blank"
                   startIcon={<LinkedIn color="primary" />}
+                  onClick={() => {
+                    logEvent(fbAnalytics, 'CLICK_ON_LINKEDIN');
+                  }}
                 >
                   Linkedin
                 </Button>

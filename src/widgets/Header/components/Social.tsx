@@ -3,6 +3,9 @@ import { Grid, IconButton } from '@mui/material';
 import {
   animated, useSprings,
 } from '@react-spring/web';
+import { logEvent } from 'firebase/analytics';
+
+import { fbAnalytics } from '@/firebase.config';
 
 import { base } from '../config';
 import { SOCIAL } from '../consts';
@@ -32,6 +35,9 @@ export function Social() {
                 href={SOCIAL[i].href}
                 color="primary"
                 target="_blank"
+                onClick={() => {
+                  logEvent(fbAnalytics, SOCIAL[i].eventName);
+                }}
               >
                 <Icon />
               </IconButton>

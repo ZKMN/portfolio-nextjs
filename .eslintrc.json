@@ -37,6 +37,7 @@
           ["^(@/features)(/.*|$)"],
           ["^(@/entities)(/.*|$)"],
           ["^(@/shared)(/.*|$)"],
+          ["^(@/firebase.config)(/.*|$)"],
           // Side effect imports.
           ["^\\u0000"],
           // Parent imports. Put `..` last.
