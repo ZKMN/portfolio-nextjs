@@ -1,4 +1,5 @@
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { Inconsolata } from 'next/font/google';
 
@@ -54,6 +55,8 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
           <main>{children}</main>
 
           <Footer />
+
+          <Analytics />
         </MUIThemeProvider>
       </body>
     </html>
