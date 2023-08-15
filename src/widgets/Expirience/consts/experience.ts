@@ -16,9 +16,8 @@ export const EXPERIENCE = [{
     link: 'https://orders.freshii.com/en',
     description: 'Market network for the sale of proper nutrition, they have more than 300 restaurants. Project it’s an marketplace.',
   }, {
-    name: 'Airmiles',
-    link: 'https://dashboard.uat.snapportal.airmiles.ca/',
-    description: 'Project it’s an admin panel for big Canada company Airmiles for manage their loyalty programs.',
+    name: 'LoyaltyOne',
+    description: 'Project it’s an admin panel for manage their loyalty programs.',
   }],
 }, {
   name: 'S-PRO',
