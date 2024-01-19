@@ -61,8 +61,7 @@ export const AboutMe = () => {
             </Typography>
 
             <Typography>
-              It should be CRM, design with toolkit based on ANTD lib, less adaptive design, project structure - Feature Sliced Design, React, GraphQl, Zustand.
-              But so far I haven&apos;t met any of those...)
+              It should be CRM, design with toolkit based on ANTD lib, less adaptive design, project structure - Feature Sliced Design, NextJs, GraphQl, Zustand.
             </Typography>
           </Grid>
         </Grid>

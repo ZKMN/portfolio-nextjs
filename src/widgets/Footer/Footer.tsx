@@ -96,7 +96,7 @@ export const Footer = () => (
       py={3}
     >
       <Typography sx={{ color: '#3f4040' }}>
-        © Copyright 2023 Denis Klymenko
+        © Copyright 2024 Denis Klymenko
       </Typography>
     </Grid>
   </footer>
