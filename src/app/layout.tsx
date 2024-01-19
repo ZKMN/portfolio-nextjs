@@ -7,6 +7,7 @@ import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
 
 import { MUIThemeProvider } from '@/shared/providers';
+import { WebVitals } from '@/shared/UI';
 
 import './globals.css';
 
@@ -50,6 +51,8 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <WebVitals />
+
         <MUIThemeProvider>
           <Header />
 
