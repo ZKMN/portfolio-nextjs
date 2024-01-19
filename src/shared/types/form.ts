@@ -1,5 +1,6 @@
 import {
   DefaultValues,
+  FieldErrors,
   FieldValues,
   UseFormHandleSubmit,
   UseFormProps,
@@ -9,6 +10,11 @@ import * as Yup from 'yup';
 export enum FieldTypes {
   Text = 'text',
   Textarea = 'textarea'
+}
+
+export interface IFieldErrorProps<T extends FieldValues> {
+  name: IFieldProps['name'];
+  errors: FieldErrors<T>;
 }
 
 export interface IFieldProps {

@@ -1,14 +1,9 @@
-import React from 'react';
+import { FieldValues } from 'react-hook-form';
 import { FormHelperText } from '@mui/material';
 
-import { IField, IFieldExtends } from '@/shared/types';
+import { IFieldErrorProps } from '@/shared/types';
 
-interface IFieldError {
-  name: IField['name'];
-  errors: IFieldExtends['errors'];
-}
-
-export const FieldError = ({ name, errors }: IFieldError) => (
+export const FieldError = <T extends FieldValues, >({ name, errors }: IFieldErrorProps<T>) => (
   <FormHelperText>
     {errors[name]?.message as React.ReactNode}
   </FormHelperText>
