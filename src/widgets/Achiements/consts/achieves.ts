@@ -2,10 +2,10 @@ export const ACHIEVES = [{
   value: '80+',
   description: 'Landings made.',
 }, {
-  value: 7,
+  value: 8,
   description: 'Web apps made.',
 }, {
-  value: 5,
+  value: 6,
   description: 'Web apps from scratch. Where I develop infrastructure and other solutions.',
 }, {
   value: 5,

@@ -6,18 +6,16 @@ import { Expirience } from '@/widgets/Expirience';
 import { Other } from '@/widgets/Other';
 import { Skills } from '@/widgets/Skills';
 
-export function Home() {
-  return (
-    <>
-      <Achiements />
+export const Home = () => (
+  <>
+    <Achiements />
 
-      <AboutMe />
+    <AboutMe />
 
-      <Skills />
+    <Skills />
 
-      <Expirience />
+    <Expirience />
 
-      <Other />
-    </>
-  );
-}
+    <Other />
+  </>
+);

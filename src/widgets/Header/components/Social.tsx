@@ -5,12 +5,12 @@ import {
 } from '@react-spring/web';
 import { logEvent } from 'firebase/analytics';
 
-import { fbAnalytics } from '@/firebase.config';
-
 import { base } from '../config';
 import { SOCIAL } from '../consts';
 
-export function Social() {
+import { fbAnalytics } from '@/firebase.config';
+
+export const Social = () => {
   const [isPause, setIsPause] = useState(true);
 
   const socialAnimation = useSprings(SOCIAL.length, SOCIAL.map((_, i) => ({ ...base, pause: isPause, delay: 100 * i })));
@@ -47,4 +47,4 @@ export function Social() {
       })}
     </Grid>
   );
-}
+};

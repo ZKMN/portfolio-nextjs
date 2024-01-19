@@ -14,13 +14,13 @@ const inter = Inconsolata({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Denis Klymenko Frontend',
-  description: 'I have over 6 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
+  description: 'I have over 7 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
   applicationName: 'Denis Klymenko Portfolio',
   authors: { name: 'Denis Klymenko', url: 'https://www.linkedin.com/in/denis-klymenko/' },
   keywords: ['React', 'Frontend Developer', 'Denis Klymenko'],
   openGraph: {
     title: 'Denis Klymenko Frontend',
-    description: 'I have over 6 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
+    description: 'I have over 7 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
     siteName: 'Denis Klymenko Frontend',
     url: 'https://denisklymenko-soft.com/',
     locale: 'en_US',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Denis Klymenko Frontend',
-    description: 'I have over 6 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
+    description: 'I have over 7 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
     site: 'https://denisklymenko-soft.com/',
     creator: 'Denis Klymenko',
     images: [{
@@ -45,6 +45,7 @@ export const metadata: Metadata = {
   },
 };
 
+// eslint-disable-next-line react/function-component-definition
 export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
     <html lang="en">

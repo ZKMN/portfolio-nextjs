@@ -8,20 +8,18 @@ interface ITitle {
   vairant?: TypographyOwnProps['variant'];
 }
 
-export function Title({
+export const Title = ({
   title,
   color = 'text.primary',
   vairant = 'h4',
-}: ITitle) {
-  return (
-    <Typography
-      mb="20px"
-      variant={vairant}
-      color={color}
-      fontWeight="bold"
-      className={styles.mainTitle}
-    >
-      {title}
-    </Typography>
-  );
-}
+}: ITitle) => (
+  <Typography
+    mb="20px"
+    variant={vairant}
+    color={color}
+    fontWeight="bold"
+    className={styles.mainTitle}
+  >
+    {title}
+  </Typography>
+);

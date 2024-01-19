@@ -8,10 +8,8 @@ interface IFieldError {
   errors: IFieldExtends['errors'];
 }
 
-export function FieldError({ name, errors }: IFieldError) {
-  return (
-    <FormHelperText>
-      {errors[name]?.message as React.ReactNode}
-    </FormHelperText>
-  );
-}
+export const FieldError = ({ name, errors }: IFieldError) => (
+  <FormHelperText>
+    {errors[name]?.message as React.ReactNode}
+  </FormHelperText>
+);

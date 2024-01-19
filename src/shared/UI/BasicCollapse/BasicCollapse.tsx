@@ -6,12 +6,12 @@ import { Grid, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 
-export function BasicCollapse({
+export const BasicCollapse = ({
   open,
   label,
   onClick,
   children,
-}: React.PropsWithChildren<{ open?: boolean; onClick?: () => void; label: string }>) {
+}: React.PropsWithChildren<{ open?: boolean; onClick?: () => void; label: string; }>) => {
   const [checked, setChecked] = useState(open);
 
   const handleChange = () => {
@@ -64,4 +64,4 @@ export function BasicCollapse({
       </Box>
     </>
   );
-}
+};

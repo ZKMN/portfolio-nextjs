@@ -16,8 +16,11 @@ export const EXPERIENCE = [{
     link: 'https://orders.freshii.com/en',
     description: 'Market network for the sale of proper nutrition, they have more than 300 restaurants. Project it’s an marketplace.',
   }, {
-    name: 'LoyaltyOne',
+    name: 'LoyaltyOne (NDA)',
     description: 'Project it’s an admin panel for manage their loyalty programs.',
+  }, {
+    name: 'NEW (NDA)',
+    description: 'Started NEW project from the scratch as Team Lead',
   }],
 }, {
   name: 'S-PRO',

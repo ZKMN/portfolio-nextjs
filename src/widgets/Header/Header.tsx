@@ -6,18 +6,16 @@ import { Buttons, Name, Social } from './components';
 
 import styles from './Header.module.scss';
 
-export function Header() {
-  return (
-    <header id="head">
-      <section className={styles.headSection}>
-        <Name />
+export const Header = () => (
+  <header id="head">
+    <section className={styles.headSection}>
+      <Name />
 
-        <Social />
+      <Social />
 
-        <Buttons />
+      <Buttons />
 
-        <ScrollButton anchor="about-me" />
-      </section>
-    </header>
-  );
-}
+      <ScrollButton anchor="about-me" />
+    </section>
+  </header>
+);

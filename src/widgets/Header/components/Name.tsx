@@ -7,7 +7,7 @@ import {
 
 import { base } from '../config';
 
-export function Name() {
+export const Name = () => {
   const [isPause, setIsPause] = useState(true);
   const [isStartPosition, setIsStartPosition] = useState(false);
 
@@ -91,4 +91,4 @@ export function Name() {
       </Grid>
     </Grid>
   );
-}
+};

@@ -1,39 +1,37 @@
-import { FormControl, Input, InputLabel } from '@mui/material';
+import { useFormContext } from 'react-hook-form';
+import { FormControl, TextField } from '@mui/material';
 
-import { IField, IFieldExtends } from '@/shared/types';
+import { IFieldProps } from '@/shared/types';
 
 import { FieldError } from '../FieldError';
 
-export function FormInput({
+export const FormInput = ({
   name,
   label,
-  errors,
   required,
-  register,
-}: Omit<IField, 'type'> & IFieldExtends) {
-  const registered = register(name);
+}: Omit<IFieldProps, 'type'>) => {
+  const { register, formState: { errors } } = useFormContext();
+
+  const { ref, onBlur, onChange } = register(name, { required });
+
+  const error = !!errors[name];
 
   return (
     <FormControl
       fullWidth
-      error={!!errors[name]}
-      variant="standard"
+      error={error}
       required={required}
     >
-      <InputLabel
-        shrink
-        htmlFor={name}
-        sx={{ color: 'white.main' }}
-      >
-        {label}
-      </InputLabel>
-
-      <Input
+      <TextField
         id={name}
+        ref={ref}
         name={name}
-        ref={registered.ref}
-        onBlur={registered.onBlur}
-        onChange={registered.onChange}
+        label={label}
+        error={error}
+        onBlur={onBlur}
+        onChange={onChange}
+        required={required}
+        variant="standard"
       />
 
       <FieldError
@@ -42,4 +40,4 @@ export function FormInput({
       />
     </FormControl>
   );
-}
+};

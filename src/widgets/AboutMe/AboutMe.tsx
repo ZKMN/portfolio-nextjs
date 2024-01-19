@@ -1,11 +1,15 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import {
-  Grid, Typography, useMediaQuery, useTheme,
+  Grid,
+  Typography,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
 import Image from 'next/image';
 
-import { Container, Title } from '@/shared/UI';
+import { BasicContainer, Title } from '@/shared/UI';
 
-export function AboutMe() {
+export const AboutMe = () => {
   const theme = useTheme();
 
   const lessThanMd = useMediaQuery(theme.breakpoints.down('md'));
@@ -19,7 +23,7 @@ export function AboutMe() {
 
   return (
     <section id="about-me">
-      <Container black>
+      <BasicContainer black>
         <Title title="About Me" />
 
         <Grid
@@ -62,7 +66,7 @@ export function AboutMe() {
             </Typography>
           </Grid>
         </Grid>
-      </Container>
+      </BasicContainer>
     </section>
   );
-}
+};

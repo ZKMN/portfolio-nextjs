@@ -1,19 +1,11 @@
-import { FieldTypes, IField, IFieldExtends } from '@/shared/types';
+import { FieldTypes, IFieldProps } from '@/shared/types';
 
 import {
   FormInput,
   FormTextarea,
-} from './Fields';
+} from '../Fields';
 
-interface IFieldByType extends IFieldExtends {
-  field: IField;
-}
-
-export function FieldByType({
-  field,
-  errors,
-  register,
-}: IFieldByType) {
+export const FieldByType = ({ field }: { field: IFieldProps; }) => {
   const {
     name,
     label,
@@ -26,9 +18,7 @@ export function FieldByType({
         <FormInput
           name={name}
           label={label}
-          errors={errors}
           required={required}
-          register={register}
         />
       );
     case FieldTypes.Textarea:
@@ -36,12 +26,10 @@ export function FieldByType({
         <FormTextarea
           name={name}
           label={label}
-          errors={errors}
           required={required}
-          register={register}
         />
       );
     default:
       return null;
   }
-}
+};
