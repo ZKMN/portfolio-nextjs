@@ -7,22 +7,21 @@ import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
 
 import { MUIThemeProvider } from '@/shared/providers';
-import { WebVitals } from '@/shared/UI';
 
 import './globals.css';
 
 const inter = Inconsolata({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Denis Klymenko Frontend',
-  description: 'I have over 7 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
-  applicationName: 'Denis Klymenko Portfolio',
+  title: 'Denis Klymenko Senior Frontend Developer',
+  description: 'Senior Frontend Developer, Javascript, React, NextJs, REST, GraphQl',
+  applicationName: 'Denis Klymenko CV',
   authors: { name: 'Denis Klymenko', url: 'https://www.linkedin.com/in/denis-klymenko/' },
-  keywords: ['React', 'Frontend Developer', 'Denis Klymenko'],
+  keywords: ['Javascript', 'React', 'NextJs', 'REST', 'GraphQl', 'Senior Frontend Developer', 'Denis Klymenko'],
   openGraph: {
-    title: 'Denis Klymenko Frontend',
-    description: 'I have over 7 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
-    siteName: 'Denis Klymenko Frontend',
+    title: 'Denis Klymenko Senior Frontend Developer',
+    description: 'Senior Frontend Developer, Javascript, React, NextJs, REST, GraphQl',
+    siteName: 'Denis Klymenko Senior Frontend Developer',
     url: 'https://denisklymenko-soft.com/',
     locale: 'en_US',
     type: 'website',
@@ -34,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Denis Klymenko Frontend',
-    description: 'I have over 7 years of experience. I have no expired estimates. I have experience working with large companies and large teams.',
+    title: 'Denis Klymenko Senior Frontend Developer',
+    description: 'Senior Frontend Developer, Javascript, React, NextJs, REST, GraphQl',
     site: 'https://denisklymenko-soft.com/',
     creator: 'Denis Klymenko',
     images: [{
@@ -46,12 +45,18 @@ export const metadata: Metadata = {
   },
 };
 
-// eslint-disable-next-line react/function-component-definition
-export default function RootLayout({ children }: React.PropsWithChildren) {
+const RootLayout = ({ children }: React.PropsWithChildren) => {
+  const jsonLd = {
+    '@id': 'https://www.linkedin.com/in/denis-klymenko/',
+    '@type': 'Senior Frontend Developer',
+    name: 'Denis Klymenko Senior Frontend Developer Developer',
+    image: 'https://media.licdn.com/dms/image/C5603AQH_4L0IFOsvUA/profile-displayphoto-shrink_800_800/0/1572770938564?e=1696464000&v=beta&t=hEOllCf5-2q6Obo6DiS-BM_2Ik6XH2CBGK24_GXzqzk',
+    description: 'Senior Frontend Developer, Javascript, React, NextJs, REST, GraphQl',
+  };
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <WebVitals />
 
         <MUIThemeProvider>
           <Header />
@@ -62,7 +67,14 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
 
           <Analytics />
         </MUIThemeProvider>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
