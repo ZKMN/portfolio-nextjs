@@ -1,7 +1,7 @@
 import React from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
-import { Inconsolata } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 
 import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
@@ -10,64 +10,141 @@ import { MUIThemeProvider } from '@/shared/providers';
 
 import './globals.css';
 
-const inter = Inconsolata({ subsets: ['latin'] });
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
+});
+
+const siteUrl = 'https://denisklymenko-soft.com';
+const title = 'Denis Klymenko | Senior Fullstack Product Engineer | AI & SaaS Expert';
+const description = 'Senior Fullstack Product Engineer with 8+ years of experience. Specialized in AI integrations, multi-domain SaaS platforms, and high-performance web applications. Successfully delivered 17 projects (11 from scratch) serving 50K+ users across 6 European markets.';
 
 export const metadata: Metadata = {
-  title: 'Denis Klymenko Senior Frontend Developer',
-  description: 'Senior Frontend Developer, Javascript, React, NextJs, REST, GraphQl',
-  applicationName: 'Denis Klymenko CV',
-  authors: { name: 'Denis Klymenko', url: 'https://www.linkedin.com/in/denis-klymenko/' },
-  keywords: ['Javascript', 'React', 'NextJs', 'REST', 'GraphQl', 'Senior Frontend Developer', 'Denis Klymenko'],
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: title,
+    template: '%s | Denis Klymenko',
+  },
+  description,
+  applicationName: 'Denis Klymenko Portfolio',
+  authors: [
+    { 
+      name: 'Denis Klymenko', 
+      url: 'https://www.linkedin.com/in/denis-klymenko/' 
+    }
+  ],
+  keywords: [
+    'Denis Klymenko',
+    'Senior Fullstack Engineer',
+    'Product Engineer',
+    'AI Integration',
+    'LLM Fine Tuning',
+    'OpenAI',
+    'TypeScript',
+    'React',
+    'Next.js',
+    'Node.js',
+    'PostgreSQL',
+    'Prisma',
+    'GraphQL',
+    'SaaS Development',
+    'Multi-domain Architecture',
+    'SEO Optimization',
+    'Web Performance',
+    'Enterprise Applications',
+    'B2B',
+    'B2C',
+  ],
+  creator: 'Denis Klymenko',
   openGraph: {
-    title: 'Denis Klymenko Senior Frontend Developer',
-    description: 'Senior Frontend Developer, Javascript, React, NextJs, REST, GraphQl',
-    siteName: 'Denis Klymenko Senior Frontend Developer',
-    url: 'https://denisklymenko-soft.com/',
-    locale: 'en_US',
     type: 'website',
-    images: [{
-      url: 'https://media.licdn.com/dms/image/C5603AQH_4L0IFOsvUA/profile-displayphoto-shrink_800_800/0/1572770938564?e=1696464000&v=beta&t=hEOllCf5-2q6Obo6DiS-BM_2Ik6XH2CBGK24_GXzqzk',
-      width: 100,
-      height: 100,
-    }],
+    locale: 'en_US',
+    url: siteUrl,
+    title,
+    description,
+    siteName: 'Denis Klymenko Portfolio',
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Denis Klymenko - Senior Fullstack Product Engineer',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Denis Klymenko Senior Frontend Developer',
-    description: 'Senior Frontend Developer, Javascript, React, NextJs, REST, GraphQl',
-    site: 'https://denisklymenko-soft.com/',
-    creator: 'Denis Klymenko',
-    images: [{
-      url: 'https://media.licdn.com/dms/image/C5603AQH_4L0IFOsvUA/profile-displayphoto-shrink_800_800/0/1572770938564?e=1696464000&v=beta&t=hEOllCf5-2q6Obo6DiS-BM_2Ik6XH2CBGK24_GXzqzk',
-      width: 100,
-      height: 100,
-    }],
+    title,
+    description,
+    creator: '@denisklymenko',
+    images: ['/images/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
 const RootLayout = ({ children }: React.PropsWithChildren) => {
   const jsonLd = {
-    '@id': 'https://www.linkedin.com/in/denis-klymenko/',
-    '@type': 'Senior Frontend Developer',
-    name: 'Denis Klymenko Senior Frontend Developer Developer',
-    image: 'https://media.licdn.com/dms/image/C5603AQH_4L0IFOsvUA/profile-displayphoto-shrink_800_800/0/1572770938564?e=1696464000&v=beta&t=hEOllCf5-2q6Obo6DiS-BM_2Ik6XH2CBGK24_GXzqzk',
-    description: 'Senior Frontend Developer, Javascript, React, NextJs, REST, GraphQl',
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Denis Klymenko',
+    jobTitle: 'Senior Fullstack Product Engineer',
+    url: siteUrl,
+    sameAs: [
+      'https://www.linkedin.com/in/denis-klymenko/',
+      'https://github.com/denisklymenko',
+    ],
+    image: '/images/photo.jpg',
+    description,
+    knowsAbout: [
+      'TypeScript',
+      'React',
+      'Next.js',
+      'Node.js',
+      'PostgreSQL',
+      'AI Integration',
+      'LLM Fine Tuning',
+      'OpenAI',
+      'GraphQL',
+      'Prisma',
+      'SaaS Development',
+      'Multi-domain Architecture',
+    ],
+    alumniOf: {
+      '@type': 'Organization',
+      name: 'National Academy of SBU',
+    },
   };
 
   return (
-    <html lang="en">
-      <body className={inter.className}>
-
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+      <body className="font-sans antialiased">
         <MUIThemeProvider>
           <Header />
-
-          <main>{children}</main>
-
+          
+          <main className="min-h-screen">{children}</main>
+          
           <Footer />
-
+          
           <Analytics />
         </MUIThemeProvider>
-
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

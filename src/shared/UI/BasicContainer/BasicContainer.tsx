@@ -1,24 +1,20 @@
 import React from 'react';
-import { Box, Grid } from '@mui/material';
+import { Box } from '@mui/material';
+import { Container } from '../Container';
 
-export const BasicContainer = ({ black, children }: React.PropsWithChildren<{ black?: boolean; }>) => (
-  <Grid
-    container
-    alignItems="center"
-    justifyContent="center"
-    sx={{ position: 'relative', bgcolor: black ? 'background.paper' : '' }}
+export const BasicContainer = ({ 
+  black, 
+  children 
+}: React.PropsWithChildren<{ black?: boolean; }>) => (
+  <Box
+    sx={{
+      position: 'relative',
+      py: { xs: 4, md: 6 },
+      ...(black && { bgcolor: 'background.paper' }),
+    }}
   >
-    <Box
-      width="100%"
-      maxWidth="1024px"
-      sx={(theme) => ({
-        padding: '4rem 0',
-        [theme.breakpoints.down('md')]: {
-          padding: '2rem 1rem',
-        },
-      })}
-    >
+    <Container>
       {children}
-    </Box>
-  </Grid>
+    </Container>
+  </Box>
 );

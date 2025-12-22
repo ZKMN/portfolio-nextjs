@@ -4,13 +4,23 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
-  max-width: 100vw;
+  max-width: 100%;
   overflow-x: hidden;
+  /* Цвета будут управляться через MUI Theme */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.text-balance {
+  text-wrap: balance;
 }

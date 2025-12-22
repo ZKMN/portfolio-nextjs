@@ -12,7 +12,7 @@ export const Name = () => {
   const [isStartPosition, setIsStartPosition] = useState(false);
 
   const name = [...'I\'m Denis Klymenko'];
-  const postition = [...'Frontend Developer'];
+  const postition = [...'Senior Fullstack Product Engineer'];
 
   const onRest = (_: AnimationResult, b: Controller) => {
     if (b.id === name.length) {

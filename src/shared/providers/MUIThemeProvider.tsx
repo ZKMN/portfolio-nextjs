@@ -1,12 +1,10 @@
 'use client';
 
 import React from 'react';
-import { ThemeProvider } from '@mui/material';
-
-import { theme } from '@/shared/theme';
+import { ThemeContextProvider } from './ThemeContext';
 
 export const MUIThemeProvider = ({ children }: React.PropsWithChildren) => (
-  <ThemeProvider theme={theme}>
+  <ThemeContextProvider defaultMode="dark">
     {children}
-  </ThemeProvider>
+  </ThemeContextProvider>
 );

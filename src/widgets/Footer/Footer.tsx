@@ -1,103 +1,82 @@
 'use client';
 
-import { AlternateEmail, LinkedIn } from '@mui/icons-material';
-import { Button, Grid, Typography } from '@mui/material';
-import { logEvent } from 'firebase/analytics';
-
-import {
-  BasicContainer,
-  Form,
-  ScrollButton,
-  Title,
-} from '@/shared/UI';
-
+import React from 'react';
+import { Section, Title, Button } from '@/shared/UI';
+import { Form } from '@/shared/UI/Form';
 import { FIELDS } from './consts';
 import { validationSchema } from './lib';
 
-import { fbAnalytics } from '@/firebase.config';
+export const Footer = () => {
+  const handleDownloadCV = () => {
+    window.open('/api/download-cv', '_blank');
+  };
 
-export const Footer = () => (
-  <footer id="contact">
-    <BasicContainer black>
-      <Title title="Get in Touch" />
+  return (
+    <footer id="contact" className="bg-primary text-white">
+      <Section className="py-16">
+        <div className="mb-12">
+          <Title title="Get in Touch" variant="h3" className="text-white" />
+        </div>
 
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={5}>
-          <Form
-            fields={FIELDS}
-            validationSchema={validationSchema}
-            initialValues={{
-              subject: '',
-              message: '',
-            }}
-            onSubmit={({ subject, message, email }) => {
-              window.location.href = `mailto:klymdenis@gmail.com?subject=${subject}&body=${message}`;
-              logEvent(fbAnalytics, 'CLICK_ON_SEND_MESSAGE', { email, message, subject });
-            }}
-          />
-        </Grid>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <Form
+              fields={FIELDS}
+              validationSchema={validationSchema}
+              initialValues={{
+                subject: '',
+                message: '',
+              }}
+              onSubmit={({ subject, message }) => {
+                window.location.href = `mailto:klymdenis@gmail.com?subject=${subject}&body=${message}`;
+              }}
+            />
+          </div>
 
-        <Grid item xs={12} md={7}>
-          <Grid container>
-            <Grid item xs={12} mb="10px">
-              <Typography>
-                Fastest answer:
-              </Typography>
-            </Grid>
+          <div className="space-y-6">
+            <div>
+              <p className="text-white/80 mb-4">Fastest answer:</p>
+              <div className="space-y-4">
+                <a
+                  href="mailto:klymdenis@gmail.com"
+                  className="flex items-center gap-3 text-white hover:text-accent transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>klymdenis@gmail.com</span>
+                </a>
 
-            <Grid
-              container
-              alignItems="center"
-            >
-              <Button
-                variant="text"
-                href="mailto:klymdenis@gmail.com"
-                startIcon={<AlternateEmail color="primary" />}
-                onClick={() => {
-                  logEvent(fbAnalytics, 'CLICK_ON_EMAIL');
-                }}
-              >
-                klymdenis@gmail.com
-              </Button>
-            </Grid>
+                <a
+                  href="https://www.linkedin.com/in/denis-klymenko/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-white hover:text-accent transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
 
-            <Grid
-              container
-              alignItems="center"
-            >
-              <Button
-                variant="text"
-                href="https://www.linkedin.com/in/denis-klymenko/"
-                target="_blank"
-                startIcon={<LinkedIn color="primary" />}
-                onClick={() => {
-                  logEvent(fbAnalytics, 'CLICK_ON_LINKEDIN');
-                }}
-              >
-                Linkedin
-              </Button>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
+                <Button
+                  variant="secondary"
+                  onClick={handleDownloadCV}
+                  className="mt-6"
+                >
+                  Download CV
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
 
-      <ScrollButton
-        anchor="head"
-        bottom={-70}
-        rotate={180}
-      />
-
-    </BasicContainer>
-
-    <Grid
-      container
-      sx={{ bgcolor: '#171717' }}
-      justifyContent="center"
-      py={3}
-    >
-      <Typography sx={{ color: '#3f4040' }}>
-        © Copyright 2024 Denis Klymenko
-      </Typography>
-    </Grid>
-  </footer>
-);
+      <div className="bg-black/50 py-6 text-center">
+        <p className="text-white/60">
+          © Copyright {new Date().getFullYear()} Denis Klymenko
+        </p>
+      </div>
+    </footer>
+  );
+};
