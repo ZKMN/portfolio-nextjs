@@ -19,9 +19,9 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains-mono',
 });
 
-const siteUrl = 'https://denisklymenko-soft.com';
+const siteUrl = 'https://denovo.sh';
 const title = 'Denis Klymenko | AI Agent Architect & Full-Stack Product Engineer | Brain-first Agentic Systems';
-const description = 'AI Agent Architect & Full-Stack Product Engineer. Brain-first AI Agents with 21 orchestrated tools, fine-tuned GPT-4.1 Mini, Langfuse observability. 20 projects delivered (14 from scratch). 8 interconnected repos powering multi-domain SaaS with 13 Prisma schemas, Stripe, pgvector.';
+const description = 'AI Agent Architect & Full-Stack Product Engineer. I build production AI agents and the full infrastructure behind them — solo, from scratch.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: '%s | Denis Klymenko',
   },
   description,
-  applicationName: 'Denis Klymenko Portfolio',
+  applicationName: 'AI Agent Architect',
   authors: [
     {
       name: 'Denis Klymenko',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     title,
     description,
-    siteName: 'Denis Klymenko Portfolio',
+    siteName: 'AI Agent Architect',
     images: [
       {
         url: '/images/og-image.png',

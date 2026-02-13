@@ -49,7 +49,7 @@ export default function ResumePage() {
         <div style={{ display: 'flex', gap: '16px', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
           <a href="mailto:klymdenis@gmail.com">klymdenis@gmail.com</a> {/* Placeholder if not provided */}
           <span>•</span>
-          <a href="https://denisklymenko-soft.com">denisklymenko-soft.com</a>
+          <a href="https://denovo.sh">denisklymenko-soft.com</a>
           <span>•</span>
           <a href="https://linkedin.com/in/denis-klymenko">LinkedIn</a>
           <span>•</span>

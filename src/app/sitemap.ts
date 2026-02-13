@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://denisklymenko-soft.com';
+  const baseUrl = 'https://denovo.sh';
 
   return [
     {
