@@ -25,6 +25,7 @@ const featuredProjects = [
     ],
     tech: ['OpenAI GPT-4.1 Mini', 'Vercel AI SDK', 'Langfuse', 'pgvector', 'Next.js 16', 'Prisma', 'PostgreSQL', 'Telegram Bot API', 'Vitest'],
     link: 'https://www.loveepil.com/consultation' as string | null,
+    caseStudy: '/projects/ai-agent' as string | null,
   },
   {
     name: 'love💗epil Multi-domain SaaS Ecosystem',
@@ -47,6 +48,7 @@ const featuredProjects = [
     ],
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'NextAuth', 'Strapi', 'Resend', 'React Email', 'Vercel', 'Google Maps API', 'Firebase', 'Microsoft Clarity', 'Zustand', 'TanStack Query', 'Zod', 'i18next', 'DeepL'],
     link: null as string | null,
+    caseStudy: null as string | null,
   },
 ];
 
@@ -190,6 +192,30 @@ export const FeaturedProjects = () => {
                     ))}
                   </div>
                 </div>
+
+                {/* Case Study Link */}
+                {project.caseStudy && (
+                  <div style={{ marginTop: 'var(--space-6)', paddingTop: 'var(--space-4)', borderTop: '1px solid var(--border)' }}>
+                    <a
+                      href={project.caseStudy}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 'var(--space-2)',
+                        fontSize: 'var(--text-sm)',
+                        fontWeight: 600,
+                        color: 'var(--accent-light)',
+                        textDecoration: 'none',
+                        transition: 'all var(--duration-normal) var(--ease-out)',
+                      }}
+                    >
+                      Read Case Study
+                      <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}

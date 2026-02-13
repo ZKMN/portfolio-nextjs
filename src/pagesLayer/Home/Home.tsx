@@ -11,11 +11,13 @@ import { Footer } from '@/widgets/Footer';
 export const Home = () => (
   <>
     <Header />
-    <AboutMe />
-    <Skills />
-    <FeaturedProjects />
-    <CareerTimeline />
-    <Other />
+    <main>
+      <AboutMe />
+      <Skills />
+      <FeaturedProjects />
+      <CareerTimeline />
+      <Other />
+    </main>
     <Footer />
   </>
 );

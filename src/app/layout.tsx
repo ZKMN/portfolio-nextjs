@@ -3,6 +3,8 @@ import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 
+import { NavFloat } from '@/widgets/NavFloat';
+
 import './globals.css';
 
 const inter = Inter({
@@ -77,11 +79,12 @@ export const metadata: Metadata = {
 };
 
 const NAV_LINKS = [
-  { label: 'About', href: '#about-me' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Career', href: '#career' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '/#about-me' },
+  { label: 'Skills', href: '/#skills' },
+  { label: 'Projects', href: '/#projects' },
+  { label: 'AI Agent', href: '/projects/ai-agent' },
+  { label: 'Career', href: '/#career' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 const RootLayout = ({ children }: React.PropsWithChildren) => {
@@ -140,16 +143,9 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
-        {/* Floating Navigation */}
-        <nav className="nav-float" aria-label="Main navigation">
-          {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="nav-float__link">
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <NavFloat links={NAV_LINKS} />
 
-        <main>{children}</main>
+        {children}
 
         <Analytics />
 
