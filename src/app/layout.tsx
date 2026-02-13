@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: 'Denis Klymenko Portfolio',
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: '/images/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Denis Klymenko - Lead AI Architect & Senior Product Engineer',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title,
     description,
     creator: '@denisklymenko',
-    images: ['/images/og-image.jpg'],
+    images: ['/images/og-image.png'],
   },
   robots: {
     index: true,
