@@ -13,11 +13,14 @@ type Node = {
 
 const NODE_COUNT = 18;
 const CONNECTION_DISTANCE = 150;
+const CURSOR_RADIUS = 120;
+const CURSOR_FORCE = 0.8;
 
 export const NodeGraph = (): React.ReactElement => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const nodesRef = useRef<Node[]>([]);
   const animationRef = useRef<number>(0);
+  const mouseRef = useRef<{ x: number; y: number }>({ x: -1000, y: -1000 });
 
   const initNodes = useCallback((width: number, height: number): void => {
     nodesRef.current = Array.from({ length: NODE_COUNT }, () => ({
@@ -48,8 +51,22 @@ export const NodeGraph = (): React.ReactElement => {
       }
     };
 
+    const handleMouseMove = (e: MouseEvent): void => {
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
+    };
+
+    const handleMouseLeave = (): void => {
+      mouseRef.current = { x: -1000, y: -1000 };
+    };
+
     resize();
     window.addEventListener('resize', resize);
+    window.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseleave', handleMouseLeave);
 
     const animate = (): void => {
       const w = canvas.offsetWidth;
@@ -57,6 +74,8 @@ export const NodeGraph = (): React.ReactElement => {
       ctx.clearRect(0, 0, w, h);
 
       const nodes = nodesRef.current;
+      const mx = mouseRef.current.x;
+      const my = mouseRef.current.y;
 
       for (const node of nodes) {
         node.x += node.vx;
@@ -64,8 +83,20 @@ export const NodeGraph = (): React.ReactElement => {
 
         if (node.x < 0 || node.x > w) node.vx *= -1;
         if (node.y < 0 || node.y > h) node.vy *= -1;
+
+        // Cursor repulsion
+        const cdx = node.x - mx;
+        const cdy = node.y - my;
+        const cDist = Math.sqrt(cdx * cdx + cdy * cdy);
+
+        if (cDist < CURSOR_RADIUS && cDist > 0) {
+          const force = (1 - cDist / CURSOR_RADIUS) * CURSOR_FORCE;
+          node.x += (cdx / cDist) * force;
+          node.y += (cdy / cDist) * force;
+        }
       }
 
+      // Connections
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
@@ -84,6 +115,24 @@ export const NodeGraph = (): React.ReactElement => {
         }
       }
 
+      // Cursor connections (draw lines from cursor to nearby nodes)
+      for (const node of nodes) {
+        const cdx = node.x - mx;
+        const cdy = node.y - my;
+        const cDist = Math.sqrt(cdx * cdx + cdy * cdy);
+
+        if (cDist < CURSOR_RADIUS) {
+          const alpha = (1 - cDist / CURSOR_RADIUS) * 0.2;
+          ctx.strokeStyle = `rgba(139, 92, 246, ${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(mx, my);
+          ctx.lineTo(node.x, node.y);
+          ctx.stroke();
+        }
+      }
+
+      // Nodes
       for (const node of nodes) {
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
@@ -107,6 +156,8 @@ export const NodeGraph = (): React.ReactElement => {
     return () => {
       cancelAnimationFrame(animationRef.current);
       window.removeEventListener('resize', resize);
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [initNodes]);
 

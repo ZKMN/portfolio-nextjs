@@ -7,6 +7,7 @@ import { Footer } from '@/widgets/Footer';
 import { NavFloat } from '@/widgets/NavFloat';
 
 import { CursorGlow } from '@/shared/components/CursorGlow';
+import { ScrollProgress } from '@/shared/components/ScrollProgress';
 
 import './globals.css';
 
@@ -150,6 +151,7 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
           Skip to content
         </a>
         <CursorGlow />
+        <ScrollProgress />
         <NavFloat links={NAV_LINKS} />
 
         <main id="main-content">

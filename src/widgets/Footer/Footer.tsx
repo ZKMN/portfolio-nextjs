@@ -164,18 +164,6 @@ export const Footer = () => {
         </div>
       </section>
 
-      {/* Copyright */}
-      <div style={{
-        borderTop: '1px solid var(--border)',
-        padding: 'var(--space-6) 0',
-        textAlign: 'center',
-      }}
-      >
-        <p style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)' }}>
-          &copy; {new Date().getFullYear()} Denis Klymenko. All rights reserved.
-        </p>
-      </div>
-
       <style jsx>{`
         .form-label {
           font-size: var(--text-sm);
