@@ -44,7 +44,7 @@ const fadeUp = {
 
 export const Header = () => {
   const handleDownloadCV = () => {
-    window.open('https://drive.google.com/file/d/1uk44BO-0_IyZA_ne__DP4Mt4BzG4gPTM/view', '_blank');
+    window.open('/resume', '_blank');
   };
 
   const scrollToSection = (id: string) => {
@@ -140,7 +140,7 @@ export const Header = () => {
               lineHeight: 1.3,
             }}
           >
-            AI Agent Architect & Full-Stack Engineer
+            AI Agent Architect & Full-Stack Product Engineer
           </motion.h2>
 
           {/* Tagline */}
@@ -196,11 +196,49 @@ export const Header = () => {
             </div>
           </motion.div>
 
-          {/* CTA Buttons and Social Links remain the same, just keeping structure */}
-          {/* ... (Motion divs 5 and 6) ... */}
+          <motion.div
+            custom={5} variants={fadeUp} initial="hidden" animate="visible"
+          >
+            <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', marginBottom: 'var(--space-12)', flexWrap: 'wrap' }}>
+              <button
+                onClick={() => scrollToSection('projects')}
+                className="btn btn--primary"
+              >
+                View Work
+              </button>
+              <button
+                onClick={handleDownloadCV}
+                className="btn btn--ghost"
+              >
+                Download CV
+              </button>
+            </div>
+          </motion.div>
 
-          {/* Social Links... */}
-          {/* ... */}
+          <motion.div
+            custom={6} variants={fadeUp} initial="hidden" animate="visible"
+          >
+            <div style={{ display: 'flex', gap: 'var(--space-6)', justifyContent: 'center', alignItems: 'center' }}>
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: 'var(--text-secondary)',
+                    transition: 'all 0.3s ease',
+                    padding: 'var(--space-2)',
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
+                  aria-label={link.name}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
 

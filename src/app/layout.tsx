@@ -18,8 +18,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteUrl = 'https://denisklymenko-soft.com';
-const title = 'Denis Klymenko | Lead AI Architect | Senior Product Engineer | Brain-first Agentic Systems';
-const description = 'Lead AI Architect & Senior Product Engineer. Brain-first AI Agents with 21 orchestrated tools, fine-tuned GPT-4.1 Mini, Langfuse observability. 20 projects delivered (14 from scratch). 8 interconnected repos powering multi-domain SaaS with 13 Prisma schemas, Stripe, pgvector.';
+const title = 'Denis Klymenko | AI Agent Architect & Full-Stack Product Engineer | Brain-first Agentic Systems';
+const description = 'AI Agent Architect & Full-Stack Product Engineer. Brain-first AI Agents with 21 orchestrated tools, fine-tuned GPT-4.1 Mini, Langfuse observability. 20 projects delivered (14 from scratch). 8 interconnected repos powering multi-domain SaaS with 13 Prisma schemas, Stripe, pgvector.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -34,28 +34,6 @@ export const metadata: Metadata = {
       name: 'Denis Klymenko',
       url: 'https://www.linkedin.com/in/denis-klymenko/'
     }
-  ],
-  keywords: [
-    'Denis Klymenko',
-    'Lead AI Architect',
-    'AI Agent Architecture',
-    'Brain-first AI',
-    'Agentic Workflows',
-    'Tool Orchestration',
-    'LLM Fine Tuning',
-    'OpenAI',
-    'Vercel AI SDK',
-    'Langfuse',
-    'pgvector',
-    'TypeScript',
-    'React',
-    'Next.js',
-    'Node.js',
-    'PostgreSQL',
-    'Prisma',
-    'SaaS Development',
-    'Multi-domain Architecture',
-    'Senior Product Engineer',
   ],
   creator: 'Denis Klymenko',
   openGraph: {
@@ -92,6 +70,10 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  category: 'technology',
+  alternates: {
+    canonical: siteUrl,
+  },
 };
 
 const NAV_LINKS = [
@@ -107,7 +89,7 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Denis Klymenko',
-    jobTitle: 'Lead AI Architect | Senior Product Engineer',
+    jobTitle: 'AI Agent Architect & Full-Stack Product Engineer',
     url: siteUrl,
     sameAs: [
       'https://www.linkedin.com/in/denis-klymenko/',
@@ -136,6 +118,23 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
       '@type': 'Organization',
       name: 'National Academy of SBU',
     },
+    worksFor: [
+      {
+        '@type': 'Organization',
+        name: 'Loveepil',
+        url: 'https://www.loveepil.com',
+      },
+      {
+        '@type': 'Organization',
+        name: 'Corva',
+        url: 'https://www.corva.ai',
+      },
+      {
+        '@type': 'Organization',
+        name: 'Blackbird Lab',
+        url: 'https://jobs.dou.ua/companies/blackbird-lab/',
+      },
+    ],
   };
 
   return (
