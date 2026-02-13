@@ -39,14 +39,15 @@ export const Footer = () => {
 
       <section className="section" style={{ paddingBottom: 'var(--space-12)' }}>
         <div className="container">
-          <motion.div variants={fadeUp}
-initial="hidden"
-whileInView="visible"
-viewport={{ once: true }}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
           >
             <ScrambleTitle text="Get in Touch" />
             <p className="section-subtitle" style={{ marginBottom: 'var(--space-12)' }}>
-              Have a project in mind or just want to chat? Reach out — I'd love to hear from you.
+              Have a project in mind or just want to chat? Reach out &mdash; I&apos;d love to hear from you.
             </p>
           </motion.div>
 
@@ -65,14 +66,9 @@ viewport={{ once: true }}
             >
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
                 <div>
-                  <label htmlFor="subject"
-style={{
-  fontSize: 'var(--text-sm)',
-  fontWeight: 600,
-  color: 'var(--text-secondary)',
-  display: 'block',
-  marginBottom: 'var(--space-2)',
-}}
+                  <label
+                    htmlFor="subject"
+                    className="form-label"
                   >
                     Subject
                   </label>
@@ -83,32 +79,14 @@ style={{
                     onChange={(e) => setSubject(e.target.value)}
                     placeholder="What's this about?"
                     required
-                    style={{
-                      width: '100%',
-                      padding: 'var(--space-3) var(--space-4)',
-                      background: 'var(--bg-glass)',
-                      border: '1px solid var(--border)',
-                      borderRadius: 'var(--radius-lg)',
-                      color: 'var(--text-primary)',
-                      fontSize: 'var(--text-sm)',
-                      fontFamily: 'var(--font-sans)',
-                      outline: 'none',
-                      transition: 'border-color 0.2s ease',
-                    }}
-                    onFocus={(e) => e.target.style.borderColor = 'var(--accent)'}
-                    onBlur={(e) => e.target.style.borderColor = 'var(--border)'}
+                    className="form-input"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message"
-style={{
-  fontSize: 'var(--text-sm)',
-  fontWeight: 600,
-  color: 'var(--text-secondary)',
-  display: 'block',
-  marginBottom: 'var(--space-2)',
-}}
+                  <label
+                    htmlFor="message"
+                    className="form-label"
                   >
                     Message
                   </label>
@@ -119,32 +97,19 @@ style={{
                     placeholder="Tell me about your project..."
                     required
                     rows={5}
-                    style={{
-                      width: '100%',
-                      padding: 'var(--space-3) var(--space-4)',
-                      background: 'var(--bg-glass)',
-                      border: '1px solid var(--border)',
-                      borderRadius: 'var(--radius-lg)',
-                      color: 'var(--text-primary)',
-                      fontSize: 'var(--text-sm)',
-                      fontFamily: 'var(--font-sans)',
-                      outline: 'none',
-                      resize: 'vertical',
-                      transition: 'border-color 0.2s ease',
-                    }}
-                    onFocus={(e) => e.target.style.borderColor = 'var(--accent)'}
-                    onBlur={(e) => e.target.style.borderColor = 'var(--border)'}
+                    className="form-input form-textarea"
                   />
                 </div>
 
                 <MagneticWrap>
                   <button type="submit" className="btn btn--primary" style={{ alignSelf: 'flex-start' }}>
-                    <svg width="16"
-height="16"
-fill="none"
-stroke="currentColor"
-strokeWidth="2"
-viewBox="0 0 24 24"
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
                     >
                       <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
                     </svg>
@@ -163,29 +128,18 @@ viewBox="0 0 24 24"
               style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}
             >
               <div>
-                <h3 style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 'var(--space-4)' }}>
+                <h3 className="contact-heading">
                   Fastest Answer
                 </h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-                  <a
-                    href="mailto:klymdenis@gmail.com"
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 'var(--space-3)',
-                      color: 'var(--text-secondary)',
-                      fontSize: 'var(--text-base)',
-                      transition: 'color 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-light)'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
-                  >
-                    <svg width="20"
-height="20"
-fill="none"
-stroke="currentColor"
-strokeWidth="2"
-viewBox="0 0 24 24"
+                  <a href="mailto:klymdenis@gmail.com" className="contact-link">
+                    <svg
+                      width="20"
+                      height="20"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
                     >
                       <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
@@ -196,21 +150,12 @@ viewBox="0 0 24 24"
                     href="https://www.linkedin.com/in/denis-klymenko/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 'var(--space-3)',
-                      color: 'var(--text-secondary)',
-                      fontSize: 'var(--text-base)',
-                      transition: 'color 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-light)'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
+                    className="contact-link"
                   >
                     <svg width="20"
-height="20"
-fill="currentColor"
-viewBox="0 0 24 24"
+                      height="20"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
                     >
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                     </svg>
@@ -221,21 +166,12 @@ viewBox="0 0 24 24"
                     href="https://t.me/denisklim01"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 'var(--space-3)',
-                      color: 'var(--text-secondary)',
-                      fontSize: 'var(--text-base)',
-                      transition: 'color 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-light)'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
+                    className="contact-link"
                   >
                     <svg width="20"
-height="20"
-fill="currentColor"
-viewBox="0 0 24 24"
+                      height="20"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
                     >
                       <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
                     </svg>
@@ -246,12 +182,13 @@ viewBox="0 0 24 24"
 
               <MagneticWrap>
                 <button className="btn btn--outline" onClick={handleDownloadCV} style={{ alignSelf: 'flex-start' }}>
-                  <svg width="16"
-height="16"
-fill="none"
-stroke="currentColor"
-strokeWidth="2"
-viewBox="0 0 24 24"
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
                   >
                     <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
                   </svg>
@@ -271,9 +208,57 @@ viewBox="0 0 24 24"
       }}
       >
         <p style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)' }}>
-          © {new Date().getFullYear()} Denis Klymenko. All rights reserved.
+          &copy; {new Date().getFullYear()} Denis Klymenko. All rights reserved.
         </p>
       </div>
+
+      <style jsx>{`
+        .form-label {
+          font-size: var(--text-sm);
+          font-weight: 600;
+          color: var(--text-secondary);
+          display: block;
+          margin-bottom: var(--space-2);
+        }
+        .form-input {
+          width: 100%;
+          padding: var(--space-3) var(--space-4);
+          background: var(--bg-glass);
+          border: 1px solid var(--border);
+          border-radius: var(--radius-lg);
+          color: var(--text-primary);
+          font-size: var(--text-sm);
+          font-family: var(--font-sans);
+          outline: none;
+          transition: border-color 0.2s ease;
+        }
+        .form-input:focus {
+          border-color: var(--accent);
+        }
+        .form-textarea {
+          resize: vertical;
+        }
+        .contact-heading {
+          font-size: var(--text-sm);
+          font-weight: 600;
+          color: var(--text-tertiary);
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          margin-bottom: var(--space-4);
+        }
+        .contact-link {
+          display: flex;
+          align-items: center;
+          gap: var(--space-3);
+          color: var(--text-secondary);
+          font-size: var(--text-base);
+          transition: color 0.2s ease;
+          text-decoration: none;
+        }
+        .contact-link:hover {
+          color: var(--accent-light);
+        }
+      `}</style>
     </footer>
   );
 };

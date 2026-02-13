@@ -25,8 +25,8 @@ const featuredProjects = [
       '4 channels: Website, Telegram, Instagram, Facebook',
     ],
     tech: ['OpenAI GPT-4.1 Mini', 'Vercel AI SDK', 'Langfuse', 'pgvector', 'Next.js 16', 'Prisma', 'PostgreSQL', 'Telegram Bot API', 'Vitest'],
-    link: 'https://www.loveepil.com/consultation' as string | null,
-    caseStudy: '/projects/ai-agent' as string | null,
+    link: 'https://www.loveepil.com/consultation',
+    caseStudy: '/projects/ai-agent',
   },
   {
     name: 'love💗epil Multi-domain SaaS Ecosystem',
@@ -48,8 +48,8 @@ const featuredProjects = [
       'End-to-End Architecture Ownership',
     ],
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'NextAuth', 'Strapi', 'Resend', 'React Email', 'Vercel', 'Google Maps API', 'Firebase', 'Microsoft Clarity', 'Zustand', 'TanStack Query', 'Zod', 'i18next', 'DeepL'],
-    link: null as string | null,
-    caseStudy: null as string | null,
+    link: null,
+    caseStudy: null,
   },
 ];
 

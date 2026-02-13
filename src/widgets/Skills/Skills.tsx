@@ -13,10 +13,11 @@ const fadeUp = {
 };
 
 export const Skills = () => {
-  const skillsByCategory = (Object.keys(SKILL_CATEGORIES) as Array<keyof typeof SKILL_CATEGORIES>).reduce((acc, category) => {
-    acc[category] = SKILLS.filter(skill => skill.category === category);
-    return acc;
-  }, {} as Record<keyof typeof SKILL_CATEGORIES, typeof SKILLS>);
+  const categoryKeys = Object.keys(SKILL_CATEGORIES);
+  const skillsByCategory: Record<string, typeof SKILLS> = {};
+  for (const category of categoryKeys) {
+    skillsByCategory[category] = SKILLS.filter(skill => skill.category === category);
+  }
 
   return (
     <section id="skills" className="section" style={{ background: 'var(--bg-primary)', position: 'relative' }}>
@@ -47,7 +48,7 @@ viewport={{ once: true }}
         </motion.div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-12)', marginTop: 'var(--space-12)' }}>
-          {(Object.entries(SKILL_CATEGORIES) as Array<[keyof typeof SKILL_CATEGORIES, string]>).map(([category, categoryName]) => {
+          {Object.entries(SKILL_CATEGORIES).map(([category, categoryName]) => {
             const categorySkills = skillsByCategory[category];
             if (!categorySkills || categorySkills.length === 0) return null;
 
