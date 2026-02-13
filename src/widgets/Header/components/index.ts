@@ -1,3 +1,1 @@
-export * from './Name';
-export * from './Social';
-export * from './Buttons';
+// Old components removed — Header is now self-contained

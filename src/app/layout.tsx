@@ -3,14 +3,9 @@ import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 
-import { Footer } from '@/widgets/Footer';
-import { Header } from '@/widgets/Header';
-
-import { MUIThemeProvider } from '@/shared/providers';
-
 import './globals.css';
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
@@ -23,8 +18,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteUrl = 'https://denisklymenko-soft.com';
-const title = 'Denis Klymenko | Senior Fullstack Product Engineer | AI & SaaS Expert';
-const description = 'Senior Fullstack Product Engineer with 8+ years of experience. Specialized in AI integrations, multi-domain SaaS platforms, and high-performance web applications. Successfully delivered 17 projects (11 from scratch) serving 50K+ users across 6 European markets.';
+const title = 'Denis Klymenko | Lead AI Architect | Senior Product Engineer | Brain-first Agentic Systems';
+const description = 'Lead AI Architect & Senior Product Engineer. Brain-first AI Agents with 21 orchestrated tools, fine-tuned GPT-4.1 Mini, Langfuse observability. 20 projects delivered (14 from scratch). 8 interconnected repos powering multi-domain SaaS with 13 Prisma schemas, Stripe, pgvector.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -35,32 +30,32 @@ export const metadata: Metadata = {
   description,
   applicationName: 'Denis Klymenko Portfolio',
   authors: [
-    { 
-      name: 'Denis Klymenko', 
-      url: 'https://www.linkedin.com/in/denis-klymenko/' 
+    {
+      name: 'Denis Klymenko',
+      url: 'https://www.linkedin.com/in/denis-klymenko/'
     }
   ],
   keywords: [
     'Denis Klymenko',
-    'Senior Fullstack Engineer',
-    'Product Engineer',
-    'AI Integration',
+    'Lead AI Architect',
+    'AI Agent Architecture',
+    'Brain-first AI',
+    'Agentic Workflows',
+    'Tool Orchestration',
     'LLM Fine Tuning',
     'OpenAI',
+    'Vercel AI SDK',
+    'Langfuse',
+    'pgvector',
     'TypeScript',
     'React',
     'Next.js',
     'Node.js',
     'PostgreSQL',
     'Prisma',
-    'GraphQL',
     'SaaS Development',
     'Multi-domain Architecture',
-    'SEO Optimization',
-    'Web Performance',
-    'Enterprise Applications',
-    'B2B',
-    'B2C',
+    'Senior Product Engineer',
   ],
   creator: 'Denis Klymenko',
   openGraph: {
@@ -75,7 +70,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Denis Klymenko - Senior Fullstack Product Engineer',
+        alt: 'Denis Klymenko - Lead AI Architect & Senior Product Engineer',
       },
     ],
   },
@@ -99,29 +94,40 @@ export const metadata: Metadata = {
   },
 };
 
+const NAV_LINKS = [
+  { label: 'About', href: '#about-me' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Career', href: '#career' },
+  { label: 'Contact', href: '#contact' },
+];
+
 const RootLayout = ({ children }: React.PropsWithChildren) => {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Denis Klymenko',
-    jobTitle: 'Senior Fullstack Product Engineer',
+    jobTitle: 'Lead AI Architect | Senior Product Engineer',
     url: siteUrl,
     sameAs: [
       'https://www.linkedin.com/in/denis-klymenko/',
-      'https://github.com/denisklymenko',
+      'https://github.com/ZKMN',
     ],
     image: '/images/photo.jpg',
     description,
     knowsAbout: [
+      'AI Agent Architecture',
+      'Tool Orchestration',
+      'LLM Fine-Tuning',
+      'OpenAI',
+      'Vercel AI SDK',
+      'Langfuse',
+      'pgvector',
       'TypeScript',
       'React',
       'Next.js',
       'Node.js',
       'PostgreSQL',
-      'AI Integration',
-      'LLM Fine Tuning',
-      'OpenAI',
-      'GraphQL',
       'Prisma',
       'SaaS Development',
       'Multi-domain Architecture',
@@ -134,17 +140,20 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
 
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans antialiased">
-        <MUIThemeProvider>
-          <Header />
-          
-          <main className="min-h-screen">{children}</main>
-          
-          <Footer />
-          
-          <Analytics />
-        </MUIThemeProvider>
-        
+      <body>
+        {/* Floating Navigation */}
+        <nav className="nav-float" aria-label="Main navigation">
+          {NAV_LINKS.map((link) => (
+            <a key={link.href} href={link.href} className="nav-float__link">
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <main>{children}</main>
+
+        <Analytics />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

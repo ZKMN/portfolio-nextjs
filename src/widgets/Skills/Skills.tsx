@@ -1,32 +1,12 @@
 'use client';
 
-import { Box, Grid, Typography, Container } from '@mui/material';
 import { motion } from 'framer-motion';
-import { Section, Title, Badge } from '@/shared/UI';
 import { SkillCard } from './components';
 import { SKILLS, SKILL_CATEGORIES } from './consts';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const categoryVariants = {
+const fadeUp = {
   hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: 'easeOut',
-    },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
 };
 
 export const Skills = () => {
@@ -36,138 +16,110 @@ export const Skills = () => {
   }, {} as Record<keyof typeof SKILL_CATEGORIES, typeof SKILLS>);
 
   return (
-    <Section
-      id="skills"
-      fullWidth
-      sx={{ bgcolor: 'background.paper', position: 'relative' }}
-    >
-      {/* Decorative background elements */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '100%',
-          background: (theme) =>
-            theme.palette.mode === 'dark'
-              ? 'radial-gradient(circle at 20% 50%, rgba(0, 112, 243, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(0, 112, 243, 0.03) 0%, transparent 50%)'
-              : 'radial-gradient(circle at 20% 50%, rgba(0, 112, 243, 0.02) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(0, 112, 243, 0.015) 0%, transparent 50%)',
-          pointerEvents: 'none',
-          zIndex: 0,
-        }}
-      />
+    <section id="skills" className="section" style={{ background: 'var(--bg-primary)', position: 'relative' }}>
+      {/* Subtle radial glow */}
+      <div style={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '800px',
+        height: '600px',
+        background: 'radial-gradient(circle, var(--accent-subtle) 0%, transparent 70%)',
+        filter: 'blur(100px)',
+        pointerEvents: 'none',
+      }} />
 
-      <Container
-        maxWidth={false}
-        sx={{
-          maxWidth: '1600px',
-          px: { xs: 2, sm: 3, md: 4, lg: 6 },
-          position: 'relative',
-          zIndex: 1,
-        }}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-        >
-          <Box sx={{ mb: 8 }}>
-            <Title title="Skills" variant="h3" />
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: '1.125rem',
-                color: 'text.secondary',
-                maxWidth: '3xl',
-                lineHeight: 1.8,
-                mt: 2,
-              }}
-            >
-              Technologies and tools I use to build scalable, high-performance applications.
-            </Typography>
-          </Box>
+      <div className="container container--wide" style={{ position: 'relative', zIndex: 1 }}>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <h2 className="section-title">Skills</h2>
+          <p className="section-subtitle">
+            Technologies and tools I use to build scalable, high-performance applications.
+          </p>
         </motion.div>
 
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-          {(Object.entries(SKILL_CATEGORIES) as Array<[keyof typeof SKILL_CATEGORIES, string]>).map(([category, categoryName], categoryIndex) => {
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-12)', marginTop: 'var(--space-12)' }}>
+          {(Object.entries(SKILL_CATEGORIES) as Array<[keyof typeof SKILL_CATEGORIES, string]>).map(([category, categoryName]) => {
             const categorySkills = skillsByCategory[category];
             if (!categorySkills || categorySkills.length === 0) return null;
 
             return (
               <motion.div
                 key={category}
-                variants={categoryVariants}
-                initial="hidden"
-                whileInView="visible"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5 }}
               >
-                <Box>
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-                  >
-                    <Box sx={{ mb: 5 }}>
-                      <Badge
-                        variant="primary"
-                        sx={{
-                          fontSize: '0.875rem',
-                          fontWeight: 600,
-                          px: 3,
-                          py: 1.5,
-                          boxShadow: (theme) =>
-                            theme.palette.mode === 'dark'
-                              ? '0 4px 12px rgba(0, 112, 243, 0.2)'
-                              : '0 4px 12px rgba(0, 112, 243, 0.15)',
-                        }}
-                      >
-                        {categoryName}
-                      </Badge>
-                    </Box>
-                  </motion.div>
+                <span className="badge badge--accent" style={{
+                  marginBottom: 'var(--space-6)',
+                  display: 'inline-block',
+                  fontSize: 'var(--text-sm)',
+                  padding: 'var(--space-2) var(--space-4)',
+                }}>
+                  {categoryName}
+                </span>
 
-                  <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: '-50px' }}
-                  >
-                    <Grid
-                      container
-                      spacing={{ xs: 1, sm: 1.25, md: 1.5 }}
-                      sx={{
-                        '& > .MuiGrid-item': {
-                          display: 'flex',
-                        },
-                      }}
-                    >
-                      {categorySkills.map((skill, index) => (
-                        <Grid
-                          item
-                          xs={6}
-                          sm={4}
-                          md={4}
-                          lg={2}
-                          key={skill.src}
-                        >
-                          <SkillCard
-                            src={skill.src}
-                            title={skill.title}
-                            index={index}
-                          />
-                        </Grid>
-                      ))}
-                    </Grid>
-                  </motion.div>
-                </Box>
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: '-50px' }}
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
+                  }}
+                >
+                  <div className="skills-grid">
+                    {categorySkills.map((skill, index) => (
+                      <div key={skill.title} className="skill-item">
+                        <SkillCard
+                          key={skill.title}
+                          src={skill.src}
+                          title={skill.title}
+                          index={index}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
               </motion.div>
             );
           })}
-        </Box>
-      </Container>
-    </Section>
+        </div>
+
+        <style jsx>{`
+          .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: var(--space-3);
+          }
+          .skill-item {
+            height: 100%;
+          }
+
+          @media (max-width: 768px) {
+            .skills-grid {
+              display: flex;
+              overflow-x: auto;
+              scroll-snap-type: x mandatory;
+              gap: var(--space-3);
+              padding-bottom: var(--space-4);
+              margin-right: -16px; /* Bleed to edge */
+              padding-right: 16px;
+              /* Hide scrollbar for cleaner look, or style it */
+              scrollbar-width: none; 
+            }
+            .skills-grid::-webkit-scrollbar {
+              display: none;
+            }
+            .skill-item {
+              flex: 0 0 auto;
+              width: 130px;
+              scroll-snap-align: start;
+            }
+          }
+        `}</style>
+      </div>
+    </section>
   );
 };

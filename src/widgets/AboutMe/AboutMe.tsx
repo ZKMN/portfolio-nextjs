@@ -1,195 +1,189 @@
 'use client';
 
 import React from 'react';
-import { Box, Grid, Typography, List, ListItem, Chip } from '@mui/material';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Section, Title, Badge } from '@/shared/UI';
+
+const achievements = [
+  'Enterprise AI Agent for love💗epil (18 studios, 5 countries). Brain-First architecture with 21 orchestrated tools, fine-tuned GPT-4.1 Mini, LLM observability via Langfuse OpenTelemetry, multi-channel deployment (Web, Telegram, Instagram, Facebook). Solo-delivered.',
+  '20 projects delivered (14 from scratch). Engineered a scalable distributed SaaS ecosystem serving 5 countries with Domain-Driven Design, Stripe payments, and GDPR compliance.',
+  'Full-Cycle Development: E2E ownership — architecture, AI agent design, FE/BE integration, testing (Vitest), CI/CD, deployment to Vercel.',
+];
+
+const valuePoints = [
+  'Brain-first AI systems — rigid business logic governs LLM reasoning, not prompt tricks',
+  'Tool Orchestration (21 tools), Fine-Tuning pipelines, Prompt Engineering for production AI agents',
+  'LLM observability: Langfuse + OpenTelemetry traces every tool call, token usage, cost per conversation',
+  'Architecting for scale: multi-domain, multi-currency, i18n-ready systems with unified data modeling',
+];
+
+const recentHighlights = [
+  'Enterprise AI Agent with 21 orchestrated tools, FSM booking sessions, and support incident tracking',
+  'Fine-tuned GPT-4.1 Mini with custom data pipeline (merge, validate, audit, quality-check)',
+  'pgvector semantic search with OpenAI text-embedding-3-small (FAQ, services, studios, cities, abonnements)',
+  'Distributed service architecture: AI Orchestrator, Analytics Engine, Core API, Headless CMS, and Admin Dashboard',
+];
+
+const competencies = [
+  'AI Agent Architecture (Brain-First, 21 tools, FSM)',
+  'OpenAI API, Vercel AI SDK, Langfuse, pgvector',
+  'Fine-Tuning, Prompt Engineering, Tool Orchestration',
+  'Full-Stack: Next.js 16, React 19, TypeScript, Node.js',
+  'Prisma (Complex Data Modeling), PostgreSQL, Stripe, NextAuth',
+  'Multi-domain i18n (6 lang, 4 currencies, GDPR)',
+  'Strapi CMS, Resend, React Email, DeepL',
+  'Vitest, ESLint, Husky, TypeScript strict',
+  'Vercel, AWS, Firebase, Telegram Bot API',
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+};
 
 export const AboutMe = () => {
   return (
-    <Section id="about-me" sx={{ bgcolor: 'background.paper' }}>
-      <Box sx={{ mb: 6 }}>
-        <Title title="About Me" variant="h3" />
-        <Typography
-          variant="body1"
-          sx={{
-            fontSize: '1.125rem',
-            color: 'text.secondary',
-            maxWidth: '3xl',
-            lineHeight: 1.8,
-            mt: 2,
-          }}
-        >
-          I'm a Full-Stack Engineer specializing in high-performance, scalable web applications for enterprise and SaaS products. 8+ years building with modern stack.
-        </Typography>
-      </Box>
+    <section id="about-me" className="section" style={{ background: 'var(--bg-secondary)' }}>
+      <div className="container">
+        {/* Section Header */}
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <h2 className="section-title">About Me</h2>
+          <p className="section-subtitle">
+            Lead AI Architect & Senior Product Engineer. I don&apos;t just &ldquo;plug in&rdquo; OpenAI APIs — I build predictable AI systems where LLM reasoning is governed by rigid business logic.
+          </p>
+        </motion.div>
 
-      <Grid container spacing={{ xs: 4, md: 6 }} alignItems="flex-start">
-        <Grid item xs={12} md={5}>
+        <div className="about-grid">
+          {/* Photo */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-start' } }}>
-              <Image
-                width={240}
-                height={300}
-                alt="Denis Klymenko"
-                src="/images/photo.jpg"
-                style={{
-                  borderRadius: '20px',
-                  objectFit: 'cover',
-                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
-                }}
-                priority
-              />
-            </Box>
+            <div style={{
+              position: 'relative',
+              borderRadius: 'var(--radius-2xl)',
+              overflow: 'hidden',
+              background: 'var(--gradient-accent)',
+              padding: '3px',
+            }}>
+              <div style={{ borderRadius: 'calc(var(--radius-2xl) - 3px)', overflow: 'hidden' }}>
+                <Image
+                  width={400}
+                  height={500}
+                  alt="Denis Klymenko"
+                  src="/images/photo.jpg"
+                  style={{ objectFit: 'cover', width: '100%', height: 'auto', display: 'block' }}
+                  priority
+                />
+              </div>
+              {/* Photo glow */}
+              <div style={{
+                position: 'absolute',
+                bottom: '-20px',
+                left: '10%',
+                right: '10%',
+                height: '40px',
+                background: 'var(--accent-glow)',
+                filter: 'blur(30px)',
+                borderRadius: '50%',
+              }} />
+            </div>
           </motion.div>
-        </Grid>
 
-        <Grid item xs={12} md={7}>
+          {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+            style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}
           >
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-              {/* Key Achievements */}
-              <Box>
-                <Badge
-                  variant="primary"
-                  sx={{
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
-                    px: 2,
-                    py: 1,
-                    mb: 2,
-                  }}
-                >
-                  Key Achievements
-                </Badge>
-                <List sx={{ pl: 0 }}>
-                  {[
-                    'Successfully delivered 17 projects (11 from scratch), including multi-domain SaaS platforms serving 6+ European markets with real-time analytics and AI-powered features.',
-                    'Diverse Project Experience: Enterprise, B2B/B2C, and SaaS across team sizes from solo to 15 engineers.',
-                    'Full-Cycle Development: E2E ownership — architecture, FE/BE integration, testing, CI/CD, deployment.',
-                  ].map((item, index) => (
-                    <ListItem key={index} sx={{ pl: 0, pb: 2, alignItems: 'flex-start' }}>
-                      <Typography component="span" sx={{ color: 'secondary.main', mr: 1.5, fontSize: '1.25rem' }}>
-                        🔹
-                      </Typography>
-                      <Typography sx={{ lineHeight: 1.7, fontSize: '1rem' }}>
-                        {item}
-                      </Typography>
-                    </ListItem>
-                  ))}
-                </List>
-              </Box>
+            {/* Key Achievements */}
+            <div>
+              <span className="badge badge--accent" style={{ marginBottom: 'var(--space-4)', display: 'inline-block' }}>
+                Key Achievements
+              </span>
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+                {achievements.map((item, i) => (
+                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
+                    <span style={{ color: 'var(--accent-light)', fontSize: 'var(--text-lg)', lineHeight: 1.7, flexShrink: 0 }}>◆</span>
+                    <span style={{ fontSize: 'var(--text-base)', lineHeight: 1.7, color: 'var(--text-secondary)' }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-              {/* Value I Bring */}
-              <Box>
-                <Typography variant="h5" sx={{ fontWeight: 700, mb: 2.5 }}>
-                  Value I bring:
-                </Typography>
-                <List sx={{ pl: 0 }}>
-                  {[
-                    'Product-first thinking, not just code shipping',
-                    'From idea to production — solo or in sync with teams',
-                    'Architecting for scale: multi-domain, multi-currency, i18n-ready systems',
-                    'AI integrations: OpenAI embeddings, semantic search, LLM automation',
-                  ].map((item, index) => (
-                    <ListItem key={index} sx={{ pl: 0, pb: 1.5, alignItems: 'flex-start' }}>
-                      <Typography component="span" sx={{ color: 'secondary.main', mr: 1.5, fontSize: '1.25rem' }}>
-                        •
-                      </Typography>
-                      <Typography sx={{ lineHeight: 1.7, fontSize: '1rem' }}>
-                        {item}
-                      </Typography>
-                    </ListItem>
-                  ))}
-                </List>
-              </Box>
+            {/* Value I Bring */}
+            <div>
+              <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 700, marginBottom: 'var(--space-4)', color: 'var(--text-primary)' }}>
+                Value I bring:
+              </h3>
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+                {valuePoints.map((item, i) => (
+                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
+                    <span style={{ color: 'var(--accent)', fontSize: 'var(--text-lg)', lineHeight: 1.7, flexShrink: 0 }}>→</span>
+                    <span style={{ fontSize: 'var(--text-base)', lineHeight: 1.7, color: 'var(--text-secondary)' }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-              {/* Recent Highlights */}
-              <Box>
-                <Badge
-                  variant="primary"
-                  sx={{
-                    fontSize: '0.875rem',
-                    fontWeight: 600,
-                    px: 2,
-                    py: 1,
-                    mb: 2,
-                  }}
-                >
-                  Recent highlights
-                </Badge>
-                <List sx={{ pl: 0 }}>
-                  {[
-                    'Custom analytics platform with cross-domain session stitching & multi-touch attribution',
-                    'AI-powered semantic search using OpenAI vector embeddings',
-                    'Multi-domain i18n architecture (5 countries, 6 domains, 6 languages, 4 currencies, GDPR-compliant)',
-                    '🚀Improved mobile Core Web Vitals: LCP < 2.5s, INP < 200ms',
-                  ].map((item, index) => (
-                    <ListItem key={index} sx={{ pl: 0, pb: 1.5, alignItems: 'flex-start' }}>
-                      <Typography component="span" sx={{ color: 'secondary.main', mr: 1.5, fontSize: '1.25rem' }}>
-                        •
-                      </Typography>
-                      <Typography sx={{ lineHeight: 1.7, fontSize: '1rem' }}>
-                        {item}
-                      </Typography>
-                    </ListItem>
-                  ))}
-                </List>
-              </Box>
+            {/* Recent Highlights */}
+            <div>
+              <span className="badge badge--accent" style={{ marginBottom: 'var(--space-4)', display: 'inline-block' }}>
+                Recent Highlights
+              </span>
+              <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+                {recentHighlights.map((item, i) => (
+                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
+                    <span style={{ color: 'var(--success)', fontSize: '14px', lineHeight: 1.8, flexShrink: 0 }}>✦</span>
+                    <span style={{ fontSize: 'var(--text-base)', lineHeight: 1.7, color: 'var(--text-secondary)' }}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-              {/* Core Competencies */}
-              <Box
-                sx={{
-                  pt: 2,
-                  borderTop: '2px solid',
-                  borderColor: 'divider',
-                }}
-              >
-                <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                  Core Competencies:
-                </Typography>
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
-                  {[
-                    'AI/LLM Integrations (OpenAI, embeddings, semantic search)',
-                    'Frontend Architecture (Next.js SSR/SSG, React 19, MUI)',
-                    'Backend & Data (Prisma, PostgreSQL, REST/webhooks)',
-                    'Analytics & Attribution (custom tracking, Vercel Drains)',
-                    'Multi-domain & i18n Systems',
-                    'Cloud & DevOps (Vercel, AWS, Firebase)',
-                    'Testing & Quality (Unit, TypeScript strict, ESLint, Husky)',
-                    'Security & Compliance (GDPR, RBAC, NextAuth, CSP, Clickjack, XSS)',
-                  ].map((competency, index) => (
-                    <Chip
-                      key={index}
-                      label={competency}
-                      sx={{
-                        fontSize: '0.875rem',
-                        height: 'auto',
-                        py: 1,
-                        '& .MuiChip-label': {
-                          whiteSpace: 'normal',
-                          px: 1.5,
-                        },
-                      }}
-                      variant="outlined"
-                    />
-                  ))}
-                </Box>
-              </Box>
-            </Box>
+            {/* Core Competencies */}
+            <div style={{ paddingTop: 'var(--space-4)', borderTop: '1px solid var(--border)' }}>
+              <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 700, marginBottom: 'var(--space-4)', color: 'var(--text-primary)' }}>
+                Core Competencies
+              </h3>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
+                {competencies.map((comp) => (
+                  <span key={comp} className="chip">{comp}</span>
+                ))}
+              </div>
+            </div>
           </motion.div>
-        </Grid>
-      </Grid>
-    </Section>
+        </div>
+      </div>
+
+      <style jsx>{`
+        .about-grid {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          gap: var(--space-12);
+          margin-top: var(--space-12);
+          align-items: start;
+        }
+
+        @media (max-width: 900px) {
+          .about-grid {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
+          }
+          /* Limit image width on mobile and center it */
+          .about-grid > div:first-child {
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+            order: -1; /* Force image to top */
+          }
+        }
+      `}</style>
+    </section>
   );
 };
