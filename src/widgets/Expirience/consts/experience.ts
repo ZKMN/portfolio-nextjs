@@ -29,8 +29,8 @@ export const EXPERIENCE: ExperienceItem[] = [{
   companyLink: 'https://www.loveepil.com',
   time: 'August 2024 - Present',
   stack: 'Next.js 16, React 19, TypeScript, Prisma, PostgreSQL, OpenAI API, Vercel AI SDK, Langfuse, Stripe, MUI, DeepL, Vercel Drains',
-  responsibilities: 'Led end-to-end development of a high-traffic ecosystem serving 5 countries (6 domains, 6 languages, 4 currencies) with 30K+ MAU. Orchestrated the full lifecycle of AI, Analytics, and Infrastructure products.',
-  achievements: 'Achieved 96% Mobile Performance Score (LCP < 2.5s, INP < 200ms). Implemented dynamic hreflang, JSON-LD, and multi-region sitemaps for SEO dominance.',
+  responsibilities: 'Solo end-to-end ownership of a distributed ecosystem serving 5 countries (6 domains, 6 languages, 4 currencies, 30K+ MAU). Built every layer from scratch: AI agent, analytics platform, admin panel, payments, CMS, and transactional emails.',
+  achievements: 'Production AI agent at $0.015/dialog with near-zero hallucinations (21 tools, fine-tuned GPT-4.1 Mini). 96% Mobile Performance Score (LCP < 2.5s, INP < 200ms). Cross-domain analytics with phone-based attribution. Stripe billing, RBAC, DeepL auto-localization.',
   projects: [{
     name: 'AI Booking Agent (LoveGPT)',
     link: 'https://www.loveepil.com/consultation',
@@ -53,6 +53,7 @@ export const EXPERIENCE: ExperienceItem[] = [{
   achievements: 'Secured sensitive data flows across 3 internal products by re-engineering the authentication and session management layer. Successfully migrated 50K+ lines of code to TypeScript/Next.js, reducing technical debt and improving developer velocity.',
   projects: [],
 }, {
+  open: true,
   name: 'S-PRO',
   role: 'Middle Frontend Developer',
   companyLink: 'https://jobs.dou.ua/companies/s-pro/',
