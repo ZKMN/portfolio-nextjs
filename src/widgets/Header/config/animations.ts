@@ -1,4 +1,4 @@
-import { PickAnimated, SpringValues } from '@react-spring/web';
+import type { PickAnimated, SpringValues } from '@react-spring/web';
 
 export const base: SpringValues<PickAnimated<object>> = {
   to: { opacity: 1 },

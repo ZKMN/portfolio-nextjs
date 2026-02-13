@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card as MuiCard, CardProps as MuiCardProps, useTheme } from '@mui/material';
+import type { CardProps as MuiCardProps} from '@mui/material';
+import { Card as MuiCard, useTheme } from '@mui/material';
 
 interface CardProps extends Omit<MuiCardProps, 'children'> {
   children: React.ReactNode;
@@ -21,12 +22,12 @@ export const Card: React.FC<CardProps> = ({
       sx={{
         borderRadius: 4,
         p: 4,
-        boxShadow: isDark 
-          ? '0 2px 8px rgba(0, 0, 0, 0.3)' 
+        boxShadow: isDark
+          ? '0 2px 8px rgba(0, 0, 0, 0.3)'
           : '0 1px 3px rgba(0, 0, 0, 0.06)',
         border: '1px solid',
-        borderColor: isDark 
-          ? 'rgba(255, 255, 255, 0.1)' 
+        borderColor: isDark
+          ? 'rgba(255, 255, 255, 0.1)'
           : 'rgba(0, 0, 0, 0.08)',
         backgroundColor: 'background.paper',
         ...(hover && {
@@ -47,4 +48,3 @@ export const Card: React.FC<CardProps> = ({
     </MuiCard>
   );
 };
-

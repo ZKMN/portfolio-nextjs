@@ -1,8 +1,10 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+
+import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
 
 const achievements = [
   'Enterprise AI Agent for love💗epil (18 studios, 5 countries). Brain-First architecture with 21 orchestrated tools, fine-tuned GPT-4.1 Mini, LLM observability via Langfuse OpenTelemetry, multi-channel deployment (Web, Telegram, Instagram, Facebook). Solo-delivered.',
@@ -41,13 +43,16 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
 };
 
-export const AboutMe = () => {
-  return (
+export const AboutMe = () => (
     <section id="about-me" className="section" style={{ background: 'var(--bg-secondary)' }}>
       <div className="container">
         {/* Section Header */}
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="section-title">About Me</h2>
+        <motion.div variants={fadeUp}
+initial="hidden"
+whileInView="visible"
+viewport={{ once: true }}
+        >
+          <ScrambleTitle text="About Me" />
           <p className="section-subtitle">
             Lead AI Architect & Senior Product Engineer. I don&apos;t just &ldquo;plug in&rdquo; OpenAI APIs — I build predictable AI systems where LLM reasoning is governed by rigid business logic.
           </p>
@@ -67,7 +72,8 @@ export const AboutMe = () => {
               overflow: 'hidden',
               background: 'var(--gradient-accent)',
               padding: '3px',
-            }}>
+            }}
+            >
               <div style={{ borderRadius: 'calc(var(--radius-2xl) - 3px)', overflow: 'hidden' }}>
                 <Image
                   width={400}
@@ -88,7 +94,8 @@ export const AboutMe = () => {
                 background: 'var(--accent-glow)',
                 filter: 'blur(30px)',
                 borderRadius: '50%',
-              }} />
+              }}
+              />
             </div>
           </motion.div>
 
@@ -185,5 +192,4 @@ export const AboutMe = () => {
         }
       `}</style>
     </section>
-  );
-};
+);

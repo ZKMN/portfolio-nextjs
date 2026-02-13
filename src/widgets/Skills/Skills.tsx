@@ -1,8 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
+
+import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
+
 import { SkillCard } from './components';
-import { SKILLS, SKILL_CATEGORIES } from './consts';
+import { SKILL_CATEGORIES,SKILLS } from './consts';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -28,11 +31,16 @@ export const Skills = () => {
         background: 'radial-gradient(circle, var(--accent-subtle) 0%, transparent 70%)',
         filter: 'blur(100px)',
         pointerEvents: 'none',
-      }} />
+      }}
+      />
 
       <div className="container container--wide" style={{ position: 'relative', zIndex: 1 }}>
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="section-title">Skills</h2>
+        <motion.div variants={fadeUp}
+initial="hidden"
+whileInView="visible"
+viewport={{ once: true }}
+        >
+          <ScrambleTitle text="Skills" />
           <p className="section-subtitle">
             Technologies and tools I use to build scalable, high-performance applications.
           </p>
@@ -51,12 +59,14 @@ export const Skills = () => {
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.5 }}
               >
-                <span className="badge badge--accent" style={{
-                  marginBottom: 'var(--space-6)',
-                  display: 'inline-block',
-                  fontSize: 'var(--text-sm)',
-                  padding: 'var(--space-2) var(--space-4)',
-                }}>
+                <span className="badge badge--accent"
+style={{
+  marginBottom: 'var(--space-6)',
+  display: 'inline-block',
+  fontSize: 'var(--text-sm)',
+  padding: 'var(--space-2) var(--space-4)',
+}}
+                >
                   {categoryName}
                 </span>
 

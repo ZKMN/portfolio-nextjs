@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -103,7 +103,13 @@ const HALLUCINATION_GUARDS = [
     title: 'Database-Only Policy',
     description: 'System prompt explicitly forbids inventing prices, services, studios, or availability. All factual queries must go through tools.',
     icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <svg width="24"
+        height="24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+      >
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
@@ -112,7 +118,13 @@ const HALLUCINATION_GUARDS = [
     title: 'Tool-Level Validation',
     description: 'Each tool validates required context. addToCart checks serviceId against lastShownServices. getBookingLink validates time slots against lastAvailabilityTimes.',
     icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <svg width="24"
+        height="24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+      >
         <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
@@ -121,7 +133,13 @@ const HALLUCINATION_GUARDS = [
     title: 'Two-Stage Vector Search',
     description: 'Context-aware search with studio/gender/country filters first. Global fallback with lower threshold (0.25) only if contextual search returns nothing.',
     icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <svg width="24"
+        height="24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+      >
         <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
       </svg>
     ),
@@ -130,7 +148,13 @@ const HALLUCINATION_GUARDS = [
     title: 'FAQ Direct Answer',
     description: 'High-similarity FAQ matches (>= 0.85) return the stored answer directly without LLM rewriting, eliminating any chance of distortion.',
     icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <svg width="24"
+        height="24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+      >
         <path d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
@@ -139,7 +163,13 @@ const HALLUCINATION_GUARDS = [
     title: 'Injection Detection',
     description: 'Pre-LLM guard layer with pattern matching for prompt injection attempts, 500-char message limit, and DB-based rate limiting for serverless.',
     icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <svg width="24"
+        height="24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+      >
         <path d="M12 9v2m0 4h.01M5.07 19H19a2 2 0 001.75-2.96l-6.93-12a2 2 0 00-3.5 0l-6.93 12A2 2 0 005.07 19z" />
       </svg>
     ),
@@ -148,7 +178,13 @@ const HALLUCINATION_GUARDS = [
     title: 'Incident Snapshots',
     description: 'On 3+ consecutive failures, user dislikes, or complaints — a SupportIncident is created with full conversation snapshot, independent from conversation lifecycle.',
     icon: (
-      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <svg width="24"
+        height="24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+      >
         <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
       </svg>
     ),
@@ -221,7 +257,8 @@ export default function AIAgentPage(): React.ReactElement {
         top: 'var(--space-4)',
         left: 'var(--space-4)',
         zIndex: 100,
-      }}>
+      }}
+      >
         <Link
           href="/"
           className="glass-card"
@@ -236,7 +273,13 @@ export default function AIAgentPage(): React.ReactElement {
             transition: 'all var(--duration-normal) var(--ease-out)',
           }}
         >
-          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <svg width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+          >
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
           Back
@@ -252,7 +295,8 @@ export default function AIAgentPage(): React.ReactElement {
         justifyContent: 'center',
         background: 'var(--gradient-hero)',
         overflow: 'hidden',
-      }}>
+      }}
+      >
         {/* Ambient glow orbs */}
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
           <div style={{
@@ -265,7 +309,8 @@ export default function AIAgentPage(): React.ReactElement {
             borderRadius: '50%',
             filter: 'blur(80px)',
             animation: 'float 8s ease-in-out infinite',
-          }} />
+          }}
+          />
           <div style={{
             position: 'absolute',
             bottom: '-20%',
@@ -276,7 +321,8 @@ export default function AIAgentPage(): React.ReactElement {
             borderRadius: '50%',
             filter: 'blur(80px)',
             animation: 'float 10s ease-in-out infinite reverse',
-          }} />
+          }}
+          />
           <div style={{
             position: 'absolute',
             inset: 0,
@@ -285,7 +331,8 @@ export default function AIAgentPage(): React.ReactElement {
               linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
             `,
             backgroundSize: '60px 60px',
-          }} />
+          }}
+          />
         </div>
 
         <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '80px 24px' }}>
@@ -373,7 +420,8 @@ export default function AIAgentPage(): React.ReactElement {
                       WebkitTextFillColor: 'transparent',
                       lineHeight: 1,
                       marginBottom: 'var(--space-2)',
-                    }}>
+                    }}
+                    >
                       {stat.value}
                     </div>
                     <div style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 'var(--space-1)' }}>
@@ -391,399 +439,445 @@ export default function AIAgentPage(): React.ReactElement {
       </header>
 
       <main>
-      {/* ===== THE PROBLEM ===== */}
-      <section className="section" style={{ background: 'var(--bg-secondary)' }}>
-        <div className="container">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 className="section-title">The Problem</h2>
-            <p className="section-subtitle">
-              Why standard chatbots and RAG pipelines fail for complex business workflows.
-            </p>
-          </motion.div>
+        {/* ===== THE PROBLEM ===== */}
+        <section className="section" style={{ background: 'var(--bg-secondary)' }}>
+          <div className="container">
+            <motion.div variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <h2 className="section-title">The Problem</h2>
+              <p className="section-subtitle">
+                Why standard chatbots and RAG pipelines fail for complex business workflows.
+              </p>
+            </motion.div>
 
-          <div className="problem-grid" style={{ marginTop: 'var(--space-12)' }}>
-            {PROBLEM_POINTS.map((point, index) => (
+            <div className="problem-grid" style={{ marginTop: 'var(--space-12)' }}>
+              {PROBLEM_POINTS.map((point, index) => (
+                <motion.div
+                  key={point.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div className="glass-card"
+                    style={{
+                      padding: 'var(--space-6)',
+                      height: '100%',
+                      borderLeft: '3px solid rgba(239, 68, 68, 0.5)',
+                    }}
+                  >
+                    <div style={{
+                      fontSize: 'var(--text-xs)',
+                      fontWeight: 700,
+                      color: '#ef4444',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.08em',
+                      marginBottom: 'var(--space-2)',
+                    }}
+                    >
+                      Problem {String(index + 1).padStart(2, '0')}
+                    </div>
+                    <h3 style={{ fontSize: 'var(--text-lg)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 'var(--space-3)' }}>
+                      {point.title}
+                    </h3>
+                    <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+                      {point.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== THE SOLUTION: BRAIN-FIRST ARCHITECTURE ===== */}
+        <section className="section" style={{ background: 'var(--bg-primary)' }}>
+          <div className="container">
+            <motion.div variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <h2 className="section-title">The Solution: Brain-First Architecture</h2>
+              <p className="section-subtitle">
+                A single fine-tuned LLM reads a comprehensive system prompt and decides which tools to call —
+                no hardcoded state machines, no rigid flows.
+              </p>
+            </motion.div>
+
+            {/* Architecture Flow */}
+            <div style={{ marginTop: 'var(--space-12)' }}>
+              <div className="architecture-flow">
+                {ARCHITECTURE_STEPS.map((item, index) => (
+                  <motion.div
+                    key={item.step}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-4)' }}
+                  >
+                    <div style={{
+                      flexShrink: 0,
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: 'var(--radius-lg)',
+                      background: 'var(--gradient-accent)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontWeight: 700,
+                      fontSize: 'var(--text-sm)',
+                      color: 'white',
+                      boxShadow: 'var(--shadow-glow)',
+                    }}
+                    >
+                      {item.step}
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <h4 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 'var(--space-1)' }}>
+                        {item.title}
+                      </h4>
+                      <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                        {item.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Key insight callout */}
               <motion.div
-                key={point.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                style={{ marginTop: 'var(--space-8)' }}
               >
-                <div className="glass-card" style={{
-                  padding: 'var(--space-6)',
-                  height: '100%',
-                  borderLeft: '3px solid rgba(239, 68, 68, 0.5)',
-                }}>
-                  <div style={{
-                    fontSize: 'var(--text-xs)',
-                    fontWeight: 700,
-                    color: '#ef4444',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    marginBottom: 'var(--space-2)',
-                  }}>
-                    Problem {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <h3 style={{ fontSize: 'var(--text-lg)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 'var(--space-3)' }}>
-                    {point.title}
-                  </h3>
+                <div className="glass-card"
+                  style={{
+                    padding: 'var(--space-6) var(--space-8)',
+                    borderLeft: '3px solid var(--accent)',
+                    background: 'linear-gradient(90deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%)',
+                  }}
+                >
+                  <h4 style={{ fontSize: 'var(--text-sm)', fontWeight: 700, color: 'var(--accent-light)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 'var(--space-2)' }}>
+                    Key Innovation: prepareStep
+                  </h4>
                   <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-                    {point.description}
+                    Before each LLM step, <code style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-light)', background: 'rgba(99, 102, 241, 0.1)', padding: '2px 6px', borderRadius: '4px' }}>prepareStep</code> rebuilds
+                    the system prompt with real-time state from tool executions. When the user says &quot;Wroclaw, women, laser&quot; — the LLM processes it in 4 sequential steps,
+                    with each step seeing the updated context from the previous tool call.
                   </p>
                 </div>
               </motion.div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ===== THE SOLUTION: BRAIN-FIRST ARCHITECTURE ===== */}
-      <section className="section" style={{ background: 'var(--bg-primary)' }}>
-        <div className="container">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 className="section-title">The Solution: Brain-First Architecture</h2>
-            <p className="section-subtitle">
-              A single fine-tuned LLM reads a comprehensive system prompt and decides which tools to call —
-              no hardcoded state machines, no rigid flows.
-            </p>
-          </motion.div>
+        {/* ===== TECH STACK ===== */}
+        <section className="section" style={{ background: 'var(--bg-secondary)' }}>
+          <div className="container">
+            <motion.div variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <h2 className="section-title">The Tech Stack</h2>
+              <p className="section-subtitle">
+                Production-grade infrastructure for a serverless AI agent at scale.
+              </p>
+            </motion.div>
 
-          {/* Architecture Flow */}
-          <div style={{ marginTop: 'var(--space-12)' }}>
-            <div className="architecture-flow">
-              {ARCHITECTURE_STEPS.map((item, index) => (
+            <div className="stack-grid" style={{ marginTop: 'var(--space-12)' }}>
+              {TECH_STACK.map((category, index) => (
                 <motion.div
-                  key={item.step}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  key={category.category}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-4)' }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div className="glass-card" style={{ padding: 'var(--space-6)', height: '100%' }}>
+                    <h3 style={{
+                      fontSize: 'var(--text-xs)',
+                      fontWeight: 700,
+                      color: 'var(--accent-light)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.08em',
+                      marginBottom: 'var(--space-4)',
+                    }}
+                    >
+                      {category.category}
+                    </h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+                      {category.items.map((item) => (
+                        <div key={item.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 'var(--space-2)' }}>
+                          <span style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: 'var(--text-primary)' }}>
+                            {item.name}
+                          </span>
+                          <span style={{
+                            fontSize: 'var(--text-xs)',
+                            color: 'var(--text-tertiary)',
+                            textAlign: 'right',
+                            flexShrink: 0,
+                          }}
+                          >
+                            {item.detail}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== 21 TOOLS ===== */}
+        <section className="section" style={{ background: 'var(--bg-primary)' }}>
+          <div className="container">
+            <motion.div variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <h2 className="section-title">21 Orchestrated Tools</h2>
+              <p className="section-subtitle">
+                The Brain LLM has access to 21 specialized tools organized into 5 categories.
+                Each tool validates its own context and returns typed results.
+              </p>
+            </motion.div>
+
+            <div style={{ marginTop: 'var(--space-12)', display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
+              {TOOL_CATEGORIES.map((category, catIndex) => (
+                <motion.div
+                  key={category.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: catIndex * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div className="glass-card" style={{ padding: 'var(--space-6) var(--space-8)', overflow: 'hidden', position: 'relative' }}>
+                    {/* Accent line */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: '3px',
+                      background: category.color,
+                      opacity: 0.8,
+                    }}
+                    />
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
+                      <h3 style={{ fontSize: 'var(--text-lg)', fontWeight: 700, color: 'var(--text-primary)' }}>
+                        {category.name}
+                      </h3>
+                      <span className="badge badge--ghost">{category.tools.length} tools</span>
+                    </div>
+
+                    <div className="tools-grid">
+                      {category.tools.map((tool) => (
+                        <div
+                          key={tool.name}
+                          style={{
+                            padding: 'var(--space-3) var(--space-4)',
+                            background: 'rgba(255, 255, 255, 0.02)',
+                            borderRadius: 'var(--radius-md)',
+                            border: '1px solid var(--border)',
+                          }}
+                        >
+                          <code style={{
+                            fontFamily: 'var(--font-mono)',
+                            fontSize: 'var(--text-sm)',
+                            color: category.color,
+                            fontWeight: 600,
+                          }}
+                          >
+                            {tool.name}
+                          </code>
+                          <p style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)', marginTop: 'var(--space-1)', lineHeight: 1.5 }}>
+                            {tool.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== HALLUCINATION PREVENTION ===== */}
+        <section className="section" style={{ background: 'var(--bg-secondary)' }}>
+          <div className="container">
+            <motion.div variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <h2 className="section-title">Near-Zero Hallucination Strategy</h2>
+              <p className="section-subtitle">
+                Six layers of protection ensure the agent never fabricates information.
+              </p>
+            </motion.div>
+
+            <div className="guards-grid" style={{ marginTop: 'var(--space-12)' }}>
+              {HALLUCINATION_GUARDS.map((guard, index) => (
+                <motion.div
+                  key={guard.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div className="glass-card glass-card--glow" style={{ padding: 'var(--space-6)', height: '100%' }}>
+                    <div style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: 'var(--radius-md)',
+                      background: 'var(--accent-subtle)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'var(--accent-light)',
+                      marginBottom: 'var(--space-4)',
+                    }}
+                    >
+                      {guard.icon}
+                    </div>
+                    <h3 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 'var(--space-2)' }}>
+                      {guard.title}
+                    </h3>
+                    <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+                      {guard.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== KEY ARCHITECTURAL DECISIONS ===== */}
+        <section className="section" style={{ background: 'var(--bg-primary)' }}>
+          <div className="container">
+            <motion.div variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <h2 className="section-title">Key Architectural Decisions</h2>
+              <p className="section-subtitle">
+                The reasoning behind critical design choices.
+              </p>
+            </motion.div>
+
+            <div style={{ marginTop: 'var(--space-12)', display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
+              {KEY_DECISIONS.map((item, index) => (
+                <motion.div
+                  key={item.decision}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <div style={{
-                    flexShrink: 0,
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: 'var(--radius-lg)',
-                    background: 'var(--gradient-accent)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontWeight: 700,
-                    fontSize: 'var(--text-sm)',
-                    color: 'white',
-                    boxShadow: 'var(--shadow-glow)',
-                  }}>
-                    {item.step}
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <h4 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 'var(--space-1)' }}>
-                      {item.title}
+                    padding: 'var(--space-5) var(--space-6)',
+                    borderLeft: '3px solid var(--accent)',
+                    background: 'linear-gradient(90deg, rgba(99, 102, 241, 0.03) 0%, transparent 100%)',
+                    borderRadius: '0 var(--radius-md) var(--radius-md) 0',
+                  }}
+                  >
+                    <h4 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 'var(--space-2)' }}>
+                      {item.decision}
                     </h4>
+                    <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+                      {item.reasoning}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== RESULTS ===== */}
+        <section className="section" style={{ background: 'var(--bg-secondary)' }}>
+          <div className="container">
+            <motion.div variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <h2 className="section-title">The Outcome</h2>
+            </motion.div>
+
+            <div className="results-grid" style={{ marginTop: 'var(--space-12)' }}>
+              {RESULTS.map((result, index) => (
+                <motion.div
+                  key={result.metric}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div style={{
+                    padding: 'var(--space-5)',
+                    background: 'var(--success-subtle)',
+                    borderRadius: 'var(--radius-lg)',
+                    border: '1px solid rgba(34, 197, 94, 0.2)',
+                    height: '100%',
+                  }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', marginBottom: 'var(--space-2)' }}>
+                      <span style={{ color: 'var(--success)', fontWeight: 700, fontSize: 'var(--text-lg)' }}>&#10003;</span>
+                      <h4 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--success)' }}>
+                        {result.metric}
+                      </h4>
+                    </div>
                     <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      {item.description}
+                      {result.description}
                     </p>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            {/* Key insight callout */}
+            {/* CTA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              style={{ marginTop: 'var(--space-8)' }}
+              style={{ textAlign: 'center', marginTop: 'var(--space-16)' }}
             >
-              <div className="glass-card" style={{
-                padding: 'var(--space-6) var(--space-8)',
-                borderLeft: '3px solid var(--accent)',
-                background: 'linear-gradient(90deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%)',
-              }}>
-                <h4 style={{ fontSize: 'var(--text-sm)', fontWeight: 700, color: 'var(--accent-light)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 'var(--space-2)' }}>
-                  Key Innovation: prepareStep
-                </h4>
-                <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-                  Before each LLM step, <code style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent-light)', background: 'rgba(99, 102, 241, 0.1)', padding: '2px 6px', borderRadius: '4px' }}>prepareStep</code> rebuilds
-                  the system prompt with real-time state from tool executions. When the user says &quot;Wroclaw, women, laser&quot; — the LLM processes it in 4 sequential steps,
-                  with each step seeing the updated context from the previous tool call.
-                </p>
+              <p style={{ fontSize: 'var(--text-lg)', color: 'var(--text-secondary)', marginBottom: 'var(--space-6)' }}>
+                Interested in building something similar?
+              </p>
+              <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <a href="/#contact" className="btn btn--primary" style={{ textDecoration: 'none' }}>
+                  Get in Touch
+                </a>
+                <a href="https://www.loveepil.com/consultation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn--ghost"
+                  style={{ textDecoration: 'none' }}
+                >
+                  Try the Agent Live
+                </a>
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      {/* ===== TECH STACK ===== */}
-      <section className="section" style={{ background: 'var(--bg-secondary)' }}>
-        <div className="container">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 className="section-title">The Tech Stack</h2>
-            <p className="section-subtitle">
-              Production-grade infrastructure for a serverless AI agent at scale.
-            </p>
-          </motion.div>
-
-          <div className="stack-grid" style={{ marginTop: 'var(--space-12)' }}>
-            {TECH_STACK.map((category, index) => (
-              <motion.div
-                key={category.category}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div className="glass-card" style={{ padding: 'var(--space-6)', height: '100%' }}>
-                  <h3 style={{
-                    fontSize: 'var(--text-xs)',
-                    fontWeight: 700,
-                    color: 'var(--accent-light)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    marginBottom: 'var(--space-4)',
-                  }}>
-                    {category.category}
-                  </h3>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-                    {category.items.map((item) => (
-                      <div key={item.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 'var(--space-2)' }}>
-                        <span style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: 'var(--text-primary)' }}>
-                          {item.name}
-                        </span>
-                        <span style={{
-                          fontSize: 'var(--text-xs)',
-                          color: 'var(--text-tertiary)',
-                          textAlign: 'right',
-                          flexShrink: 0,
-                        }}>
-                          {item.detail}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== 21 TOOLS ===== */}
-      <section className="section" style={{ background: 'var(--bg-primary)' }}>
-        <div className="container">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 className="section-title">21 Orchestrated Tools</h2>
-            <p className="section-subtitle">
-              The Brain LLM has access to 21 specialized tools organized into 5 categories.
-              Each tool validates its own context and returns typed results.
-            </p>
-          </motion.div>
-
-          <div style={{ marginTop: 'var(--space-12)', display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
-            {TOOL_CATEGORIES.map((category, catIndex) => (
-              <motion.div
-                key={category.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: catIndex * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div className="glass-card" style={{ padding: 'var(--space-6) var(--space-8)', overflow: 'hidden', position: 'relative' }}>
-                  {/* Accent line */}
-                  <div style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: '3px',
-                    background: category.color,
-                    opacity: 0.8,
-                  }} />
-
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
-                    <h3 style={{ fontSize: 'var(--text-lg)', fontWeight: 700, color: 'var(--text-primary)' }}>
-                      {category.name}
-                    </h3>
-                    <span className="badge badge--ghost">{category.tools.length} tools</span>
-                  </div>
-
-                  <div className="tools-grid">
-                    {category.tools.map((tool) => (
-                      <div
-                        key={tool.name}
-                        style={{
-                          padding: 'var(--space-3) var(--space-4)',
-                          background: 'rgba(255, 255, 255, 0.02)',
-                          borderRadius: 'var(--radius-md)',
-                          border: '1px solid var(--border)',
-                        }}
-                      >
-                        <code style={{
-                          fontFamily: 'var(--font-mono)',
-                          fontSize: 'var(--text-sm)',
-                          color: category.color,
-                          fontWeight: 600,
-                        }}>
-                          {tool.name}
-                        </code>
-                        <p style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)', marginTop: 'var(--space-1)', lineHeight: 1.5 }}>
-                          {tool.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== HALLUCINATION PREVENTION ===== */}
-      <section className="section" style={{ background: 'var(--bg-secondary)' }}>
-        <div className="container">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 className="section-title">Near-Zero Hallucination Strategy</h2>
-            <p className="section-subtitle">
-              Six layers of protection ensure the agent never fabricates information.
-            </p>
-          </motion.div>
-
-          <div className="guards-grid" style={{ marginTop: 'var(--space-12)' }}>
-            {HALLUCINATION_GUARDS.map((guard, index) => (
-              <motion.div
-                key={guard.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div className="glass-card glass-card--glow" style={{ padding: 'var(--space-6)', height: '100%' }}>
-                  <div style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: 'var(--radius-md)',
-                    background: 'var(--accent-subtle)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'var(--accent-light)',
-                    marginBottom: 'var(--space-4)',
-                  }}>
-                    {guard.icon}
-                  </div>
-                  <h3 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 'var(--space-2)' }}>
-                    {guard.title}
-                  </h3>
-                  <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-                    {guard.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== KEY ARCHITECTURAL DECISIONS ===== */}
-      <section className="section" style={{ background: 'var(--bg-primary)' }}>
-        <div className="container">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 className="section-title">Key Architectural Decisions</h2>
-            <p className="section-subtitle">
-              The reasoning behind critical design choices.
-            </p>
-          </motion.div>
-
-          <div style={{ marginTop: 'var(--space-12)', display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
-            {KEY_DECISIONS.map((item, index) => (
-              <motion.div
-                key={item.decision}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div style={{
-                  padding: 'var(--space-5) var(--space-6)',
-                  borderLeft: '3px solid var(--accent)',
-                  background: 'linear-gradient(90deg, rgba(99, 102, 241, 0.03) 0%, transparent 100%)',
-                  borderRadius: '0 var(--radius-md) var(--radius-md) 0',
-                }}>
-                  <h4 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 'var(--space-2)' }}>
-                    {item.decision}
-                  </h4>
-                  <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-                    {item.reasoning}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== RESULTS ===== */}
-      <section className="section" style={{ background: 'var(--bg-secondary)' }}>
-        <div className="container">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <h2 className="section-title">The Outcome</h2>
-          </motion.div>
-
-          <div className="results-grid" style={{ marginTop: 'var(--space-12)' }}>
-            {RESULTS.map((result, index) => (
-              <motion.div
-                key={result.metric}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div style={{
-                  padding: 'var(--space-5)',
-                  background: 'var(--success-subtle)',
-                  borderRadius: 'var(--radius-lg)',
-                  border: '1px solid rgba(34, 197, 94, 0.2)',
-                  height: '100%',
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', marginBottom: 'var(--space-2)' }}>
-                    <span style={{ color: 'var(--success)', fontWeight: 700, fontSize: 'var(--text-lg)' }}>&#10003;</span>
-                    <h4 style={{ fontSize: 'var(--text-base)', fontWeight: 700, color: 'var(--success)' }}>
-                      {result.metric}
-                    </h4>
-                  </div>
-                  <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                    {result.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            style={{ textAlign: 'center', marginTop: 'var(--space-16)' }}
-          >
-            <p style={{ fontSize: 'var(--text-lg)', color: 'var(--text-secondary)', marginBottom: 'var(--space-6)' }}>
-              Interested in building something similar?
-            </p>
-            <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="/#contact" className="btn btn--primary" style={{ textDecoration: 'none' }}>
-                Get in Touch
-              </a>
-              <a href="https://www.loveepil.com/consultation" target="_blank" rel="noopener noreferrer" className="btn btn--ghost" style={{ textDecoration: 'none' }}>
-                Try the Agent Live
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+        </section>
       </main>
 
       {/* ===== STYLES ===== */}

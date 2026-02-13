@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+
 import getTheme from './theme/getTheme';
 
 const lightTheme = createTheme(getTheme('light'));

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Box } from '@mui/material';
+
 import { Container } from '../Container';
 
-export const BasicContainer = ({ 
-  black, 
-  children 
+export const BasicContainer = ({
+  black,
+  children,
 }: React.PropsWithChildren<{ black?: boolean; }>) => (
   <Box
     sx={{

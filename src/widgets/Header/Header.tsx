@@ -1,55 +1,345 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+
+import { MagneticWrap } from '@/shared/components/MagneticWrap';
+
+// =============================================================================
+// Types
+// =============================================================================
+
+type Node = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  radius: number;
+  opacity: number;
+};
+
+// =============================================================================
+// Constants
+// =============================================================================
+
+const TYPING_LINES = [
+  '> building production AI agents...',
+  '> orchestrating 21 tools...',
+  '> fine-tuning language models...',
+  '> from scratch. always.',
+];
+
+const TYPING_SPEED_MS = 35;
+const LINE_PAUSE_MS = 400;
+const NODE_COUNT = 18;
+const CONNECTION_DISTANCE = 150;
 
 const stats = [
-  { value: '20', label: 'Projects Delivered', sublabel: '14 from scratch' },
-  { value: '96%', label: 'Real User Score', sublabel: 'Core Web Vitals (Mobile)' },
-  { value: '21', label: 'AI Tools Orchestrated', sublabel: 'brain-first agent' },
-  { value: '8+', label: 'Years Experience' },
+  { value: 20, suffix: '', label: 'Projects Delivered', sublabel: '14 from scratch' },
+  { value: 96, suffix: '%', label: 'Real User Score', sublabel: 'Core Web Vitals (Mobile)' },
+  { value: 21, suffix: '', label: 'AI Tools Orchestrated', sublabel: 'brain-first agent' },
+  { value: 8, suffix: '+', label: 'Years Experience', sublabel: '' },
 ];
 
 const socialLinks = [
   {
-    name: 'LinkedIn', href: 'https://www.linkedin.com/in/denis-klymenko/', icon: (
-      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
-    )
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/denis-klymenko/',
+    icon: (
+      <svg width="20"
+        height="20"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      ><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+    ),
   },
   {
-    name: 'GitHub', href: 'https://github.com/ZKMN', icon: (
-      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
-    )
+    name: 'GitHub',
+    href: 'https://github.com/ZKMN',
+    icon: (
+      <svg width="20"
+        height="20"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      ><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg>
+    ),
   },
   {
-    name: 'Telegram', href: 'https://t.me/denisklim01', icon: (
-      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" /></svg>
-    )
+    name: 'Telegram',
+    href: 'https://t.me/denisklim01',
+    icon: (
+      <svg width="20"
+        height="20"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      ><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" /></svg>
+    ),
   },
   {
-    name: 'Instagram', href: 'https://www.instagram.com/denisklim01/', icon: (
-      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" /></svg>
-    )
+    name: 'Instagram',
+    href: 'https://www.instagram.com/denisklim01/',
+    icon: (
+      <svg width="20"
+        height="20"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      ><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" /></svg>
+    ),
   },
 ];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
-    opacity: 1, y: 0,
+    opacity: 1,
+    y: 0,
     transition: { duration: 0.6, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
-export const Header = () => {
-  const handleDownloadCV = () => {
+// =============================================================================
+// Hooks
+// =============================================================================
+
+const useTypingEffect = (): string[] => {
+  const [lines, setLines] = useState<string[]>([]);
+  const hasStarted = useRef(false);
+
+  useEffect(() => {
+    if (hasStarted.current) return;
+    hasStarted.current = true;
+
+    let lineIndex = 0;
+    let charIndex = 0;
+    const currentLines: string[] = [];
+
+    const type = (): void => {
+      if (lineIndex >= TYPING_LINES.length) return;
+
+      const line = TYPING_LINES[lineIndex];
+
+      if (charIndex > line.length) {
+        lineIndex++;
+        charIndex = 0;
+        setTimeout(type, LINE_PAUSE_MS);
+        return;
+      }
+
+      currentLines[lineIndex] = line.slice(0, charIndex);
+      setLines([...currentLines]);
+      charIndex++;
+      setTimeout(type, TYPING_SPEED_MS);
+    };
+
+    setTimeout(type, 800);
+  }, []);
+
+  return lines;
+};
+
+const useCountUp = ({ target, isInView }: { target: number; isInView: boolean }): number => {
+  const [count, setCount] = useState(0);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (!isInView || hasAnimated.current) return;
+    hasAnimated.current = true;
+
+    const duration = 1500;
+    const steps = 40;
+    const increment = target / steps;
+    let current = 0;
+    let step = 0;
+
+    const interval = setInterval(() => {
+      step++;
+      current = Math.min(Math.round(increment * step), target);
+      setCount(current);
+      if (step >= steps) clearInterval(interval);
+    }, duration / steps);
+
+    return () => clearInterval(interval);
+  }, [isInView, target]);
+
+  return count;
+};
+
+// =============================================================================
+// Sub-components
+// =============================================================================
+
+const NodeGraph = (): React.ReactElement => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const nodesRef = useRef<Node[]>([]);
+  const animationRef = useRef<number>(0);
+
+  const initNodes = useCallback((width: number, height: number): void => {
+    nodesRef.current = Array.from({ length: NODE_COUNT }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      radius: Math.random() * 2 + 1.5,
+      opacity: Math.random() * 0.5 + 0.3,
+    }));
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const resize = (): void => {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = canvas.offsetWidth * dpr;
+      canvas.height = canvas.offsetHeight * dpr;
+      ctx.scale(dpr, dpr);
+
+      if (!nodesRef.current.length) {
+        initNodes(canvas.offsetWidth, canvas.offsetHeight);
+      }
+    };
+
+    resize();
+    window.addEventListener('resize', resize);
+
+    const animate = (): void => {
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
+      ctx.clearRect(0, 0, w, h);
+
+      const nodes = nodesRef.current;
+
+      // Update positions
+      for (const node of nodes) {
+        node.x += node.vx;
+        node.y += node.vy;
+
+        if (node.x < 0 || node.x > w) node.vx *= -1;
+        if (node.y < 0 || node.y > h) node.vy *= -1;
+      }
+
+      // Draw connections
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < CONNECTION_DISTANCE) {
+            const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.15;
+            ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw nodes
+      for (const node of nodes) {
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(129, 140, 248, ${node.opacity})`;
+        ctx.fill();
+
+        // Glow
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius * 3, 0, Math.PI * 2);
+        const grad = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, node.radius * 3);
+        grad.addColorStop(0, `rgba(99, 102, 241, ${node.opacity * 0.3})`);
+        grad.addColorStop(1, 'transparent');
+        ctx.fillStyle = grad;
+        ctx.fill();
+      }
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationRef.current);
+      window.removeEventListener('resize', resize);
+    };
+  }, [initNodes]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: 'absolute',
+        inset: 0,
+        width: '100%',
+        height: '100%',
+        pointerEvents: 'none',
+      }}
+      aria-hidden="true"
+    />
+  );
+};
+
+const CountUpStat = ({ value, suffix, label, sublabel }: {
+  value: number;
+  suffix: string;
+  label: string;
+  sublabel: string;
+}): React.ReactElement => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true });
+  const count = useCountUp({ target: value, isInView });
+
+  return (
+    <motion.div
+      ref={ref}
+      className="glass-card glass-card--glow"
+      style={{ padding: 'var(--space-6) var(--space-4)', textAlign: 'center' }}
+      whileHover={{ y: -4, scale: 1.02 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+    >
+      <div style={{
+        fontSize: 'var(--text-4xl)',
+        fontWeight: 700,
+        background: 'var(--gradient-accent)',
+        WebkitBackgroundClip: 'text',
+        backgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        lineHeight: 1,
+        marginBottom: 'var(--space-2)',
+        fontFamily: 'var(--font-mono)',
+      }}
+      >
+        {count}{suffix}
+      </div>
+      <div style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 'var(--space-1)' }}>
+        {label}
+      </div>
+      {sublabel && (
+        <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)' }}>
+          {sublabel}
+        </div>
+      )}
+    </motion.div>
+  );
+};
+
+// =============================================================================
+// Header
+// =============================================================================
+
+export const Header = (): React.ReactElement => {
+  const typedLines = useTypingEffect();
+
+  const handleDownloadCV = (): void => {
     window.open('/resume', '_blank');
   };
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (id: string): void => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -61,48 +351,31 @@ export const Header = () => {
       justifyContent: 'center',
       background: 'var(--gradient-hero)',
       overflow: 'hidden',
-    }}>
-      {/* Ambient glow orbs */}
+    }}
+    >
+      {/* Animated node graph background */}
       <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
-        <div style={{
-          position: 'absolute',
-          top: '-20%',
-          right: '-10%',
-          width: '600px',
-          height: '600px',
-          background: 'radial-gradient(circle, var(--accent-glow) 0%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(80px)',
-          animation: 'float 8s ease-in-out infinite',
-        }} />
-        <div style={{
-          position: 'absolute',
-          bottom: '-20%',
-          left: '-10%',
-          width: '500px',
-          height: '500px',
-          background: 'radial-gradient(circle, var(--accent-2-glow) 0%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(80px)',
-          animation: 'float 10s ease-in-out infinite reverse',
-        }} />
+        <NodeGraph />
         {/* Grid pattern overlay */}
         <div style={{
           position: 'absolute',
           inset: 0,
           backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
+            linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px',
-        }} />
+        }}
+        />
       </div>
 
       <div className="container hero-container" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           {/* Status badge */}
-          <motion.div
-            custom={0} variants={fadeUp} initial="hidden" animate="visible"
+          <motion.div custom={0}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
           >
             <span className="badge badge--accent" style={{ fontSize: 'var(--text-xs)', marginBottom: 'var(--space-8)', display: 'inline-flex', gap: 'var(--space-2)' }}>
               <span style={{ width: 8, height: 8, background: 'var(--success)', borderRadius: '50%', display: 'inline-block', boxShadow: '0 0 8px var(--success)' }} />
@@ -113,7 +386,10 @@ export const Header = () => {
           {/* Name */}
           <motion.h1
             className="hero-title"
-            custom={1} variants={fadeUp} initial="hidden" animate="visible"
+            custom={1}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
             style={{
               fontWeight: 700,
               letterSpacing: '-0.03em',
@@ -132,7 +408,10 @@ export const Header = () => {
           {/* Title */}
           <motion.h2
             className="hero-subtitle"
-            custom={2} variants={fadeUp} initial="hidden" animate="visible"
+            custom={2}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
             style={{
               fontWeight: 500,
               color: 'var(--text-secondary)',
@@ -143,80 +422,102 @@ export const Header = () => {
             AI Agent Architect & Full-Stack Product Engineer
           </motion.h2>
 
-          {/* Tagline */}
-          <motion.p
-            className="hero-description"
-            custom={3} variants={fadeUp} initial="hidden" animate="visible"
+          {/* Terminal typing effect */}
+          <motion.div
+            custom={3}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
             style={{
-              color: 'var(--text-tertiary)',
-              maxWidth: '640px',
+              maxWidth: '480px',
               margin: '0 auto var(--space-12)',
-              lineHeight: 1.7,
+              textAlign: 'left',
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'var(--text-sm)',
+              lineHeight: 1.8,
+              color: 'var(--text-tertiary)',
+              background: 'rgba(255,255,255,0.03)',
+              border: '1px solid var(--border)',
+              borderRadius: 'var(--radius-lg)',
+              padding: 'var(--space-4) var(--space-5)',
             }}
           >
-            Specializing in Brain-first AI Agents, Agentic Workflows, and Scalable SaaS Architectures.
-            I build predictable AI systems where LLM reasoning is governed by rigid business logic.
-          </motion.p>
+            {typedLines.map((line, i) => (
+              <div key={i}
+                style={{
+                  color: i === TYPING_LINES.length - 1 ? 'var(--accent-light)' : 'var(--text-tertiary)',
+                  fontWeight: i === TYPING_LINES.length - 1 ? 600 : 400,
+                }}
+              >
+                {line}
+                {i === typedLines.length - 1 && (
+                  <span style={{
+                    display: 'inline-block',
+                    width: '2px',
+                    height: '1em',
+                    background: 'var(--accent-light)',
+                    marginLeft: '2px',
+                    verticalAlign: 'text-bottom',
+                    animation: 'blink 1s step-end infinite',
+                  }}
+                  />
+                )}
+              </div>
+            ))}
+            {typedLines.length === 0 && (
+              <span style={{
+                display: 'inline-block',
+                width: '2px',
+                height: '1em',
+                background: 'var(--accent-light)',
+                animation: 'blink 1s step-end infinite',
+              }}
+              />
+            )}
+          </motion.div>
 
           {/* Stats Grid */}
-          <motion.div
-            custom={4} variants={fadeUp} initial="hidden" animate="visible"
+          <motion.div custom={4}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
           >
             <div className="stats-grid">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="glass-card glass-card--glow"
-                  style={{ padding: 'var(--space-6) var(--space-4)', textAlign: 'center' }}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                >
-                  <div style={{
-                    fontSize: 'var(--text-4xl)',
-                    fontWeight: 700,
-                    background: 'var(--gradient-accent)',
-                    WebkitBackgroundClip: 'text',
-                    backgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    lineHeight: 1,
-                    marginBottom: 'var(--space-2)',
-                  }}>
-                    {stat.value}
-                  </div>
-                  <div style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 'var(--space-1)' }}>
-                    {stat.label}
-                  </div>
-                  {stat.sublabel && (
-                    <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)' }}>
-                      {stat.sublabel}
-                    </div>
-                  )}
-                </motion.div>
+              {stats.map((stat) => (
+                <CountUpStat
+                  key={stat.label}
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  label={stat.label}
+                  sublabel={stat.sublabel}
+                />
               ))}
             </div>
           </motion.div>
 
-          <motion.div
-            custom={5} variants={fadeUp} initial="hidden" animate="visible"
+          <motion.div custom={5}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
           >
             <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', marginBottom: 'var(--space-12)', flexWrap: 'wrap' }}>
-              <button
-                onClick={() => scrollToSection('projects')}
-                className="btn btn--primary"
-              >
-                View Work
-              </button>
-              <button
-                onClick={handleDownloadCV}
-                className="btn btn--ghost"
-              >
-                Download CV
-              </button>
+              <MagneticWrap>
+                <button onClick={() => scrollToSection('projects')} className="btn btn--primary">
+                  View Work
+                </button>
+              </MagneticWrap>
+              <MagneticWrap>
+                <button onClick={handleDownloadCV} className="btn btn--ghost">
+                  Download CV
+                </button>
+              </MagneticWrap>
             </div>
           </motion.div>
 
-          <motion.div
-            custom={6} variants={fadeUp} initial="hidden" animate="visible"
+          <motion.div custom={6}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
           >
             <div style={{ display: 'flex', gap: 'var(--space-6)', justifyContent: 'center', alignItems: 'center' }}>
               {socialLinks.map((link) => (
@@ -225,13 +526,7 @@ export const Header = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    color: 'var(--text-secondary)',
-                    transition: 'all 0.3s ease',
-                    padding: 'var(--space-2)',
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
+                  className="social-link"
                   aria-label={link.name}
                 >
                   {link.icon}
@@ -243,6 +538,10 @@ export const Header = () => {
       </div>
 
       <style jsx>{`
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
         .hero-container {
           padding: 80px 24px;
         }
@@ -252,8 +551,13 @@ export const Header = () => {
         .hero-subtitle {
           font-size: var(--text-2xl);
         }
-        .hero-description {
-          font-size: var(--text-lg);
+        .social-link {
+          color: var(--text-secondary);
+          transition: all 0.3s ease;
+          padding: var(--space-2);
+        }
+        .social-link:hover {
+          color: var(--accent);
         }
         .stats-grid {
           display: grid;
@@ -264,7 +568,7 @@ export const Header = () => {
 
         @media (max-width: 768px) {
           .hero-container {
-            padding: 60px 16px 100px 16px; /* Added bottom padding */
+            padding: 60px 16px 100px 16px;
           }
           .hero-title {
             font-size: var(--text-4xl);
@@ -272,20 +576,14 @@ export const Header = () => {
           .hero-subtitle {
             font-size: var(--text-xl);
           }
-          .hero-description {
-            font-size: var(--text-base);
-          }
-          /* FORCE 2 COLUMNS */
           .stats-grid {
             grid-template-columns: repeat(2, 1fr) !important;
             gap: var(--space-3);
           }
-          /* Ensure cards fit in 2 columns */
           .stats-grid :global(.glass-card) {
             padding: var(--space-4) var(--space-1) !important;
-            min-width: 0; /* Prevent overflow */
+            min-width: 0;
           }
-          /* Buttons stack on very small screens */
           .hero-container :global(.btn) {
             width: 100%;
             justify-content: center;

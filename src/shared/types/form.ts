@@ -1,11 +1,11 @@
-import {
+import type {
   DefaultValues,
   FieldErrors,
   FieldValues,
   UseFormHandleSubmit,
   UseFormProps,
 } from 'react-hook-form';
-import * as Yup from 'yup';
+import type * as Yup from 'yup';
 
 export enum FieldTypes {
   Text = 'text',

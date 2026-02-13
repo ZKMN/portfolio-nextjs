@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button as MuiButton, ButtonProps as MuiButtonProps, useTheme } from '@mui/material';
+import type { ButtonProps as MuiButtonProps} from '@mui/material';
+import { Button as MuiButton, useTheme } from '@mui/material';
 
 interface ButtonProps extends Omit<MuiButtonProps, 'variant' | 'size'> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
@@ -19,14 +20,13 @@ const sizeMap: Record<string, MuiButtonProps['size']> = {
   lg: 'large',
 };
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = 'primary', size = 'md', sx, ...props }, ref) => {
-    const theme = useTheme();
-    const isDark = theme.palette.mode === 'dark';
-    const muiVariant = variantMap[variant] || 'contained';
-    const muiSize = sizeMap[size] || 'medium';
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ variant = 'primary', size = 'md', sx, ...props }, ref) => {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
+  const muiVariant = variantMap[variant] || 'contained';
+  const muiSize = sizeMap[size] || 'medium';
 
-    return (
+  return (
       <MuiButton
         ref={ref}
         variant={muiVariant}
@@ -79,9 +79,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         }}
         {...props}
       />
-    );
-  }
-);
+  );
+});
 
 Button.displayName = 'Button';
-

@@ -20,8 +20,7 @@ export const Title = ({
   color = 'primary',
   variant = 'h4',
   className,
-}: TitleProps) => {
-  return (
+}: TitleProps) => (
     <Typography
       variant={variantMap[variant]}
       color={color === 'primary' ? 'text.primary' : 'text.secondary'}
@@ -49,5 +48,4 @@ export const Title = ({
     >
       {title}
     </Typography>
-  );
-};
+);

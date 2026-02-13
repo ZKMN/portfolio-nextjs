@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface SkillCardProps {
   src: string;
@@ -10,13 +10,14 @@ interface SkillCardProps {
   index: number;
 }
 
-export const SkillCard: React.FC<SkillCardProps> = ({ src, title, index }) => {
-  return (
+export const SkillCard: React.FC<SkillCardProps> = ({ src, title, index }) => (
     <motion.div
       variants={{
         hidden: { opacity: 0, y: 15, scale: 0.95 },
         visible: {
-          opacity: 1, y: 0, scale: 1,
+          opacity: 1,
+          y: 0,
+          scale: 1,
           transition: { duration: 0.4, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] },
         },
       }}
@@ -40,7 +41,8 @@ export const SkillCard: React.FC<SkillCardProps> = ({ src, title, index }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-      }}>
+      }}
+      >
         <Image
           src={`/images/icons/${src}`}
           alt={title}
@@ -55,9 +57,9 @@ export const SkillCard: React.FC<SkillCardProps> = ({ src, title, index }) => {
         color: 'var(--text-secondary)',
         textAlign: 'center',
         lineHeight: 1.3,
-      }}>
+      }}
+      >
         {title}
       </span>
     </motion.div>
-  );
-};
+);

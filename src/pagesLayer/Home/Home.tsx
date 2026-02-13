@@ -1,12 +1,12 @@
 'use client';
 
-import { Header } from '@/widgets/Header';
 import { AboutMe } from '@/widgets/AboutMe';
-import { Skills } from '@/widgets/Skills';
-import { FeaturedProjects } from '@/widgets/FeaturedProjects';
 import { CareerTimeline } from '@/widgets/CareerTimeline';
-import { Other } from '@/widgets/Other';
+import { FeaturedProjects } from '@/widgets/FeaturedProjects';
 import { Footer } from '@/widgets/Footer';
+import { Header } from '@/widgets/Header';
+import { Other } from '@/widgets/Other';
+import { Skills } from '@/widgets/Skills';
 
 export const Home = () => (
   <>

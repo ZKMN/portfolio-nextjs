@@ -2,6 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+
+import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
+
 import { EXPERIENCE } from '../Expirience/consts/experience';
 
 const fadeUp = {
@@ -9,12 +12,15 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
 };
 
-export const CareerTimeline = () => {
-  return (
+export const CareerTimeline = () => (
     <section id="career" className="section" style={{ background: 'var(--bg-primary)', position: 'relative' }}>
       <div className="container">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="section-title">Career Timeline</h2>
+        <motion.div variants={fadeUp}
+initial="hidden"
+whileInView="visible"
+viewport={{ once: true }}
+        >
+          <ScrambleTitle text="Career Timeline" />
         </motion.div>
 
         <div style={{ position: 'relative', marginTop: 'var(--space-12)' }}>
@@ -28,7 +34,9 @@ export const CareerTimeline = () => {
             background: 'linear-gradient(to bottom, var(--accent), var(--accent-2), transparent)',
             opacity: 0.4,
             display: 'none',
-          }} className="timeline-line" />
+          }}
+className="timeline-line"
+          />
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
             {EXPERIENCE.map((exp, index) => (
@@ -54,7 +62,9 @@ export const CareerTimeline = () => {
                   boxShadow: 'var(--shadow-glow)',
                   display: 'none',
                   zIndex: 2,
-                }} className="timeline-dot" />
+                }}
+className="timeline-dot"
+                />
 
                 <div className="glass-card" style={{ padding: 'var(--space-6) var(--space-8)' }}>
                   {/* Header */}
@@ -68,7 +78,8 @@ export const CareerTimeline = () => {
                     marginBottom: 'var(--space-4)',
                     borderBottom: '1px solid var(--border)',
                     paddingBottom: 'var(--space-4)',
-                  }}>
+                  }}
+                  >
                     <div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', marginBottom: 'var(--space-1)' }}>
                         <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.2 }}>
@@ -82,7 +93,13 @@ export const CareerTimeline = () => {
                             style={{ color: 'var(--accent-light)', display: 'flex', alignItems: 'center', padding: 'var(--space-1)' }}
                             title="Visit Company"
                           >
-                            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <svg width="18"
+height="18"
+fill="none"
+stroke="currentColor"
+strokeWidth="2"
+viewBox="0 0 24 24"
+                            >
                               <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
                             </svg>
                           </a>
@@ -96,7 +113,13 @@ export const CareerTimeline = () => {
                       )}
 
                       <span style={{ fontSize: 'var(--text-sm)', color: 'var(--text-tertiary)', display: 'flex', alignItems: 'center', gap: 'var(--space-1)' }}>
-                        <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <svg width="14"
+height="14"
+fill="none"
+stroke="currentColor"
+strokeWidth="2"
+viewBox="0 0 24 24"
+                        ><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                         {exp.time}
                       </span>
                     </div>
@@ -112,7 +135,8 @@ export const CareerTimeline = () => {
                         textTransform: 'uppercase',
                         letterSpacing: '0.08em',
                         marginBottom: 'var(--space-2)',
-                      }}>
+                      }}
+                      >
                         Stack
                       </h4>
                       <div className="tech-stack-scroll" style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)', paddingBottom: 'var(--space-2)' }}>
@@ -133,7 +157,8 @@ export const CareerTimeline = () => {
                         textTransform: 'uppercase',
                         letterSpacing: '0.08em',
                         marginBottom: 'var(--space-2)',
-                      }}>
+                      }}
+                      >
                         Responsibilities
                       </h4>
                       <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
@@ -155,7 +180,8 @@ export const CareerTimeline = () => {
                         display: 'flex',
                         alignItems: 'center',
                         gap: 'var(--space-2)',
-                      }}>
+                      }}
+                      >
                         <span style={{ fontSize: '14px' }}>🛡</span>
                         Security Focus
                       </h4>
@@ -180,7 +206,8 @@ export const CareerTimeline = () => {
                         textTransform: 'uppercase',
                         letterSpacing: '0.08em',
                         marginBottom: 'var(--space-2)',
-                      }}>
+                      }}
+                      >
                         Achievements
                       </h4>
                       <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
@@ -199,7 +226,8 @@ export const CareerTimeline = () => {
                         textTransform: 'uppercase',
                         letterSpacing: '0.08em',
                         marginBottom: 'var(--space-3)',
-                      }}>
+                      }}
+                      >
                         Projects
                       </h4>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
@@ -225,7 +253,15 @@ export const CareerTimeline = () => {
                                   rel="noopener noreferrer"
                                   style={{ color: 'var(--accent-light)', fontSize: 'var(--text-sm)', display: 'flex', alignItems: 'center' }}
                                 >
-                                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                  <svg width="12"
+height="12"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+strokeWidth="2"
+strokeLinecap="round"
+strokeLinejoin="round"
+                                  >
                                     <path d="M7 17l9.2-9.2M17 17V7H7" />
                                   </svg>
                                 </a>
@@ -268,5 +304,4 @@ export const CareerTimeline = () => {
         }
       `}</style>
     </section>
-  );
-};
+);

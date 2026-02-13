@@ -1,5 +1,7 @@
 import React from 'react';
-import { Box, BoxProps } from '@mui/material';
+import type { BoxProps } from '@mui/material';
+import { Box } from '@mui/material';
+
 import { Container } from '../Container';
 
 interface SectionProps extends Omit<BoxProps, 'component'> {
@@ -9,14 +11,13 @@ interface SectionProps extends Omit<BoxProps, 'component'> {
   fullWidth?: boolean;
 }
 
-export const Section: React.FC<SectionProps> = ({ 
-  children, 
+export const Section: React.FC<SectionProps> = ({
+  children,
   id,
   fullWidth = false,
   sx,
   ...props
-}) => {
-  return (
+}) => (
     <Box
       component="section"
       id={id}
@@ -34,6 +35,4 @@ export const Section: React.FC<SectionProps> = ({
         </Container>
       )}
     </Box>
-  );
-};
-
+);

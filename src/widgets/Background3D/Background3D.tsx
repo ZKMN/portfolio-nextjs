@@ -9,7 +9,7 @@ const Background3DClient = dynamic(
   {
     ssr: false,
     loading: () => null,
-  }
+  },
 );
 
 export const Background3D = () => {

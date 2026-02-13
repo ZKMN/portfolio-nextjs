@@ -1,4 +1,5 @@
-import { FieldTypes, IFieldProps } from '@/shared/types';
+import type { IFieldProps } from '@/shared/types';
+import { FieldTypes } from '@/shared/types';
 
 import {
   FormInput,

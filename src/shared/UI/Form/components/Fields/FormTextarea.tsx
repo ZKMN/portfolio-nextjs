@@ -1,7 +1,7 @@
 import { useFormContext } from 'react-hook-form';
 import { FormControl, TextField } from '@mui/material';
 
-import { IFieldProps } from '@/shared/types';
+import type { IFieldProps } from '@/shared/types';
 
 import { FieldError } from '../FieldError';
 
@@ -14,7 +14,7 @@ export const FormTextarea = ({
 
   const { ref, onBlur, onChange } = register(name, { required });
 
-  const error = !!errors[name];
+  const error = Boolean(errors[name]);
 
   return (
     <FormControl

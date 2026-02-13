@@ -1,5 +1,5 @@
-import { PaletteMode, ThemeOptions } from '@mui/material/styles';
 import { circularProgressClasses } from '@mui/material';
+import type { PaletteMode, ThemeOptions } from '@mui/material/styles';
 
 export const getComponentCustomizations = (mode: PaletteMode): ThemeOptions['components'] => ({
   MuiButton: {
@@ -42,8 +42,8 @@ export const getComponentCustomizations = (mode: PaletteMode): ThemeOptions['com
     styleOverrides: {
       root: {
         borderRadius: '12px',
-        boxShadow: mode === 'dark' 
-          ? '0 2px 8px rgba(0, 0, 0, 0.3)' 
+        boxShadow: mode === 'dark'
+          ? '0 2px 8px rgba(0, 0, 0, 0.3)'
           : '0 1px 3px rgba(0, 0, 0, 0.1)',
         transition: 'all 0.25s ease-in-out',
         '&:hover': {
@@ -77,5 +77,3 @@ export const getComponentCustomizations = (mode: PaletteMode): ThemeOptions['com
     },
   },
 });
-
-

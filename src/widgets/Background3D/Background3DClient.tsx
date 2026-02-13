@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Box } from '@mui/material';
 
 export const Background3DClient = () => {
@@ -53,7 +53,11 @@ export const Background3DClient = () => {
     });
 
     return (
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false}>
+      <Points ref={ref}
+positions={sphere}
+stride={3}
+frustumCulled={false}
+      >
         <PointMaterial
           transparent
           color="#0070F3"
@@ -81,4 +85,3 @@ export const Background3DClient = () => {
     </Box>
   );
 };
-

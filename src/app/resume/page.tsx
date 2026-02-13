@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+
 import { EXPERIENCE } from '@/widgets/Expirience/consts/experience';
 
 const RESUME_SKILLS = [
@@ -32,14 +33,16 @@ export default function ResumePage(): React.ReactElement {
   };
 
   return (
-    <div className="resume-page" style={{
-      background: 'var(--bg-primary)',
-      minHeight: '100vh',
-      color: 'var(--text-primary)',
-      padding: '40px',
-      maxWidth: '210mm',
-      margin: '0 auto',
-    }}>
+    <div className="resume-page"
+      style={{
+        background: 'var(--bg-primary)',
+        minHeight: '100vh',
+        color: 'var(--text-primary)',
+        padding: '40px',
+        maxWidth: '210mm',
+        margin: '0 auto',
+      }}
+    >
       {/* Print Control */}
       <div className="no-print" style={{ position: 'fixed', top: '20px', right: '20px', zIndex: 1000 }}>
         <button onClick={handlePrint} className="btn btn--primary" style={{ padding: '12px 24px', boxShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>

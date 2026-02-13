@@ -2,21 +2,48 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+
+import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
+
 import { OTHER } from './consts';
 
 const icons: Record<string, React.ReactNode> = {
   Education: (
-    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="24"
+height="24"
+fill="none"
+stroke="currentColor"
+strokeWidth="2"
+viewBox="0 0 24 24"
+strokeLinecap="round"
+strokeLinejoin="round"
+    >
       <path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5" />
     </svg>
   ),
   English: (
-    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="24"
+height="24"
+fill="none"
+stroke="currentColor"
+strokeWidth="2"
+viewBox="0 0 24 24"
+strokeLinecap="round"
+strokeLinejoin="round"
+    >
       <circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
     </svg>
   ),
   'Design Paterns': (
-    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="24"
+height="24"
+fill="none"
+stroke="currentColor"
+strokeWidth="2"
+viewBox="0 0 24 24"
+strokeLinecap="round"
+strokeLinejoin="round"
+    >
       <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
     </svg>
   ),
@@ -31,7 +58,7 @@ export const Other = () => (
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-title">Other Information</h2>
+        <ScrambleTitle text="Other Information" />
       </motion.div>
 
       <div style={{
@@ -39,7 +66,8 @@ export const Other = () => (
         gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
         gap: 'var(--space-6)',
         marginTop: 'var(--space-10)',
-      }}>
+      }}
+      >
         {OTHER.map(({ title, description }, index) => (
           <motion.div
             key={title}
@@ -60,7 +88,8 @@ export const Other = () => (
               borderRadius: 'var(--radius-lg)',
               marginBottom: 'var(--space-4)',
               color: 'var(--accent-light)',
-            }}>
+            }}
+            >
               {icons[title] || icons['Education']}
             </div>
             <h3 style={{ fontSize: 'var(--text-lg)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 'var(--space-2)' }}>

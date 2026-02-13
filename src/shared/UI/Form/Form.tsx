@@ -1,15 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import type {FieldValues,
+  Resolver} from 'react-hook-form';
 import {
-  FieldValues,
   FormProvider,
-  Resolver,
   useForm,
 } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Grid } from '@mui/material';
 
-import { IFormProps } from '@/shared/types';
+import type { IFormProps } from '@/shared/types';
 
 import { FieldByType } from './components';
 

@@ -5,6 +5,8 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
 
 import { NavFloat } from '@/widgets/NavFloat';
 
+import { CursorGlow } from '@/shared/components/CursorGlow';
+
 import './globals.css';
 
 const inter = Inter({
@@ -34,8 +36,8 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'Denis Klymenko',
-      url: 'https://www.linkedin.com/in/denis-klymenko/'
-    }
+      url: 'https://www.linkedin.com/in/denis-klymenko/',
+    },
   ],
   creator: 'Denis Klymenko',
   openGraph: {
@@ -143,6 +145,7 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
+        <CursorGlow />
         <NavFloat links={NAV_LINKS} />
 
         {children}

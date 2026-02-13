@@ -25,7 +25,13 @@ const MOBILE_NAV_ITEMS: MobileNavItem[] = [
     label: 'About',
     href: '/#about-me',
     icon: (
-      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+      <svg width="20"
+height="20"
+fill="none"
+stroke="currentColor"
+strokeWidth="1.8"
+viewBox="0 0 24 24"
+      >
         <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" />
       </svg>
     ),
@@ -34,7 +40,13 @@ const MOBILE_NAV_ITEMS: MobileNavItem[] = [
     label: 'Projects',
     href: '/#projects',
     icon: (
-      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+      <svg width="20"
+height="20"
+fill="none"
+stroke="currentColor"
+strokeWidth="1.8"
+viewBox="0 0 24 24"
+      >
         <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
       </svg>
     ),
@@ -43,10 +55,24 @@ const MOBILE_NAV_ITEMS: MobileNavItem[] = [
     label: 'AI Agent',
     href: '/projects/ai-agent',
     icon: (
-      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+      <svg width="20"
+height="20"
+fill="none"
+stroke="currentColor"
+strokeWidth="1.8"
+viewBox="0 0 24 24"
+      >
         <path d="M12 2a4 4 0 014 4v1h2a2 2 0 012 2v9a2 2 0 01-2 2H6a2 2 0 01-2-2V9a2 2 0 012-2h2V6a4 4 0 014-4z" />
-        <circle cx="9" cy="13" r="1.5" fill="currentColor" />
-        <circle cx="15" cy="13" r="1.5" fill="currentColor" />
+        <circle cx="9"
+cy="13"
+r="1.5"
+fill="currentColor"
+        />
+        <circle cx="15"
+cy="13"
+r="1.5"
+fill="currentColor"
+        />
       </svg>
     ),
   },
@@ -54,7 +80,13 @@ const MOBILE_NAV_ITEMS: MobileNavItem[] = [
     label: 'Career',
     href: '/#career',
     icon: (
-      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+      <svg width="20"
+height="20"
+fill="none"
+stroke="currentColor"
+strokeWidth="1.8"
+viewBox="0 0 24 24"
+      >
         <path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
       </svg>
     ),
@@ -63,7 +95,13 @@ const MOBILE_NAV_ITEMS: MobileNavItem[] = [
     label: 'Contact',
     href: '/#contact',
     icon: (
-      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+      <svg width="20"
+height="20"
+fill="none"
+stroke="currentColor"
+strokeWidth="1.8"
+viewBox="0 0 24 24"
+      >
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
         <path d="M22 6l-10 7L2 6" />
       </svg>

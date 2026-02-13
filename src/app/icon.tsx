@@ -3,9 +3,8 @@ import { ImageResponse } from 'next/og';
 export const size = { width: 32, height: 32 };
 export const contentType = 'image/png';
 
-const Icon = (): ImageResponse => {
-  return new ImageResponse(
-    (
+const Icon = (): ImageResponse => new ImageResponse(
+  (
       <div
         style={{
           width: 32,
@@ -28,9 +27,8 @@ const Icon = (): ImageResponse => {
           DK
         </span>
       </div>
-    ),
-    { ...size }
-  );
-};
+  ),
+  { ...size },
+);
 
 export default Icon;

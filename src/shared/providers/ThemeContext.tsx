@@ -1,9 +1,10 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
-import { PaletteMode } from '@mui/material/styles';
-import { ThemeProvider } from '@mui/material/styles';
+import React, { createContext, useContext, useEffect, useMemo,useState } from 'react';
 import { CssBaseline } from '@mui/material';
+import type { PaletteMode } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
+
 import { themes } from '@/shared/theme';
 
 type ThemeMode = PaletteMode;
@@ -80,7 +81,7 @@ export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
       toggleTheme,
       setTheme,
     }),
-    [currentMode, toggleTheme, setTheme]
+    [currentMode, toggleTheme, setTheme],
   );
 
   return (
@@ -92,4 +93,3 @@ export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
     </ThemeContext.Provider>
   );
 };
-

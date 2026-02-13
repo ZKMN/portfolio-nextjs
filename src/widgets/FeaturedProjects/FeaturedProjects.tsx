@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
+
+import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
 
 const featuredProjects = [
   {
@@ -57,171 +58,194 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
 };
 
-export const FeaturedProjects = () => {
-  return (
-    <section id="projects" className="section" style={{ background: 'var(--bg-secondary)' }}>
-      <div className="container">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="section-title">Featured Projects</h2>
-          <p className="section-subtitle">
-            Brain-first AI Agents, Agentic Workflows, and scalable multi-domain SaaS architectures.
-          </p>
-        </motion.div>
+export const FeaturedProjects = () => (
+  <section id="projects" className="section" style={{ background: 'var(--bg-secondary)' }}>
+    <div className="container">
+      <motion.div variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <ScrambleTitle text="Featured Projects" />
+        <p className="section-subtitle">
+          Brain-first AI Agents, Agentic Workflows, and scalable multi-domain SaaS architectures.
+        </p>
+      </motion.div>
 
-        <div className="projects-grid">
-          {featuredProjects.map((project, index) => (
-            <motion.div
-              key={project.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+      <div className="projects-grid">
+        {featuredProjects.map((project, index) => (
+          <motion.div
+            key={project.name}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div
+              className="glass-card project-card"
+              style={{
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                overflow: 'hidden',
+              }}
             >
-              <div
-                className="glass-card project-card"
-                style={{
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                {/* Accent line at top */}
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: '3px',
-                  background: 'var(--gradient-accent)',
-                  borderRadius: 'var(--radius-xl) var(--radius-xl) 0 0',
-                }} />
+              {/* Accent line at top */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: '3px',
+                background: 'var(--gradient-accent)',
+                borderRadius: 'var(--radius-xl) var(--radius-xl) 0 0',
+              }}
+              />
 
-                {/* Header */}
-                <div style={{ marginBottom: 'var(--space-6)' }}>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 'var(--space-3)' }}>
-                    <h3 className="project-title" style={{ fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
-                      {project.name}
-                    </h3>
-                    {project.link && (
-                      <a href={project.link} target="_blank" rel="noopener noreferrer"
-                        style={{ color: 'var(--accent-light)', display: 'flex', alignItems: 'center', flexShrink: 0, marginLeft: 'var(--space-2)' }}>
-                        <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                          <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                        </svg>
-                      </a>
-                    )}
-                  </div>
-                  <div style={{ display: 'flex', gap: 'var(--space-2)', marginBottom: 'var(--space-3)', flexWrap: 'wrap' }}>
-                    <span className="badge badge--accent">{project.role}</span>
-                    <span className="badge badge--ghost">{project.period}</span>
-                  </div>
-                  <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-                    {project.description}
-                  </p>
+              {/* Header */}
+              <div style={{ marginBottom: 'var(--space-6)' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 'var(--space-3)' }}>
+                  <h3 className="project-title" style={{ fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
+                    {project.name}
+                  </h3>
+                  {project.link && (
+                    <a href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: 'var(--accent-light)', display: 'flex', alignItems: 'center', flexShrink: 0, marginLeft: 'var(--space-2)' }}
+                    >
+                      <svg width="18"
+                        height="18"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                      </svg>
+                    </a>
+                  )}
                 </div>
+                <div style={{ display: 'flex', gap: 'var(--space-2)', marginBottom: 'var(--space-3)', flexWrap: 'wrap' }}>
+                  <span className="badge badge--accent">{project.role}</span>
+                  <span className="badge badge--ghost">{project.period}</span>
+                </div>
+                <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+                  {project.description}
+                </p>
+              </div>
 
-                {/* Contributions */}
-                <div style={{ marginBottom: 'var(--space-6)', flex: 1 }}>
+              {/* Contributions */}
+              <div style={{ marginBottom: 'var(--space-6)', flex: 1 }}>
+                <h4 style={{
+                  fontSize: 'var(--text-xs)',
+                  fontWeight: 700,
+                  color: 'var(--text-tertiary)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  marginBottom: 'var(--space-3)',
+                }}
+                >
+                  My Contributions
+                </h4>
+                <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+                  {project.myContributions.map((c, i) => (
+                    <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-2)' }}>
+                      <span style={{ color: 'var(--accent-light)', lineHeight: 1.7, flexShrink: 0 }}>•</span>
+                      <span style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>{c}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Client Results */}
+              {project.clientResults.length > 0 && (
+                <div style={{
+                  marginBottom: 'var(--space-6)',
+                  padding: 'var(--space-4)',
+                  background: 'var(--success-subtle)',
+                  borderRadius: 'var(--radius-lg)',
+                  border: '1px solid rgba(34, 197, 94, 0.2)',
+                }}
+                >
                   <h4 style={{
                     fontSize: 'var(--text-xs)',
                     fontWeight: 700,
-                    color: 'var(--text-tertiary)',
+                    color: 'var(--success)',
                     textTransform: 'uppercase',
                     letterSpacing: '0.08em',
-                    marginBottom: 'var(--space-3)',
-                  }}>
-                    My Contributions
+                    marginBottom: 'var(--space-2)',
+                  }}
+                  >
+                    Client Results
                   </h4>
-                  <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-                    {project.myContributions.map((c, i) => (
-                      <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-2)' }}>
-                        <span style={{ color: 'var(--accent-light)', lineHeight: 1.7, flexShrink: 0 }}>•</span>
-                        <span style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>{c}</span>
+                  <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-1)' }}>
+                    {project.clientResults.map((r, i) => (
+                      <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+                        <span style={{ color: 'var(--success)', fontWeight: 700 }}>✓</span>
+                        <span style={{ fontSize: 'var(--text-sm)', color: 'var(--success)', fontWeight: 500 }}>{r}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
+              )}
 
-                {/* Client Results */}
-                {project.clientResults.length > 0 && (
-                  <div style={{
-                    marginBottom: 'var(--space-6)',
-                    padding: 'var(--space-4)',
-                    background: 'var(--success-subtle)',
-                    borderRadius: 'var(--radius-lg)',
-                    border: '1px solid rgba(34, 197, 94, 0.2)',
-                  }}>
-                    <h4 style={{
-                      fontSize: 'var(--text-xs)',
-                      fontWeight: 700,
-                      color: 'var(--success)',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      marginBottom: 'var(--space-2)',
-                    }}>
-                      Client Results
-                    </h4>
-                    <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-1)' }}>
-                      {project.clientResults.map((r, i) => (
-                        <li key={i} style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-                          <span style={{ color: 'var(--success)', fontWeight: 700 }}>✓</span>
-                          <span style={{ fontSize: 'var(--text-sm)', color: 'var(--success)', fontWeight: 500 }}>{r}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* Tech Stack */}
-                <div>
-                  <h4 style={{
-                    fontSize: 'var(--text-xs)',
-                    fontWeight: 700,
-                    color: 'var(--text-tertiary)',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.08em',
-                    marginBottom: 'var(--space-3)',
-                  }}>
-                    Technologies
-                  </h4>
-                  <div className="tech-stack-scroll" style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)', paddingBottom: 'var(--space-2)' }}>
-                    {project.tech.map((t) => (
-                      <span key={t} className="badge badge--ghost" style={{ whiteSpace: 'nowrap' }}>{t}</span>
-                    ))}
-                  </div>
+              {/* Tech Stack */}
+              <div>
+                <h4 style={{
+                  fontSize: 'var(--text-xs)',
+                  fontWeight: 700,
+                  color: 'var(--text-tertiary)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  marginBottom: 'var(--space-3)',
+                }}
+                >
+                  Technologies
+                </h4>
+                <div className="tech-stack-scroll" style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)', paddingBottom: 'var(--space-2)' }}>
+                  {project.tech.map((t) => (
+                    <span key={t} className="badge badge--ghost" style={{ whiteSpace: 'nowrap' }}>{t}</span>
+                  ))}
                 </div>
-
-                {/* Case Study Link */}
-                {project.caseStudy && (
-                  <div style={{ marginTop: 'var(--space-6)', paddingTop: 'var(--space-4)', borderTop: '1px solid var(--border)' }}>
-                    <a
-                      href={project.caseStudy}
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: 'var(--space-2)',
-                        fontSize: 'var(--text-sm)',
-                        fontWeight: 600,
-                        color: 'var(--accent-light)',
-                        textDecoration: 'none',
-                        transition: 'all var(--duration-normal) var(--ease-out)',
-                      }}
-                    >
-                      Read Case Study
-                      <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                      </svg>
-                    </a>
-                  </div>
-                )}
               </div>
-            </motion.div>
-          ))}
-        </div>
 
-        <style jsx>{`
+              {/* Case Study Link */}
+              {project.caseStudy && (
+                <div style={{ marginTop: 'var(--space-6)', paddingTop: 'var(--space-4)', borderTop: '1px solid var(--border)' }}>
+                  <a
+                    href={project.caseStudy}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 'var(--space-2)',
+                      fontSize: 'var(--text-sm)',
+                      fontWeight: 600,
+                      color: 'var(--accent-light)',
+                      textDecoration: 'none',
+                      transition: 'all var(--duration-normal) var(--ease-out)',
+                    }}
+                  >
+                    Read Case Study
+                    <svg width="16"
+                      height="16"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      <style jsx>{`
           .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
@@ -255,7 +279,6 @@ export const FeaturedProjects = () => {
             }
           }
         `}</style>
-      </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
