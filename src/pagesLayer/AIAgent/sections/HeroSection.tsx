@@ -1,37 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 import { HeroShell } from '@/shared/components/HeroShell';
+import { useCountUp } from '@/shared/hooks/useCountUp';
 
 import { HERO_STATS } from '../constants';
 import type { HeroStat } from '../types';
 
 const EASE = [0.16, 1, 0.3, 1];
-
-const useCountUp = ({ target, isInView }: { target: number; isInView: boolean }): number => {
-  const [count, setCount] = useState(0);
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    if (!isInView || hasAnimated.current) return;
-    hasAnimated.current = true;
-
-    const duration = 1500;
-    const steps = 40;
-    const increment = target / steps;
-    let step = 0;
-
-    const interval = setInterval(() => {
-      step++;
-      setCount(Math.min(Math.round(increment * step), target));
-      if (step >= steps) clearInterval(interval);
-    }, duration / steps);
-
-    return () => clearInterval(interval);
-  }, [isInView, target]);
-
-  return count;
-};
 
 const CountUpStat = ({ stat }: { stat: HeroStat }): React.ReactElement => {
   const ref = useRef<HTMLDivElement>(null);

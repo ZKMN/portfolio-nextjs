@@ -525,6 +525,23 @@ ol {
   border: 0;
 }
 
+.sr-only:focus {
+  width: auto;
+  height: auto;
+  padding: var(--space-3) var(--space-6);
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  background: var(--bg-primary);
+  color: var(--accent-light);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  top: var(--space-4);
+  left: var(--space-4);
+}
+
 /* --- Print Styles --- */
 @media print {
   @page {

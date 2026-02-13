@@ -87,7 +87,7 @@ const NAV_LINKS = [
   { label: 'Projects', href: '/#projects' },
   { label: 'AI Agent', href: '/projects/ai-agent' },
   { label: 'Career', href: '/#career' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 const RootLayout = ({ children }: React.PropsWithChildren) => {
@@ -146,10 +146,13 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
+        <a href="#main-content" className="sr-only" style={{ position: 'absolute', zIndex: 9999 }}>
+          Skip to content
+        </a>
         <CursorGlow />
         <NavFloat links={NAV_LINKS} />
 
-        <main>
+        <main id="main-content">
           {children}
         </main>
 
