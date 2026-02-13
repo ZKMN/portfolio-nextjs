@@ -15,10 +15,10 @@ export const FADE_UP = {
 };
 
 export const HERO_STATS: HeroStat[] = [
-  { value: '21', label: 'Orchestrated Tools', sublabel: 'booking, cart, knowledge, support' },
-  { value: '5', label: 'Countries', sublabel: '18 studios, 6 languages' },
-  { value: '4', label: 'Channels', sublabel: 'Web, Telegram, Instagram, FB' },
-  { value: '~0', label: 'Hallucinations', sublabel: 'brain-first control flow' },
+  { value: '21', numericValue: 21, label: 'Orchestrated Tools', sublabel: 'booking, cart, knowledge, support' },
+  { value: '5', numericValue: 5, label: 'Countries', sublabel: '18 studios, 6 languages' },
+  { value: '4', numericValue: 4, label: 'Channels', sublabel: 'Web, Telegram, Instagram, FB' },
+  { value: '~0', prefix: '~', label: 'Hallucinations', sublabel: 'brain-first control flow' },
 ];
 
 export const PROBLEM_POINTS: ProblemPoint[] = [

@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
+
 import { ARCHITECTURE_STEPS, FADE_UP } from '../constants';
 
 export const ArchitectureSection = (): React.ReactElement => (
@@ -12,7 +14,7 @@ export const ArchitectureSection = (): React.ReactElement => (
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <h2 className="section-title">The Solution: Brain-First Architecture</h2>
+        <ScrambleTitle text="The Solution: Brain-First Architecture" />
         <p className="section-subtitle">
           A single fine-tuned LLM reads a comprehensive system prompt and decides which tools to call —
           no hardcoded state machines, no rigid flows.
@@ -25,26 +27,31 @@ export const ArchitectureSection = (): React.ReactElement => (
           {ARCHITECTURE_STEPS.map((item, index) => (
             <motion.div
               key={item.step}
+              className="architecture-step"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
               style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-4)' }}
             >
-              <div style={{
-                flexShrink: 0,
-                width: '48px',
-                height: '48px',
-                borderRadius: 'var(--radius-lg)',
-                background: 'var(--gradient-accent)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 700,
-                fontSize: 'var(--text-sm)',
-                color: 'white',
-                boxShadow: 'var(--shadow-glow)',
-              }}
+              <div
+                className="architecture-step-number"
+                style={{
+                  flexShrink: 0,
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: 'var(--radius-lg)',
+                  background: 'var(--gradient-accent)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: 700,
+                  fontSize: 'var(--text-sm)',
+                  color: 'white',
+                  boxShadow: 'var(--shadow-glow)',
+                  position: 'relative',
+                  zIndex: 1,
+                }}
               >
                 {item.step}
               </div>

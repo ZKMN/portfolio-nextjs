@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
+
 import { FADE_UP, HALLUCINATION_GUARDS } from '../constants';
 
 const GUARD_ICONS: Record<string, React.ReactNode> = {
@@ -81,7 +83,7 @@ export const HallucinationSection = (): React.ReactElement => (
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <h2 className="section-title">Near-Zero Hallucination Strategy</h2>
+        <ScrambleTitle text="Near-Zero Hallucination Strategy" />
         <p className="section-subtitle">
           Six layers of protection ensure the agent never fabricates information.
         </p>
@@ -92,9 +94,9 @@ export const HallucinationSection = (): React.ReactElement => (
           <motion.div
             key={guard.title}
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] } }}
+            whileHover={{ y: -4, scale: 1.02, transition: { type: 'spring', stiffness: 400, damping: 25 } }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="glass-card glass-card--glow" style={{ padding: 'var(--space-6)', height: '100%' }}>
               <div style={{

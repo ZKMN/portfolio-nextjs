@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
+
 import { FADE_UP, KEY_DECISIONS } from '../constants';
 
 export const DecisionsSection = (): React.ReactElement => (
@@ -12,7 +14,7 @@ export const DecisionsSection = (): React.ReactElement => (
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <h2 className="section-title">Key Architectural Decisions</h2>
+        <ScrambleTitle text="Key Architectural Decisions" />
         <p className="section-subtitle">
           The reasoning behind critical design choices.
         </p>

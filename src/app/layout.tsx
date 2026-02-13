@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 
+import { Footer } from '@/widgets/Footer';
 import { NavFloat } from '@/widgets/NavFloat';
 
 import { CursorGlow } from '@/shared/components/CursorGlow';
@@ -148,8 +149,11 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
         <CursorGlow />
         <NavFloat links={NAV_LINKS} />
 
-        {children}
+        <main>
+          {children}
+        </main>
 
+        <Footer />
         <Analytics />
 
         <script

@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
+
 import { FADE_UP, PROBLEM_POINTS } from '../constants';
 
 export const ProblemSection = (): React.ReactElement => (
@@ -12,7 +14,7 @@ export const ProblemSection = (): React.ReactElement => (
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <h2 className="section-title">The Problem</h2>
+        <ScrambleTitle text="The Problem" />
         <p className="section-subtitle">
           Why standard chatbots and RAG pipelines fail for complex business workflows.
         </p>
@@ -23,9 +25,9 @@ export const ProblemSection = (): React.ReactElement => (
           <motion.div
             key={point.title}
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] } }}
+            whileHover={{ y: -4, scale: 1.02, transition: { type: 'spring', stiffness: 400, damping: 25 } }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
             <div
               className="glass-card"

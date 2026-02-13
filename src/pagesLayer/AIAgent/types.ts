@@ -1,5 +1,8 @@
 export type HeroStat = {
   value: string;
+  numericValue?: number;
+  prefix?: string;
+  suffix?: string;
   label: string;
   sublabel: string;
 };

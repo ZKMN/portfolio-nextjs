@@ -2,6 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
+import { MagneticWrap } from '@/shared/components/MagneticWrap';
+import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
+
 import { FADE_UP, RESULTS } from '../constants';
 
 export const ResultsSection = (): React.ReactElement => (
@@ -13,7 +16,7 @@ export const ResultsSection = (): React.ReactElement => (
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <h2 className="section-title">The Outcome</h2>
+        <ScrambleTitle text="The Outcome" />
       </motion.div>
 
       <div className="results-grid" style={{ marginTop: 'var(--space-12)' }}>
@@ -21,9 +24,9 @@ export const ResultsSection = (): React.ReactElement => (
           <motion.div
             key={result.metric}
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0, transition: { duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] } }}
+            whileHover={{ y: -4, scale: 1.02, transition: { type: 'spring', stiffness: 400, damping: 25 } }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
           >
             <div style={{
               padding: 'var(--space-5)',
@@ -59,18 +62,22 @@ export const ResultsSection = (): React.ReactElement => (
           Interested in building something similar?
         </p>
         <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link href="/#contact" className="btn btn--primary" style={{ textDecoration: 'none' }}>
-            Get in Touch
-          </Link>
-          <a
-            href="https://www.loveepil.com/consultation"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn--ghost"
-            style={{ textDecoration: 'none' }}
-          >
-            Try the Agent Live
-          </a>
+          <MagneticWrap>
+            <Link href="/#contact" className="btn btn--primary" style={{ textDecoration: 'none' }}>
+              Get in Touch
+            </Link>
+          </MagneticWrap>
+          <MagneticWrap>
+            <a
+              href="https://www.loveepil.com/consultation"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--ghost"
+              style={{ textDecoration: 'none' }}
+            >
+              Try the Agent Live
+            </a>
+          </MagneticWrap>
         </div>
       </motion.div>
     </div>

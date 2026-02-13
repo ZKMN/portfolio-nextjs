@@ -1,59 +1,82 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+
+import { HeroShell } from '@/shared/components/HeroShell';
 
 import { HERO_STATS } from '../constants';
+import type { HeroStat } from '../types';
 
 const EASE = [0.16, 1, 0.3, 1];
 
-export const HeroSection = (): React.ReactElement => (
-  <header style={{
-    position: 'relative',
-    minHeight: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    background: 'var(--gradient-hero)',
-    overflow: 'hidden',
-  }}
-  >
-    {/* Ambient glow orbs */}
-    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
-      <div style={{
-        position: 'absolute',
-        top: '-20%',
-        right: '-10%',
-        width: '600px',
-        height: '600px',
-        background: 'radial-gradient(circle, var(--accent-glow) 0%, transparent 70%)',
-        borderRadius: '50%',
-        filter: 'blur(80px)',
-        animation: 'float 8s ease-in-out infinite',
-      }}
-      />
-      <div style={{
-        position: 'absolute',
-        bottom: '-20%',
-        left: '-10%',
-        width: '500px',
-        height: '500px',
-        background: 'radial-gradient(circle, var(--accent-2-glow) 0%, transparent 70%)',
-        borderRadius: '50%',
-        filter: 'blur(80px)',
-        animation: 'float 10s ease-in-out infinite reverse',
-      }}
-      />
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        backgroundImage: `
-          linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
-        `,
-        backgroundSize: '60px 60px',
-      }}
-      />
-    </div>
+const useCountUp = ({ target, isInView }: { target: number; isInView: boolean }): number => {
+  const [count, setCount] = useState(0);
+  const hasAnimated = useRef(false);
 
+  useEffect(() => {
+    if (!isInView || hasAnimated.current) return;
+    hasAnimated.current = true;
+
+    const duration = 1500;
+    const steps = 40;
+    const increment = target / steps;
+    let step = 0;
+
+    const interval = setInterval(() => {
+      step++;
+      setCount(Math.min(Math.round(increment * step), target));
+      if (step >= steps) clearInterval(interval);
+    }, duration / steps);
+
+    return () => clearInterval(interval);
+  }, [isInView, target]);
+
+  return count;
+};
+
+const CountUpStat = ({ stat }: { stat: HeroStat }): React.ReactElement => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true });
+  const count = useCountUp({ target: stat.numericValue ?? 0, isInView });
+
+  const hasNumeric = stat.numericValue !== undefined;
+  const displayValue = hasNumeric
+    ? `${stat.prefix ?? ''}${count}${stat.suffix ?? ''}`
+    : stat.value;
+
+  return (
+    <motion.div
+      ref={ref}
+      className="glass-card glass-card--glow"
+      style={{ padding: 'var(--space-6) var(--space-4)', textAlign: 'center' }}
+      whileHover={{ y: -4, scale: 1.02 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+    >
+      <div style={{
+        fontSize: 'var(--text-4xl)',
+        fontWeight: 700,
+        background: 'var(--gradient-accent)',
+        WebkitBackgroundClip: 'text',
+        backgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        lineHeight: 1,
+        marginBottom: 'var(--space-2)',
+        fontFamily: 'var(--font-mono)',
+      }}
+      >
+        {displayValue}
+      </div>
+      <div style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 'var(--space-1)' }}>
+        {stat.label}
+      </div>
+      <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)' }}>
+        {stat.sublabel}
+      </div>
+    </motion.div>
+  );
+};
+
+export const HeroSection = (): React.ReactElement => (
+  <HeroShell>
     <div className="container" style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '80px 24px' }}>
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
         <motion.div
@@ -127,37 +150,11 @@ export const HeroSection = (): React.ReactElement => (
         >
           <div className="hero-stats-grid">
             {HERO_STATS.map((stat) => (
-              <motion.div
-                key={stat.label}
-                className="glass-card glass-card--glow"
-                style={{ padding: 'var(--space-6) var(--space-4)', textAlign: 'center' }}
-                whileHover={{ y: -4, scale: 1.02 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-              >
-                <div style={{
-                  fontSize: 'var(--text-4xl)',
-                  fontWeight: 700,
-                  background: 'var(--gradient-accent)',
-                  WebkitBackgroundClip: 'text',
-                  backgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  lineHeight: 1,
-                  marginBottom: 'var(--space-2)',
-                }}
-                >
-                  {stat.value}
-                </div>
-                <div style={{ fontSize: 'var(--text-sm)', fontWeight: 600, color: 'var(--text-primary)', marginBottom: 'var(--space-1)' }}>
-                  {stat.label}
-                </div>
-                <div style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)' }}>
-                  {stat.sublabel}
-                </div>
-              </motion.div>
+              <CountUpStat key={stat.label} stat={stat} />
             ))}
           </div>
         </motion.div>
       </div>
     </div>
-  </header>
+  </HeroShell>
 );

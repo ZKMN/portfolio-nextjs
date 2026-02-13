@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-import { BackNavigation } from './components';
 import {
   ArchitectureSection,
   DecisionsSection,
@@ -16,7 +15,6 @@ import {
 
 export const AIAgent = (): React.ReactElement => (
   <div style={{ background: 'var(--bg-primary)', minHeight: '100vh' }}>
-    <BackNavigation />
     <HeroSection />
 
     <main>
@@ -29,7 +27,7 @@ export const AIAgent = (): React.ReactElement => (
       <ResultsSection />
     </main>
 
-    <style jsx>{`
+    <style jsx global>{`
       .hero-title {
         font-size: var(--text-5xl);
       }
@@ -54,6 +52,20 @@ export const AIAgent = (): React.ReactElement => (
         flex-direction: column;
         gap: var(--space-6);
         max-width: 700px;
+        position: relative;
+      }
+      .architecture-step {
+        position: relative;
+      }
+      .architecture-step:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        left: 24px;
+        top: 48px;
+        bottom: calc(-1 * var(--space-6));
+        width: 2px;
+        background: linear-gradient(to bottom, var(--accent), transparent);
+        opacity: 0.3;
       }
       .stack-grid {
         display: grid;
