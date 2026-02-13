@@ -93,7 +93,7 @@ const TOOL_CATEGORIES = [
       { name: 'getCategoryTypes', description: 'Category selection with automatic device inference' },
       { name: 'selectDevice', description: 'Device inference from category via DEVICE_TO_CATEGORY mapping' },
       { name: 'getCart', description: 'Display current cart with totals' },
-      { name: 'bookingRestart', description: 'Clear session after completing booking' },
+      { name: 'restartBooking', description: 'Clear session after completing booking' },
     ],
   },
 ];
@@ -137,7 +137,7 @@ const HALLUCINATION_GUARDS = [
   },
   {
     title: 'Injection Detection',
-    description: 'Pre-LLM guard layer with pattern matching for prompt injection attempts, 2000-char message limit, and DB-based rate limiting for serverless.',
+    description: 'Pre-LLM guard layer with pattern matching for prompt injection attempts, 500-char message limit, and DB-based rate limiting for serverless.',
     icon: (
       <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path d="M12 9v2m0 4h.01M5.07 19H19a2 2 0 001.75-2.96l-6.93-12a2 2 0 00-3.5 0l-6.93 12A2 2 0 005.07 19z" />
@@ -159,7 +159,7 @@ const TECH_STACK = [
   {
     category: 'AI / LLM',
     items: [
-      { name: 'GPT-4.1 Mini', detail: 'Fine-tuned (loveepil-v18)' },
+      { name: 'GPT-4.1 Mini', detail: 'Fine-tuned' },
       { name: 'Vercel AI SDK', detail: 'Native multi-step with generateText' },
       { name: 'Langfuse', detail: 'LLM observability & tracing' },
       { name: 'OpenAI Embeddings', detail: 'text-embedding-3-small' },
@@ -204,11 +204,11 @@ const KEY_DECISIONS = [
 ];
 
 const RESULTS = [
-  { metric: 'Near-Zero Hallucinations', description: 'Brain-first architecture with tool-level validation ensures nearly every fact comes from the database' },
-  { metric: '18 Studios, 5 Countries', description: 'Live in production across the entire European chain with full localization' },
-  { metric: '6 Languages', description: 'Ukrainian, Russian, Polish, English, German, Spanish — fine-tuned for each' },
-  { metric: '4 Communication Channels', description: 'Website widget, Telegram, Instagram, Facebook — unified conversation context' },
-  { metric: '21 Orchestrated Tools', description: 'Full booking lifecycle from studio discovery to payment link generation' },
+  { metric: '$0.015 per Conversation', description: 'Fine-tuned GPT-4.1 Mini keeps cost ~100x cheaper than a human operator per dialog' },
+  { metric: '~4s Average Response', description: 'Multi-step tool execution (2-5 calls) with prompt caching delivers near-instant replies' },
+  { metric: 'Near-Zero Hallucinations', description: 'Brain-first architecture with tool-level validation ensures every fact comes from the database' },
+  { metric: '18 Studios, 5 Countries', description: 'Live in production across the entire European chain with full localization in 6 languages' },
+  { metric: '4 Channels, 1 Context', description: 'Website, Telegram, Instagram, Facebook — unified conversation and booking history' },
   { metric: 'Complete Observability', description: 'Langfuse traces every tool call, token usage, and cost per conversation in real-time' },
 ];
 

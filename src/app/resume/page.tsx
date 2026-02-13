@@ -47,7 +47,7 @@ export default function ResumePage() {
         <h1 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '8px', color: 'var(--text-primary)' }}>Denis Klymenko</h1>
         <h2 style={{ fontSize: '1.25rem', color: 'var(--accent-light)', marginBottom: '16px' }}>AI Agent Architect & Full-Stack Product Engineer</h2>
         <div style={{ display: 'flex', gap: '16px', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-          <a href="mailto:denis.klymenko@email.com">denis.klymenko@email.com</a> {/* Placeholder if not provided */}
+          <a href="mailto:klymdenis@gmail.com">klymdenis@gmail.com</a> {/* Placeholder if not provided */}
           <span>•</span>
           <a href="https://denisklymenko-soft.com">denisklymenko-soft.com</a>
           <span>•</span>

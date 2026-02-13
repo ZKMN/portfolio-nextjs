@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://denisklymenko-soft.com
-
-# Sitemaps
-Sitemap: https://denisklymenko-soft.com/sitemap.xml

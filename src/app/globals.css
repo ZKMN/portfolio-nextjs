@@ -336,6 +336,59 @@ ol {
   background: rgba(255, 255, 255, 0.08);
 }
 
+/* --- Mobile Bottom Navigation --- */
+.nav-bottom {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: var(--space-2) 0;
+    padding-bottom: calc(var(--space-2) + env(safe-area-inset-bottom));
+    background: rgba(10, 10, 15, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border);
+  }
+
+  .nav-bottom__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: var(--space-1) var(--space-2);
+    color: var(--text-tertiary);
+    transition: color var(--duration-fast);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .nav-bottom__item:active,
+  .nav-bottom__item--active {
+    color: var(--accent-light);
+  }
+
+  .nav-bottom__label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-bottom__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+  }
+}
+
 /* --- Keyframe Animations --- */
 @keyframes float {
 
@@ -489,6 +542,7 @@ ol {
 
   /* Hide standard UI elements */
   .nav-float,
+  .nav-bottom,
   .timeline-dot,
   .timeline-line,
   button,
