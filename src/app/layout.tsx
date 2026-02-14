@@ -54,7 +54,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Denis Klymenko - Lead AI Architect & Senior Product Engineer',
+        alt: 'Denis Klymenko — AI Agent Architect & Full-Stack Product Engineer',
       },
     ],
   },
@@ -76,6 +76,18 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  keywords: [
+    'AI Agent Architect',
+    'Full-Stack Engineer',
+    'LLM',
+    'AI Agent',
+    'TypeScript',
+    'React',
+    'Next.js',
+    'Tool Orchestration',
+    'GPT',
+    'Production AI',
+  ],
   category: 'technology',
   alternates: {
     canonical: siteUrl,
@@ -101,8 +113,10 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
     sameAs: [
       'https://www.linkedin.com/in/denis-klymenko/',
       'https://github.com/ZKMN',
+      'https://t.me/denisklim01',
+      'https://www.instagram.com/denisklim01/',
     ],
-    image: '/images/photo.jpg',
+    image: `${siteUrl}/images/photo.jpg`,
     description,
     knowsAbout: [
       'AI Agent Architecture',
@@ -125,23 +139,11 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
       '@type': 'Organization',
       name: 'National Academy of SBU',
     },
-    worksFor: [
-      {
-        '@type': 'Organization',
-        name: 'Loveepil',
-        url: 'https://www.loveepil.com',
-      },
-      {
-        '@type': 'Organization',
-        name: 'Corva',
-        url: 'https://www.corva.ai',
-      },
-      {
-        '@type': 'Organization',
-        name: 'Blackbird Lab',
-        url: 'https://jobs.dou.ua/companies/blackbird-lab/',
-      },
-    ],
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Loveepil',
+      url: 'https://www.loveepil.com',
+    },
   };
 
   return (
