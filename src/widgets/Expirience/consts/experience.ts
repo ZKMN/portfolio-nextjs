@@ -14,6 +14,21 @@ export interface ExperienceItem {
 
 export const EXPERIENCE: ExperienceItem[] = [{
   open: true,
+  name: 'UAES',
+  role: 'Full-Stack Engineer',
+  time: 'February 2026 - Present',
+  stack: 'Next.js 16, React 19, TypeScript, Prisma, PostgreSQL, NextAuth v5, next-intl, Firebase, Vercel Blob, Google Maps, TanStack Query, Zustand, Shadcn/Radix UI, Tailwind CSS v4, Sentry, Resend, Playwright, Vitest, Stryker',
+  responsibilities: 'End-to-end development of a community platform for Ukrainians in Spain. Covers business directory, events, jobs, housing, classifieds, and resources across Spanish cities. Multi-locale routing, verification flows, Google Maps integration, and full auth with NextAuth v5.',
+  achievements: 'Mutation testing with Stryker, E2E coverage with Playwright. Sentry error tracking, Vercel Blob for media storage, Firebase for real-time features. Full i18n with next-intl.',
+  projects: [{
+    name: 'Community Platform',
+    description: 'Public-facing platform: business listings, events, jobs board, housing ads, classifieds, and resource directory for Ukrainian community in Spain.',
+  }, {
+    name: 'Admin & Moderation',
+    description: 'User management, content moderation, verification system for businesses and listings, role-based access.',
+  }],
+}, {
+  open: true,
   name: 'Corva',
   role: 'Senior Frontend Developer',
   companyLink: 'https://www.corva.ai/',
