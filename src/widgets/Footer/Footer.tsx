@@ -34,7 +34,7 @@ export const Footer = () => {
       }}
       />
 
-      <section className="section" style={{ paddingBottom: 'var(--space-12)' }}>
+      <section className="section footer-section">
         <div className="container">
           <motion.div
             variants={fadeUp}
@@ -209,6 +209,15 @@ export const Footer = () => {
         }
         .contact-link:hover {
           color: var(--accent-light);
+        }
+
+        .footer-section {
+          padding-bottom: var(--space-12);
+        }
+        @media (max-width: 768px) {
+          .footer-section {
+            padding-bottom: 80px;
+          }
         }
       `}</style>
     </footer>
