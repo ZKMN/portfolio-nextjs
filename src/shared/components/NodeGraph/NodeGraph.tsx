@@ -105,7 +105,7 @@ export const NodeGraph = (): React.ReactElement => {
 
           if (dist < CONNECTION_DISTANCE) {
             const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.15;
-            ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
+            ctx.strokeStyle = `rgba(16, 185, 129, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -123,7 +123,7 @@ export const NodeGraph = (): React.ReactElement => {
 
         if (cDist < CURSOR_RADIUS) {
           const alpha = (1 - cDist / CURSOR_RADIUS) * 0.2;
-          ctx.strokeStyle = `rgba(139, 92, 246, ${alpha})`;
+          ctx.strokeStyle = `rgba(245, 158, 11, ${alpha})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(mx, my);
@@ -142,7 +142,7 @@ export const NodeGraph = (): React.ReactElement => {
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius * 3, 0, Math.PI * 2);
         const grad = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, node.radius * 3);
-        grad.addColorStop(0, `rgba(99, 102, 241, ${node.opacity * 0.3})`);
+        grad.addColorStop(0, `rgba(16, 185, 129, ${node.opacity * 0.3})`);
         grad.addColorStop(1, 'transparent');
         ctx.fillStyle = grad;
         ctx.fill();

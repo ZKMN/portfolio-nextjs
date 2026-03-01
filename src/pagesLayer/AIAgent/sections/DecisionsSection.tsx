@@ -32,7 +32,7 @@ export const DecisionsSection = (): React.ReactElement => (
             <div style={{
               padding: 'var(--space-5) var(--space-6)',
               borderLeft: '3px solid var(--accent)',
-              background: 'linear-gradient(90deg, rgba(99, 102, 241, 0.03) 0%, transparent 100%)',
+              background: 'linear-gradient(90deg, rgba(16, 185, 129, 0.03) 0%, transparent 100%)',
               borderRadius: '0 var(--radius-md) var(--radius-md) 0',
             }}
             >

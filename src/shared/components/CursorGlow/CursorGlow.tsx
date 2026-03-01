@@ -49,7 +49,7 @@ export const CursorGlow = (): React.ReactElement => {
         width: `${GLOW_SIZE}px`,
         height: `${GLOW_SIZE}px`,
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(99, 102, 241, 0.07) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(16, 185, 129, 0.07) 0%, transparent 70%)',
         pointerEvents: 'none',
         zIndex: 0,
         opacity: 0,

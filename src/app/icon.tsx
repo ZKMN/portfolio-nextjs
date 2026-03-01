@@ -5,28 +5,28 @@ export const contentType = 'image/png';
 
 const Icon = (): ImageResponse => new ImageResponse(
   (
-      <div
+    <div
+      style={{
+        width: 32,
+        height: 32,
+        borderRadius: 8,
+        background: 'linear-gradient(135deg, #10b981, #34d399, #f59e0b)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <span
         style={{
-          width: 32,
-          height: 32,
-          borderRadius: 8,
-          background: 'linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          fontSize: 15,
+          fontWeight: 700,
+          color: 'white',
+          letterSpacing: -0.5,
         }}
       >
-        <span
-          style={{
-            fontSize: 15,
-            fontWeight: 700,
-            color: 'white',
-            letterSpacing: -0.5,
-          }}
-        >
-          DK
-        </span>
-      </div>
+        DK
+      </span>
+    </div>
   ),
   { ...size },
 );

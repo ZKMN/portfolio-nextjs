@@ -80,7 +80,7 @@ export const ArchitectureSection = (): React.ReactElement => (
             style={{
               padding: 'var(--space-6) var(--space-8)',
               borderLeft: '3px solid var(--accent)',
-              background: 'linear-gradient(90deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%)',
+              background: 'linear-gradient(90deg, rgba(16, 185, 129, 0.05) 0%, transparent 100%)',
             }}
           >
             <h4 style={{ fontSize: 'var(--text-sm)', fontWeight: 700, color: 'var(--accent-light)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 'var(--space-2)' }}>
@@ -91,7 +91,7 @@ export const ArchitectureSection = (): React.ReactElement => (
               <code style={{
                 fontFamily: 'var(--font-mono)',
                 color: 'var(--accent-light)',
-                background: 'rgba(99, 102, 241, 0.1)',
+                background: 'rgba(16, 185, 129, 0.1)',
                 padding: '2px 6px',
                 borderRadius: '4px',
               }}
