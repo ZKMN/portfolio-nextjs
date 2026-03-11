@@ -24,7 +24,7 @@ export const HERO_STATS: HeroStat[] = [
 export const PROBLEM_POINTS: ProblemPoint[] = [
   {
     title: 'Rigid State Machines',
-    description: 'Traditional chatbots use hardcoded FSMs that break on multi-intent messages. User says "Wroclaw, women, laser hair removal" — FSM handles one step at a time.',
+    description: 'Traditional chatbots use hardcoded FSMs that break on multi-intent messages. User says "Wroclaw, women, laser hair removal" - FSM handles one step at a time.',
   },
   {
     title: 'RAG Hallucinations',
@@ -131,7 +131,7 @@ export const HALLUCINATION_GUARDS: HallucinationGuard[] = [
   },
   {
     title: 'Incident Snapshots',
-    description: 'On 3+ consecutive failures, user dislikes, or complaints — a SupportIncident is created with full conversation snapshot, independent from conversation lifecycle.',
+    description: 'On 3+ consecutive failures, user dislikes, or complaints - a SupportIncident is created with full conversation snapshot, independent from conversation lifecycle.',
     iconName: 'clipboard',
   },
 ];
@@ -207,6 +207,6 @@ export const RESULTS: Result[] = [
   { metric: '~4s Average Response', description: 'Multi-step tool execution (2-5 calls) with prompt caching delivers near-instant replies' },
   { metric: 'Near-Zero Hallucinations', description: 'Brain-first architecture with tool-level validation ensures every fact comes from the database' },
   { metric: '18 Studios, 5 Countries', description: 'Live in production across the entire European chain with full localization in 6 languages' },
-  { metric: '4 Channels, 1 Context', description: 'Website, Telegram, Instagram, Facebook — unified conversation and booking history' },
+  { metric: '4 Channels, 1 Context', description: 'Website, Telegram, Instagram, Facebook - unified conversation and booking history' },
   { metric: 'Complete Observability', description: 'Langfuse traces every tool call, token usage, and cost per conversation in real-time' },
 ];

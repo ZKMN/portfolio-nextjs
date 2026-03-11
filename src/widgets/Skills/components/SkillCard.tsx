@@ -94,7 +94,7 @@ export const SkillCard: React.FC<SkillCardProps> = ({
         }}
       />
 
-      {/* Floating tooltip — absolutely positioned wrapper for centering, motion.div for animation */}
+      {/* Floating tooltip - absolutely positioned wrapper for centering, motion.div for animation */}
       <AnimatePresence>
         {isExpanded && (
           <div

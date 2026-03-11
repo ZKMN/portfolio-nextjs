@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
-import { BriefcaseIcon, CodeIcon, EnvelopeIcon, RobotIcon, UserIcon } from '@/shared/icons';
+import { EcosystemIcon, EnvelopeIcon, UserIcon } from '@/shared/icons';
 
 type NavLink = {
   label: string;
@@ -33,9 +33,7 @@ const parseHashHref = (href: string): ParsedHref => {
 
 const MOBILE_NAV_ITEMS: MobileNavItem[] = [
   { label: 'About', href: '/#about-me', icon: <UserIcon /> },
-  { label: 'Projects', href: '/#projects', icon: <CodeIcon /> },
-  { label: 'AI Agent', href: '/projects/ai-agent', icon: <RobotIcon /> },
-  { label: 'Career', href: '/#career', icon: <BriefcaseIcon /> },
+  { label: 'Ecosystem', href: '/projects/loveepil', icon: <EcosystemIcon /> },
   { label: 'Contact', href: '#contact', icon: <EnvelopeIcon /> },
 ];
 
@@ -60,7 +58,12 @@ export const NavFloat = ({ links }: NavFloatProps): React.ReactElement => {
     setTimeout(() => scrollToSection(sectionId), SCROLL_DELAY_MS);
   };
 
-  const isActiveLink = (href: string): boolean => !href.startsWith('/#') && !href.startsWith('#') && pathname === href;
+  const isActiveLink = (href: string): boolean => {
+    if (href === '#contact') return false; // Contact never active
+    if (href === '/#about-me') return isHomePage; // About is Home page
+
+    return !href.startsWith('/#') && !href.startsWith('#') && pathname === href;
+  };
 
   const renderLink = (href: string, sectionId: string, isLocal: boolean, className: string, children: React.ReactNode): React.ReactElement => {
     const ariaCurrent = isActiveLink(href) ? ('page' as const) : undefined;
@@ -97,8 +100,15 @@ export const NavFloat = ({ links }: NavFloatProps): React.ReactElement => {
       <nav className="nav-float" aria-label="Main navigation">
         {links.map((link) => {
           const { sectionId, isLocal } = parseHashHref(link.href);
+          const isActive = isActiveLink(link.href);
 
-          return renderLink(link.href, sectionId, isLocal, 'nav-float__link', link.label);
+          return renderLink(
+            link.href,
+            sectionId,
+            isLocal,
+            `nav-float__link${isActive ? ' nav-float__link--active' : ''}`,
+            link.label,
+          );
         })}
       </nav>
 
@@ -106,7 +116,7 @@ export const NavFloat = ({ links }: NavFloatProps): React.ReactElement => {
       <nav className="nav-bottom" aria-label="Mobile navigation">
         {MOBILE_NAV_ITEMS.map((item) => {
           const { sectionId, isLocal } = parseHashHref(item.href);
-          const isActive = !sectionId && pathname === item.href;
+          const isActive = isActiveLink(item.href);
 
           return renderLink(
             item.href,

@@ -54,7 +54,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Denis Klymenko — Lead AI Architect | Product Builder',
+        alt: 'Denis Klymenko - Lead AI Architect | Product Builder',
       },
     ],
   },
@@ -96,10 +96,8 @@ export const metadata: Metadata = {
 
 const NAV_LINKS = [
   { label: 'About', href: '/#about-me' },
-  { label: 'Skills', href: '/#skills' },
-  { label: 'Projects', href: '/#projects' },
+  { label: 'Ecosystem', href: '/projects/loveepil' },
   { label: 'AI Agent', href: '/projects/ai-agent' },
-  { label: 'Career', href: '/#career' },
   { label: 'Contact', href: '#contact' },
 ];
 

@@ -16,7 +16,7 @@ export const ArchitectureSection = (): React.ReactElement => (
       >
         <ScrambleTitle text="The Solution: Brain-First Architecture" />
         <p className="section-subtitle">
-          A single fine-tuned LLM reads a comprehensive system prompt and decides which tools to call —
+          A single fine-tuned LLM reads a comprehensive system prompt and decides which tools to call -
           no hardcoded state machines, no rigid flows.
         </p>
       </motion.div>
@@ -96,7 +96,7 @@ export const ArchitectureSection = (): React.ReactElement => (
                 borderRadius: '4px',
               }}
               >prepareStep</code> rebuilds
-              the system prompt with real-time state from tool executions. When the user says &quot;Wroclaw, women, laser&quot; — the LLM processes it in 4 sequential steps,
+              the system prompt with real-time state from tool executions. When the user says &quot;Wroclaw, women, laser&quot; - the LLM processes it in 4 sequential steps,
               with each step seeing the updated context from the previous tool call.
             </p>
           </div>

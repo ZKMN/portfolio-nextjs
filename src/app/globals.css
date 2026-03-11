@@ -1,10 +1,10 @@
 /* ============================================
-   DESIGN SYSTEM — AI Agent Architect
+   DESIGN SYSTEM - AI Agent Architect
    ============================================ */
 
 /* --- CSS Custom Properties --- */
 :root {
-  /* Colors — Dark theme (default) */
+  /* Colors - Dark theme (default) */
   --bg-primary: #0a0a0f;
   --bg-secondary: #12121a;
   --bg-card: rgba(255, 255, 255, 0.03);
@@ -336,6 +336,16 @@ ol {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.nav-float__link--active {
+  color: var(--text-primary);
+  background: var(--accent);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+}
+
+.nav-float__link--active:hover {
+  background: var(--accent);
+}
+
 /* --- Mobile Bottom Navigation --- */
 .nav-bottom {
   display: none;
@@ -372,7 +382,12 @@ ol {
 
   .nav-bottom__item:active,
   .nav-bottom__item--active {
-    color: var(--accent-light);
+    color: var(--text-primary);
+  }
+  
+  .nav-bottom__item--active .nav-bottom__icon {
+    color: var(--accent);
+    filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.6));
   }
 
   .nav-bottom__label {

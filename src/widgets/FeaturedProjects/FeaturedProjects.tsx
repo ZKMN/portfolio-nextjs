@@ -27,7 +27,7 @@ const featuredProjects = [
     caseStudy: '/projects/ai-agent',
   },
   {
-    name: 'UAES — Ukrainian Community Spain',
+    name: 'UAES - Ukrainian Community Spain',
     role: 'Full-Stack Product Engineer',
     period: '2026 - Present',
     description: 'A community platform for Ukrainians in Spain, connecting listings, events, and resources with a built-in moderation system.',
@@ -66,7 +66,7 @@ const featuredProjects = [
     ],
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'NextAuth', 'Strapi', 'Resend', 'React Email', 'Vercel', 'Google Maps API', 'Firebase', 'Microsoft Clarity', 'Zustand', 'TanStack Query', 'Zod', 'i18next', 'DeepL'],
     link: null,
-    caseStudy: null,
+    caseStudy: '/projects/loveepil',
   },
 ];
 
@@ -143,10 +143,6 @@ export const FeaturedProjects = () => (
                       </svg>
                     </a>
                   )}
-                </div>
-                <div style={{ display: 'flex', gap: 'var(--space-2)', marginBottom: 'var(--space-3)', flexWrap: 'wrap' }}>
-                  <span className="badge badge--accent">{project.role}</span>
-                  <span className="badge badge--ghost">{project.period}</span>
                 </div>
                 <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
                   {project.description}

@@ -62,12 +62,12 @@ export const HeroSection = (): React.ReactElement => (
         >
           <span className="badge badge--accent" style={{ fontSize: 'var(--text-xs)', marginBottom: 'var(--space-8)', display: 'inline-flex', gap: 'var(--space-2)' }}>
             <span style={{ width: 8, height: 8, background: 'var(--success)', borderRadius: '50%', display: 'inline-block', boxShadow: '0 0 8px var(--success)' }} />
-            Case Study
+            Product Ecosystem Case Study
           </span>
         </motion.div>
 
         <motion.h1
-          className="hero-title"
+          className="eco-hero-title"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: EASE }}
@@ -83,11 +83,11 @@ export const HeroSection = (): React.ReactElement => (
             WebkitTextFillColor: 'transparent',
           }}
         >
-          Building a Production AI Agent
+          Building a 7-Service Product Ecosystem
         </motion.h1>
 
         <motion.h2
-          className="hero-subtitle"
+          className="eco-hero-subtitle"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
@@ -98,33 +98,43 @@ export const HeroSection = (): React.ReactElement => (
             lineHeight: 1.3,
           }}
         >
-          Brain-First Architecture with 21 Orchestrated Tools
+          From Multi-Domain Acquisition to AI Consultation to Independent Analytics
         </motion.h2>
 
         <motion.p
-          className="hero-description"
+          className="eco-hero-description"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45, ease: EASE }}
           style={{
             color: 'var(--text-tertiary)',
-            maxWidth: '700px',
+            maxWidth: '750px',
             margin: '0 auto var(--space-12)',
             lineHeight: 1.7,
           }}
         >
-          How I built an enterprise AI agent for a European beauty chain that handles booking,
-          knowledge search, cart management, and customer support across 18 studios in 5 countries -
-          with near-zero hallucinations.
+          Loveepil isn&apos;t a single application - it&apos;s a connected product ecosystem where acquisition,
+          booking, payments, AI support, analytics, and content management each live in their own service,
+          but work together as one system serving 18 studios across 5 countries.
         </motion.p>
 
-        {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6, ease: EASE }}
+          transition={{ duration: 0.6, delay: 0.55, ease: EASE }}
+          style={{ marginBottom: 'var(--space-8)' }}
         >
-          <div className="hero-stats-grid">
+          <span className="badge badge--ghost" style={{ fontSize: 'var(--text-xs)', padding: 'var(--space-2) var(--space-4)' }}>
+            Lead AI Architect &nbsp;|&nbsp; Product Builder
+          </span>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.65, ease: EASE }}
+        >
+          <div className="eco-hero-stats-grid">
             {HERO_STATS.map((stat) => (
               <CountUpStat key={stat.label} stat={stat} />
             ))}

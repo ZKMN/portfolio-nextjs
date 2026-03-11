@@ -1,1 +1,1 @@
-// Old components removed — Header is now self-contained
+// Old components removed - Header is now self-contained

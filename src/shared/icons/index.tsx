@@ -163,6 +163,22 @@ export const BriefcaseIcon = ({ size = 20 }: IconProps): React.ReactElement => (
   </svg>
 );
 
+export const EcosystemIcon = ({ size = 20 }: IconProps): React.ReactElement => (
+  <svg
+    width={size}
+    height={size}
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    viewBox="0 0 24 24"
+  >
+    <circle cx="12" cy="5" r="2.5" />
+    <circle cx="5" cy="19" r="2.5" />
+    <circle cx="19" cy="19" r="2.5" />
+    <path d="M10.5 7l-4 9.5M13.5 7l4 9.5M7.5 19h9" />
+  </svg>
+);
+
 export const EnvelopeIcon = ({ size = 20 }: IconProps): React.ReactElement => (
   <svg
     width={size}

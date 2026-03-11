@@ -69,9 +69,9 @@ export default function ResumePage(): React.ReactElement {
       <section style={{ marginBottom: '24px' }}>
         <h3 className="resume-section-title">Summary</h3>
         <p style={{ lineHeight: 1.7, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-          I build production AI agents and the full infrastructure behind them — solo, from scratch.
+          I build production AI agents and the full infrastructure behind them - solo, from scratch.
           Most recently: a 21-tool booking agent for a European beauty chain (5 countries, 6 languages, $0.015/dialog)
-          plus the entire ecosystem around it — analytics with cross-domain attribution, admin panel with RBAC and Stripe,
+          plus the entire ecosystem around it - analytics with cross-domain attribution, admin panel with RBAC and Stripe,
           CMS, transactional emails. 8+ years in software engineering, 20 projects delivered (14 from scratch).
         </p>
       </section>
@@ -105,7 +105,7 @@ export default function ResumePage(): React.ReactElement {
                   {exp.projects.map((project) => (
                     <div key={project.name} style={{ marginBottom: '4px', paddingLeft: '12px', borderLeft: '2px solid var(--border)' }}>
                       <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>{project.name}</span>
-                      <span style={{ fontSize: '0.85rem', color: 'var(--text-tertiary)', marginLeft: '6px' }}>— {project.description}</span>
+                      <span style={{ fontSize: '0.85rem', color: 'var(--text-tertiary)', marginLeft: '6px' }}>- {project.description}</span>
                     </div>
                   ))}
                 </div>
