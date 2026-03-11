@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
-const title = 'Building a 7-Service Product Ecosystem | Architecture Case Study';
+const title = 'Building a Multi-Service Product Ecosystem | Architecture Case Study';
 const description = [
-  'How I designed and built a production SaaS ecosystem with 7 repositories, 4 databases,',
+  'How I designed and built a production SaaS ecosystem with multiple repositories, 4 databases,',
   'multi-domain acquisition across 5 countries, AI-powered consultation, independent analytics,',
   'and automated operations - all working as a single connected system.',
 ].join(' ');
@@ -16,10 +16,10 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: '/images/ecosystem-og.png',
         width: 1200,
         height: 630,
-        alt: 'Building a 7-Service Product Ecosystem - Architecture Case Study',
+        alt: 'Building a Multi-Service Product Ecosystem - Architecture Case Study',
       },
     ],
   },
