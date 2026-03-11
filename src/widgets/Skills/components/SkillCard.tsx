@@ -64,18 +64,15 @@ export const SkillCard: React.FC<SkillCardProps> = ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: isExpanded ? 'var(--bg-glass-strong)' : 'var(--bg-glass)',
+        background: isExpanded ? 'var(--bg-glass-strong)' : 'transparent',
         border: `1px solid ${isExpanded ? 'var(--border-accent)' : 'var(--border)'}`,
         borderRadius: 8,
         cursor: 'pointer',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-        boxShadow: isExpanded
-          ? '0 0 14px var(--accent-glow), 0 2px 8px rgba(0,0,0,0.3)'
-          : 'none',
-        transition: 'background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease',
+        // Removed heavy backdropFilter to fix scroll lag
+        transition: 'background 0.15s ease, border-color 0.15s ease, transform 0.15s ease',
         transform: isExpanded ? 'scale(1.15)' : 'scale(1)',
         zIndex: isExpanded ? 20 : 1,
+        willChange: 'transform, border-color, background',
       }}
     >
       <Image
@@ -85,8 +82,11 @@ export const SkillCard: React.FC<SkillCardProps> = ({
         height={18}
         style={{
           objectFit: 'contain',
-          filter: isExpanded ? 'brightness(1.3)' : 'brightness(0.8)',
-          transition: 'filter 0.2s ease',
+          filter: src.includes('langfuse') || src.includes('rest-api') || src.includes('shadcnui') || src.includes('radixui')
+            ? `invert(1) brightness(${isExpanded ? 1.2 : 0.8})`
+            : `brightness(${isExpanded ? 1.2 : 0.9})`,
+          opacity: isExpanded ? 1 : 0.7,
+          transition: 'all 0.15s ease',
         }}
       />
 
@@ -111,14 +111,13 @@ export const SkillCard: React.FC<SkillCardProps> = ({
               transition={{ duration: 0.15, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 position: 'relative',
-                padding: '5px 10px',
-                background: 'rgba(10, 10, 15, 0.92)',
+                padding: '4px 8px',
+                background: 'rgba(15, 15, 20, 0.95)',
                 border: '1px solid var(--border-accent)',
                 borderRadius: 6,
                 whiteSpace: 'nowrap',
-                backdropFilter: 'blur(16px)',
-                WebkitBackdropFilter: 'blur(16px)',
-                boxShadow: '0 4px 16px rgba(0,0,0,0.5), 0 0 10px var(--accent-glow)',
+                // Removed backdrop filter here as well, solid background is fine
+                boxShadow: '0 4px 12px rgba(0,0,0,0.4)',
               }}
             >
               {/* Arrow */}

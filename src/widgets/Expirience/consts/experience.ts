@@ -19,8 +19,8 @@ export const EXPERIENCE: ExperienceItem[] = [{
   companyLink: 'https://www.corva.ai/',
   time: 'December 2025 - Present',
   stack: 'React, TypeScript, Redux, Highcharts, Styled Components, Jest, React Testing Library',
-  responsibilities: 'Focusing on performance optimization and platform stability for mission-critical drilling analytics. Refactoring complex React components to improve rendering efficiency and maintainability. Delivering robust feature enhancements and ensuring long-term code health.',
-  achievements: 'Optimized core visualization components, reducing render time for large datasets. Streamlined maintenance workflows for legacy modules.',
+  responsibilities: 'Working on performance and stability for complex drilling analytics dashboards. Refactoring heavy React components to make data rendering faster and easier to maintain.',
+  achievements: 'Sped up core visualization components, cutting down render times for large datasets. Cleaned up legacy modules to make future updates easier.',
   projects: [],
 }, {
   open: true,
@@ -29,18 +29,18 @@ export const EXPERIENCE: ExperienceItem[] = [{
   companyLink: 'https://www.loveepil.com',
   time: 'August 2024 - Present',
   stack: 'Next.js 16, React 19, TypeScript, Prisma, PostgreSQL, OpenAI API, Vercel AI SDK, Langfuse, Stripe, MUI, DeepL, Vercel Drains',
-  responsibilities: 'Solo end-to-end ownership of a distributed ecosystem serving 5 countries (6 domains, 6 languages, 4 currencies, 30K+ MAU). Built every layer from scratch: AI agent, analytics platform, admin panel, payments, CMS, and transactional emails.',
-  achievements: 'Production AI agent at $0.015/dialog with near-zero hallucinations (21 tools, fine-tuned GPT-4.1 Mini). 96% Mobile Performance Score (LCP < 2.5s, INP < 200ms). Cross-domain analytics with phone-based attribution. Stripe billing, RBAC, DeepL auto-localization.',
+  responsibilities: 'Solo end-to-end ownership of a distributed system serving 5 countries. Built everything from scratch: the AI agent, analytics platform, admin panel, payments, CMS, and transactional emails.',
+  achievements: 'Deployed a production AI agent running at $0.015 per dialog with near-zero hallucinations. Achieved a 96% Mobile Performance Score. Built cross-domain analytics with phone-based attribution.',
   projects: [{
     name: 'AI Booking Agent (LoveGPT)',
     link: 'https://www.loveepil.com/consultation',
-    description: 'Brain-First architecture: fine-tuned GPT-4.1 Mini orchestrates 20+ tools. Features Custom State Guard (Pending Question pattern) for context retention and "askUser" pattern for controlled flows. Fully observable via Langfuse + OpenTelemetry. Semantic search via pgvector.',
+    description: 'A custom AI agent using fine-tuned GPT-4.1 Mini to orchestrate 20+ tools. It handles bookings, answers FAQs, and seamlessly transfers to human operators when needed. Fully observable with Langfuse.',
   }, {
     name: 'Analytics & Attribution Platform',
-    description: 'Custom platform unifying user journeys across 6 TLDs via cross-domain session stitching. Engineered phone-based attribution matching CRM bookings to traffic sources (Google/Meta). Real-time event ingestion via Vercel Drains (1000+ events/batch) with AI-powered insights.',
+    description: 'Custom platform that tracks user journeys across 6 different country domains. Built a phone-based attribution system to tie CRM bookings back to Google/Meta ads.',
   }, {
     name: 'Admin & Infrastructure',
-    description: 'DeepL-powered 6-language auto-localization engine. Granular RBAC system, Stripe billing integration, and real-time CRM synchronization.',
+    description: 'Built a granular RBAC admin panel, integrated Stripe billing, and set up an automated multi-language translation engine using DeepL.',
   }],
 }, {
   open: true,
@@ -49,8 +49,8 @@ export const EXPERIENCE: ExperienceItem[] = [{
   companyLink: 'https://jobs.dou.ua/companies/blackbird-lab/',
   time: 'March 2021 - Present',
   stack: 'TypeScript, React 19, Next.js 15, Zustand, Redux, Redux-Saga, REST, GraphQL, MUI, Ant Design, Tailwind CSS, Prisma, PostgreSQL, Jest, React Testing Library, Google Analytics, Vercel',
-  responsibilities: 'Led the modernization of the company\'s frontend infrastructure, transitioning from legacy stacks to a unified Next.js architecture. Championed a "Security-First" engineering culture by integrating automated vulnerability constraints directly into the CI/CD pipeline and architectural patterns.',
-  achievements: 'Secured sensitive data flows across 3 internal products by re-engineering the authentication and session management layer. Successfully migrated 50K+ lines of code to TypeScript/Next.js, reducing technical debt and improving developer velocity.',
+  responsibilities: 'Led the modernization of the company\'s frontend stack, moving from legacy setups to a unified Next.js architecture. Improved security by integrating automated vulnerability checks into our CI/CD pipelines.',
+  achievements: 'Secured sensitive data flows across 3 internal products by rewriting the authentication layer. Migrated 50K+ lines of code to TypeScript and Next.js, making the codebase much easier to work with.',
   projects: [],
 }, {
   open: true,
@@ -60,8 +60,8 @@ export const EXPERIENCE: ExperienceItem[] = [{
   time: 'March 2020 - March 2021',
   stack: 'React, Redux, Redux-Saga, React Router v4, Formik, SCSS, Ant Design, Flexbox Grid, Lodash, Moment.js, Nivo Rocks, ESLint (Airbnb)',
   testing: 'Jest, Enzyme',
-  responsibilities: 'Building robust frontend solutions and developing new features from requirements. ensuring best practices through code refactoring and unit testing. Collaborating on project estimation and workload assessment.',
-  achievements: 'Delivered 2 greenfield projects from scratch, including a complex energy storage analytics platform.',
+  responsibilities: 'Built frontend applications from scratch and maintained existing products. Focused on clean code, performance, and solid test coverage.',
+  achievements: 'Delivered 2 complex greenfield projects, including a heavy data visualization platform for energy storage.',
   projects: [{
     name: 'Modo Energy',
     link: 'https://platform.modo.energy/',
@@ -76,7 +76,7 @@ export const EXPERIENCE: ExperienceItem[] = [{
   time: 'November 2018 - March 2020',
   stack: 'React, Redux, Redux-Saga, Redux-Form, SASS, ANTD, FlexBox Grid, Lodash, Moment, ReactDnD',
   testing: 'Jest, Enzyme',
-  responsibilities: 'Built dynamic UI components, optimized rendering performance, and implemented unit tests for critical flows.',
+  responsibilities: 'Built UI components, optimized rendering performance, and added unit tests for the main user flows.',
   projects: [{
     name: 'Frood',
     link: '',
@@ -87,6 +87,6 @@ export const EXPERIENCE: ExperienceItem[] = [{
   companyLink: 'https://7eminar.ua/',
   time: 'November 2017 - November 2018',
   stack: 'JavaScript (jQuery), HTML/Pug, SASS, Laravel, JSON',
-  responsibilities: 'Migrated the main platform to a responsive modular architecture (Bootstrap 3). Implemented dynamic UI interactions and complex email template systems.',
-  achievements: 'Created and optimized over 80 high-conversion landing pages and responsive email templates.',
+  responsibilities: 'Moved the main platform to a responsive layout using Bootstrap 3. Built UI interactions and complex email templates.',
+  achievements: 'Created and styled over 80 responsive landing pages and email templates.',
 }];

@@ -9,13 +9,13 @@ const featuredProjects = [
     name: 'Enterprise AI Agent for love💗epil',
     role: 'Lead AI Architect',
     period: '2025 - Present',
-    description: 'Production AI consultant for a European beauty chain. Built as a brain-first system with strict business control and full observability.',
+    description: 'A production AI consultant for a European beauty chain. Built with strict business control and full observability.',
     myContributions: [
-      'Designed brain-first orchestration with 21 tools across booking, services, support handoff, and knowledge retrieval',
-      'Built fine-tuned GPT-4.1 Mini pipeline with merge, validation, audit, and quality checks',
-      'Implemented Langfuse + OpenTelemetry tracing for every tool call, token usage, and cost visibility',
-      'Shipped semantic search on pgvector for FAQs, services, locations, and subscription content',
-      'Deployed across web and messaging channels with shared state, incident capture, and operator handoff',
+      'Built a custom AI orchestration engine with 21 tools covering bookings, FAQs, and support handoffs',
+      'Set up a fine-tuned GPT-4.1 Mini pipeline with automated validation, auditing, and quality checks',
+      'Integrated Langfuse + OpenTelemetry tracing so we can track every tool call and token cost',
+      'Added semantic search using pgvector for FAQs, locations, and service details',
+      'Deployed the agent across the website and messengers with shared memory and seamless operator handoff',
     ],
     clientResults: [
       'Live in production across 18 studios in 5 countries',
@@ -30,13 +30,13 @@ const featuredProjects = [
     name: 'UAES — Ukrainian Community Spain',
     role: 'Full-Stack Product Engineer',
     period: '2026 - Present',
-    description: 'Community platform for Ukrainians in Spain with discovery, trust, and moderation workflows across multiple listing domains.',
+    description: 'A community platform for Ukrainians in Spain, connecting listings, events, and resources with a built-in moderation system.',
     myContributions: [
-      'Architected and shipped the platform from scratch: public portal, moderation workflows, and admin operations',
-      'Implemented multilingual routing and content model for Ukrainian and Spanish locales',
-      'Built listings ecosystem: businesses, events, jobs, housing, classifieds, and support resources',
-      'Added verification and moderation flows with role-aware access and review states',
-      'Established quality pipeline with Playwright E2E, Stryker mutation testing, and Sentry monitoring',
+      'Built the entire platform from scratch, including the public site, user dashboards, and admin operations',
+      'Set up full multilingual support for Ukrainian and Spanish locales',
+      'Developed the core listings architecture for businesses, events, housing, and classifieds',
+      'Added automated verification and moderation workflows with role-based access',
+      'Set up quality pipelines with Playwright E2E and Sentry monitoring',
     ],
     clientResults: [
       'Full community platform live across core listing verticals',
@@ -51,13 +51,13 @@ const featuredProjects = [
     name: 'love💗epil Multi-domain SaaS Ecosystem',
     role: 'Lead AI Architect | Product Builder',
     period: '2024 - Present',
-    description: 'Unified product ecosystem across core frontend, regional domains, admin operations, analytics, AI service, CMS, and transactional messaging.',
+    description: 'A complete product ecosystem spanning the main website, regional domains, admin panel, analytics, CMS, and transactional tools.',
     myContributions: [
-      'Defined system boundaries across repositories: core frontend, country domains, admin panel, AI service, and analytics layer',
-      'Architected multi-domain localization for 5 countries, 6 domains, 6 languages, and 4 currencies',
-      'Built admin workflows for RBAC, payment operations, translation management, and booking control',
-      'Implemented attribution and analytics pipelines with cross-domain stitching and lifecycle reporting',
-      'Owned data architecture with Prisma and PostgreSQL across product, operations, and AI contexts',
+      'Defined the architecture and boundaries across five interconnected repositories',
+      'Set up multi-domain localization supporting 5 countries, 6 languages, and 4 currencies',
+      'Built admin workflows to handle RBAC, payments, translations, and bookings',
+      'Integrated full-funnel analytics to track users across domains and tie behavior to lifecycle events',
+      'Designed the data architecture using Prisma and PostgreSQL to serve product, operations, and AI',
     ],
     clientResults: [
       '30K+ monthly active users across 6 European domains',
@@ -85,7 +85,7 @@ export const FeaturedProjects = () => (
       >
         <ScrambleTitle text="Featured Projects" />
         <p className="section-subtitle">
-          Product ecosystems and AI systems built for real operations, scale, and long-term maintainability.
+          Real products and AI systems built to scale, operate reliably, and actually solve business problems.
         </p>
       </motion.div>
 

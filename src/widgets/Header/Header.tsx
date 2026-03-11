@@ -13,10 +13,10 @@ import { GitHubIcon, InstagramIcon, LinkedInIcon, TelegramIcon } from '@/shared/
 // =============================================================================
 
 const TYPING_LINES = [
-  '> architecting product ecosystems...',
-  '> shipping production AI systems...',
-  '> connecting product, data, and operations...',
-  '> from concept to production.',
+  '> building full-stack products...',
+  '> developing production-ready AI agents...',
+  '> connecting product goals with technical reality...',
+  '> from concept to scale.',
 ];
 
 const TYPING_SPEED_MS = 35;
@@ -25,8 +25,8 @@ const LINE_PAUSE_MS = 400;
 const stats = [
   { value: 20, suffix: '+', label: 'Projects Delivered', sublabel: '14 built from scratch' },
   { value: 5, suffix: '', label: 'Countries Served', sublabel: 'multi-domain operations' },
-  { value: 21, suffix: '', label: 'AI Tools Orchestrated', sublabel: 'brain-first production agent' },
-  { value: 8, suffix: '+', label: 'Years in Engineering', sublabel: 'product, platform, and AI systems' },
+  { value: 21, suffix: '', label: 'AI Tools Integrated', sublabel: 'in a single production agent' },
+  { value: 8, suffix: '+', label: 'Years of Experience', sublabel: 'product, platform, and AI' },
 ];
 
 const socialLinks = [
@@ -156,7 +156,7 @@ export const Header = (): React.ReactElement => {
           >
             <span className="badge badge--accent" style={{ fontSize: 'var(--text-xs)', marginBottom: 'var(--space-8)', display: 'inline-flex', gap: 'var(--space-2)' }}>
               <span style={{ width: 8, height: 8, background: 'var(--success)', borderRadius: '50%', display: 'inline-block', boxShadow: '0 0 8px var(--success)' }} />
-              Available for architecture and product engagements
+              Open to new architecture & product roles
             </span>
           </motion.div>
 

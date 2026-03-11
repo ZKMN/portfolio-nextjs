@@ -8,7 +8,10 @@ export const SKILLS: Skill[] = [
   // AI & LLM
   { title: 'OpenAI', src: 'icons8-openai-100-v2.svg', category: 'ai' },
   { title: 'Vercel AI SDK', src: 'icons8-nextjs-100.svg', category: 'ai' },
-  { title: 'Langfuse', src: 'icons8-langchain-100.svg', category: 'ai' },
+  { title: 'Langfuse', src: 'si-langfuse.svg', category: 'ai' },
+  { title: 'LangChain', src: 'si-langchain.svg', category: 'ai' },
+  { title: 'n8n', src: 'si-n8n.svg', category: 'ai' },
+  { title: 'Anthropic', src: 'icons8-anthropic-100-v2.svg', category: 'ai' },
   { title: 'OpenTelemetry', src: 'icons8-rest-api-100.png', category: 'ai' },
   { title: 'pgvector', src: 'icons8-postgresql-100.svg', category: 'ai' },
 
@@ -17,17 +20,16 @@ export const SKILLS: Skill[] = [
   { title: 'React 19', src: 'icons8-react-100.svg', category: 'frontend' },
   { title: 'Next.js 16', src: 'icons8-nextjs-100.svg', category: 'frontend' },
   { title: 'Zustand', src: 'icons8-zustand-100.svg', category: 'frontend' },
-  { title: 'React Hook Form', src: 'icons8-react-100.svg', category: 'frontend' },
-  { title: 'Framer Motion', src: 'icons8-react-100.svg', category: 'frontend' },
+  { title: 'React Hook Form', src: 'si-reacthookform.svg', category: 'frontend' },
+  { title: 'Framer Motion', src: 'si-framer.svg', category: 'frontend' },
   { title: 'next-intl', src: 'icons8-nextjs-100.svg', category: 'frontend' },
   { title: 'i18next', src: 'si-i18next.svg', category: 'frontend' },
-  { title: 'TanStack Query', src: 'icons8-react-100.svg', category: 'frontend' },
+  { title: 'TanStack Query', src: 'si-reactquery.svg', category: 'frontend' },
 
   // Backend & Data
   { title: 'Node.js', src: 'icons8-nodejs-100.svg', category: 'backend' },
   { title: 'PostgreSQL', src: 'icons8-postgresql-100.svg', category: 'backend' },
   { title: 'Prisma', src: 'si-prisma.svg', category: 'backend' },
-  { title: 'Prisma Accelerate', src: 'si-prisma.svg', category: 'backend' },
   { title: 'Stripe', src: 'icons8-stripe-100.svg', category: 'backend' },
   { title: 'Resend', src: 'si-resend.svg', category: 'backend' },
   { title: 'NextAuth', src: 'icons8-nextjs-100.svg', category: 'backend' },
@@ -36,17 +38,14 @@ export const SKILLS: Skill[] = [
 
   // UI & Design
   { title: 'Material UI', src: 'icons8-material-ui-100.svg', category: 'ui' },
-  { title: 'MUI X Data Grid', src: 'icons8-material-ui-100.svg', category: 'ui' },
-  { title: 'Toolpad Core', src: 'icons8-material-ui-100.svg', category: 'ui' },
-  { title: 'shadcn/ui', src: 'icons8-tailwind-100.svg', category: 'ui' },
-  { title: 'Radix UI', src: 'icons8-react-100.svg', category: 'ui' },
+  { title: 'shadcn/ui', src: 'si-shadcnui.svg', category: 'ui' },
+  { title: 'Radix UI', src: 'si-radixui.svg', category: 'ui' },
   { title: 'Tailwind CSS', src: 'icons8-tailwind-100.svg', category: 'ui' },
   { title: 'SASS', src: 'icons8-sass-100.svg', category: 'ui' },
   { title: 'React Email', src: 'icons8-react-100.svg', category: 'ui' },
 
   // Cloud & DevOps
   { title: 'Vercel', src: 'icons8-nextjs-100.svg', category: 'cloud' },
-  { title: 'Vercel Blob', src: 'icons8-nextjs-100.svg', category: 'cloud' },
   { title: 'AWS', src: 'icons8-aws-100.svg', category: 'cloud' },
   { title: 'Git', src: 'icons8-git-100.svg', category: 'cloud' },
   { title: 'Firebase', src: 'icons8-firebase-100.svg', category: 'cloud' },

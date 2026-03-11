@@ -45,15 +45,14 @@ export const Skills = () => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: '800px',
-        height: '600px',
-        background: 'radial-gradient(circle, var(--accent-subtle) 0%, transparent 70%)',
-        filter: 'blur(100px)',
+        width: '100%',
+        height: '100%',
+        background: 'radial-gradient(circle at center, rgba(30, 30, 40, 0.4) 0%, transparent 60%)',
         pointerEvents: 'none',
       }}
       />
 
-      <div className="container container--wide" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -73,7 +72,7 @@ export const Skills = () => {
           viewport={{ once: true, margin: '-40px' }}
           variants={{
             hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.015 } },
+            visible: { opacity: 1, transition: { duration: 0.3 } },
           }}
           style={{
             display: 'grid',

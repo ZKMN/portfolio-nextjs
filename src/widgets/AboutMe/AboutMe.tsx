@@ -7,42 +7,42 @@ import Image from 'next/image';
 import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
 
 const experienceSnapshot = [
-  'Built and operated the Loveepil ecosystem across core web, regional domains, admin operations, analytics, and AI service.',
-  'Delivered 20+ projects (14 from scratch) with full ownership from architecture and implementation to production hardening.',
-  'Led end-to-end product engineering across localization, payments, attribution, support workflows, and system reliability.',
+  'Built and scaled the Loveepil platform across web, admin, analytics, and AI services.',
+  'Delivered 20+ projects (14 from scratch), handling everything from architecture to production release.',
+  'Led end-to-end product engineering, including localization, payments, and system reliability.',
 ];
 
 const howIWork = [
   {
-    title: 'Architecture-first decisions',
-    description: 'I define boundaries, contracts, and state flows before scaling delivery.',
+    title: 'Architecture first',
+    description: 'I define clear boundaries, data flows, and contracts before writing code.',
   },
   {
-    title: 'Product builder mindset',
-    description: 'I connect product goals, technical architecture, and operational reality.',
+    title: 'Product-minded',
+    description: 'I focus on connecting business goals with the technical reality of the platform.',
   },
   {
-    title: 'Ownership through production',
-    description: 'I ship and operate systems with observability, reliability, and iteration loops.',
+    title: 'Full ownership',
+    description: 'I build, ship, and operate systems, making sure they actually work in production.',
   },
 ];
 
 const recentProductContributions = [
-  'Designed and delivered a unified Loveepil product ecosystem across frontend, admin, analytics, and AI layers.',
-  'Built a production AI consultant with brain-first tool orchestration and full Langfuse observability.',
-  'Implemented multi-domain i18n architecture across six locales and four currencies with GDPR-aware flows.',
-  'Built operational analytics and attribution pipelines that connect web behavior to booking lifecycle signals.',
+  'Designed and launched the entire Loveepil ecosystem: frontend, admin, analytics, and AI.',
+  'Built a production AI assistant integrating 20+ tools with full Langfuse observability.',
+  'Implemented multi-domain localization supporting six countries, multiple languages, and currencies.',
+  'Set up analytics pipelines that securely tie web behavior to real business bookings.',
 ];
 
 const competencies = [
-  'Lead AI Architecture (Brain-First, Tool-Orchestrated Systems)',
+  'AI Architecture & Agents',
   'OpenAI API, Vercel AI SDK, Langfuse, pgvector',
   'Product Engineering: Next.js, React, TypeScript, Node.js',
-  'Data and Domain Modeling: Prisma, PostgreSQL, RBAC, workflow design',
-  'Payments and Identity: Stripe, NextAuth',
-  'Localization at Scale: multi-domain, multi-locale, multi-currency',
-  'Quality and Delivery: Vitest, Playwright, ESLint, CI/CD',
-  'Vercel, AWS, Firebase, Telegram Bot API',
+  'Data Modeling: Prisma, PostgreSQL, RBAC',
+  'Payments & Auth: Stripe, NextAuth',
+  'Global Localization: multi-domain, multi-currency',
+  'Quality Assurance: Vitest, Playwright, CI/CD',
+  'Vercel, AWS, Firebase, Telegram API',
 ];
 
 const fadeUp = {
@@ -61,7 +61,7 @@ viewport={{ once: true }}
         >
           <ScrambleTitle text="About Me" />
           <p className="section-subtitle">
-            Lead AI Architect | Product Builder. I design and ship production systems where product, AI, analytics, and operations work as one architecture.
+            Lead AI Architect & Product Builder. I design and ship systems where product features, AI, and operations work seamlessly together.
           </p>
         </motion.div>
 
