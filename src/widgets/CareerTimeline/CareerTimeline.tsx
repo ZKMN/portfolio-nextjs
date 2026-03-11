@@ -21,6 +21,9 @@ whileInView="visible"
 viewport={{ once: true }}
         >
           <ScrambleTitle text="Career Timeline" />
+          <p className="section-subtitle">
+            I work in a hybrid model: long-term core roles combined with architecture and product engagements.
+          </p>
         </motion.div>
 
         <div style={{ position: 'relative', marginTop: 'var(--space-12)' }}>

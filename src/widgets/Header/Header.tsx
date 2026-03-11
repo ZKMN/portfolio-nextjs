@@ -13,20 +13,20 @@ import { GitHubIcon, InstagramIcon, LinkedInIcon, TelegramIcon } from '@/shared/
 // =============================================================================
 
 const TYPING_LINES = [
-  '> building production AI agents...',
-  '> orchestrating 21 tools...',
-  '> fine-tuning language models...',
-  '> from scratch. always.',
+  '> architecting product ecosystems...',
+  '> shipping production AI systems...',
+  '> connecting product, data, and operations...',
+  '> from concept to production.',
 ];
 
 const TYPING_SPEED_MS = 35;
 const LINE_PAUSE_MS = 400;
 
 const stats = [
-  { value: 20, suffix: '', label: 'Projects Delivered', sublabel: '14 from scratch' },
-  { value: 96, suffix: '%', label: 'Real User Score', sublabel: 'Core Web Vitals (Mobile)' },
-  { value: 21, suffix: '', label: 'AI Tools Orchestrated', sublabel: 'brain-first agent' },
-  { value: 8, suffix: '+', label: 'Years Experience', sublabel: '' },
+  { value: 20, suffix: '+', label: 'Projects Delivered', sublabel: '14 built from scratch' },
+  { value: 5, suffix: '', label: 'Countries Served', sublabel: 'multi-domain operations' },
+  { value: 21, suffix: '', label: 'AI Tools Orchestrated', sublabel: 'brain-first production agent' },
+  { value: 8, suffix: '+', label: 'Years in Engineering', sublabel: 'product, platform, and AI systems' },
 ];
 
 const socialLinks = [
@@ -156,7 +156,7 @@ export const Header = (): React.ReactElement => {
           >
             <span className="badge badge--accent" style={{ fontSize: 'var(--text-xs)', marginBottom: 'var(--space-8)', display: 'inline-flex', gap: 'var(--space-2)' }}>
               <span style={{ width: 8, height: 8, background: 'var(--success)', borderRadius: '50%', display: 'inline-block', boxShadow: '0 0 8px var(--success)' }} />
-              Available for new projects
+              Available for architecture and product engagements
             </span>
           </motion.div>
 
@@ -196,7 +196,7 @@ export const Header = (): React.ReactElement => {
               lineHeight: 1.3,
             }}
           >
-            AI Agent Architect & Full-Stack Product Engineer
+            Lead AI Architect | Product Builder
           </motion.h2>
 
           {/* Terminal typing effect */}
@@ -285,13 +285,13 @@ export const Header = (): React.ReactElement => {
               </MagneticWrap>
               <MagneticWrap>
                 <a
-                  href="/resume"
+                  href="/projects/ai-agent"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn--ghost"
                   style={{ textDecoration: 'none' }}
                 >
-                  Download CV
+                  Read AI Case Study
                 </a>
               </MagneticWrap>
             </div>

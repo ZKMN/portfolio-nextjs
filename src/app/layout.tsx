@@ -24,8 +24,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteUrl = 'https://denovo.sh';
-const title = 'Denis Klymenko | AI Agent Architect & Full-Stack Product Engineer | Brain-first Agentic Systems';
-const description = 'AI Agent Architect & Full-Stack Product Engineer. I build production AI agents and the full infrastructure behind them — solo, from scratch.';
+const title = 'Denis Klymenko | Lead AI Architect | Product Builder';
+const description = 'Lead AI Architect | Product Builder. I design and ship production systems where product, AI, analytics, and operations work as one architecture.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: '%s | Denis Klymenko',
   },
   description,
-  applicationName: 'AI Agent Architect',
+  applicationName: 'Lead AI Architect | Product Builder',
   authors: [
     {
       name: 'Denis Klymenko',
@@ -48,13 +48,13 @@ export const metadata: Metadata = {
     url: siteUrl,
     title,
     description,
-    siteName: 'AI Agent Architect',
+    siteName: 'Lead AI Architect | Product Builder',
     images: [
       {
         url: '/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Denis Klymenko — AI Agent Architect & Full-Stack Product Engineer',
+        alt: 'Denis Klymenko — Lead AI Architect | Product Builder',
       },
     ],
   },
@@ -108,7 +108,7 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Denis Klymenko',
-    jobTitle: 'AI Agent Architect & Full-Stack Product Engineer',
+    jobTitle: 'Lead AI Architect | Product Builder',
     url: siteUrl,
     sameAs: [
       'https://www.linkedin.com/in/denis-klymenko/',

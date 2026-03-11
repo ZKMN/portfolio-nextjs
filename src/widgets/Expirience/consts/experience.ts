@@ -25,7 +25,7 @@ export const EXPERIENCE: ExperienceItem[] = [{
 }, {
   open: true,
   name: 'love💗epil',
-  role: 'AI Architect | Senior Product Engineer',
+  role: 'Lead AI Architect | Product Builder',
   companyLink: 'https://www.loveepil.com',
   time: 'August 2024 - Present',
   stack: 'Next.js 16, React 19, TypeScript, Prisma, PostgreSQL, OpenAI API, Vercel AI SDK, Langfuse, Stripe, MUI, DeepL, Vercel Drains',
@@ -45,7 +45,7 @@ export const EXPERIENCE: ExperienceItem[] = [{
 }, {
   open: true,
   name: 'Blackbird Lab',
-  role: 'Senior Fullstack Engineer',
+  role: 'Senior Full-Stack Engineer',
   companyLink: 'https://jobs.dou.ua/companies/blackbird-lab/',
   time: 'March 2021 - Present',
   stack: 'TypeScript, React 19, Next.js 15, Zustand, Redux, Redux-Saga, REST, GraphQL, MUI, Ant Design, Tailwind CSS, Prisma, PostgreSQL, Jest, React Testing Library, Google Analytics, Vercel',

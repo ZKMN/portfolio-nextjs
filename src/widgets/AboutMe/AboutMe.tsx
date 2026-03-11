@@ -6,35 +6,42 @@ import Image from 'next/image';
 
 import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
 
-const achievements = [
-  'Enterprise AI Agent for love💗epil (18 studios, 5 countries). Brain-First architecture with 21 orchestrated tools, fine-tuned GPT-4.1 Mini, LLM observability via Langfuse OpenTelemetry, multi-channel deployment (Web, Telegram, Instagram, Facebook). Solo-delivered.',
-  '20 projects delivered (14 from scratch). Engineered a scalable distributed SaaS ecosystem serving 5 countries with Domain-Driven Design, Stripe payments, and GDPR compliance.',
-  'Full-Cycle Development: E2E ownership — architecture, AI agent design, FE/BE integration, testing (Vitest), CI/CD, deployment to Vercel.',
+const experienceSnapshot = [
+  'Built and operated the Loveepil ecosystem across core web, regional domains, admin operations, analytics, and AI service.',
+  'Delivered 20+ projects (14 from scratch) with full ownership from architecture and implementation to production hardening.',
+  'Led end-to-end product engineering across localization, payments, attribution, support workflows, and system reliability.',
 ];
 
-const valuePoints = [
-  'Brain-first AI systems — rigid business logic governs LLM reasoning, not prompt tricks',
-  'Tool Orchestration (21 tools), Fine-Tuning pipelines, Prompt Engineering for production AI agents',
-  'LLM observability: Langfuse + OpenTelemetry traces every tool call, token usage, cost per conversation',
-  'Architecting for scale: multi-domain, multi-currency, i18n-ready systems with unified data modeling',
+const howIWork = [
+  {
+    title: 'Architecture-first decisions',
+    description: 'I define boundaries, contracts, and state flows before scaling delivery.',
+  },
+  {
+    title: 'Product builder mindset',
+    description: 'I connect product goals, technical architecture, and operational reality.',
+  },
+  {
+    title: 'Ownership through production',
+    description: 'I ship and operate systems with observability, reliability, and iteration loops.',
+  },
 ];
 
-const recentHighlights = [
-  'Enterprise AI Agent with 21 orchestrated tools, FSM booking sessions, and support incident tracking',
-  'Fine-tuned GPT-4.1 Mini with custom data pipeline (merge, validate, audit, quality-check)',
-  'pgvector semantic search with OpenAI text-embedding-3-small (FAQ, services, studios, cities, abonnements)',
-  'Distributed service architecture: AI Orchestrator, Analytics Engine, Core API, Headless CMS, and Admin Dashboard',
+const recentProductContributions = [
+  'Designed and delivered a unified Loveepil product ecosystem across frontend, admin, analytics, and AI layers.',
+  'Built a production AI consultant with brain-first tool orchestration and full Langfuse observability.',
+  'Implemented multi-domain i18n architecture across six locales and four currencies with GDPR-aware flows.',
+  'Built operational analytics and attribution pipelines that connect web behavior to booking lifecycle signals.',
 ];
 
 const competencies = [
-  'AI Agent Architecture (Brain-First, 21 tools, FSM)',
+  'Lead AI Architecture (Brain-First, Tool-Orchestrated Systems)',
   'OpenAI API, Vercel AI SDK, Langfuse, pgvector',
-  'Fine-Tuning, Prompt Engineering, Tool Orchestration',
-  'Full-Stack: Next.js 16, React 19, TypeScript, Node.js',
-  'Prisma (Complex Data Modeling), PostgreSQL, Stripe, NextAuth',
-  'Multi-domain i18n (6 lang, 4 currencies, GDPR)',
-  'Strapi CMS, Resend, React Email, DeepL',
-  'Vitest, ESLint, Husky, TypeScript strict',
+  'Product Engineering: Next.js, React, TypeScript, Node.js',
+  'Data and Domain Modeling: Prisma, PostgreSQL, RBAC, workflow design',
+  'Payments and Identity: Stripe, NextAuth',
+  'Localization at Scale: multi-domain, multi-locale, multi-currency',
+  'Quality and Delivery: Vitest, Playwright, ESLint, CI/CD',
   'Vercel, AWS, Firebase, Telegram Bot API',
 ];
 
@@ -54,7 +61,7 @@ viewport={{ once: true }}
         >
           <ScrambleTitle text="About Me" />
           <p className="section-subtitle">
-            Lead AI Architect & Senior Product Engineer. I don&apos;t just &ldquo;plug in&rdquo; OpenAI APIs — I build predictable AI systems where LLM reasoning is governed by rigid business logic.
+            Lead AI Architect | Product Builder. I design and ship production systems where product, AI, analytics, and operations work as one architecture.
           </p>
         </motion.div>
 
@@ -107,13 +114,13 @@ viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}
           >
-            {/* Key Achievements */}
+            {/* Experience Snapshot */}
             <div>
               <span className="badge badge--accent" style={{ marginBottom: 'var(--space-4)', display: 'inline-block' }}>
-                Key Achievements
+                Experience Snapshot
               </span>
               <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-                {achievements.map((item, i) => (
+                {experienceSnapshot.map((item, i) => (
                   <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
                     <span style={{ color: 'var(--accent-light)', fontSize: 'var(--text-lg)', lineHeight: 1.7, flexShrink: 0 }}>◆</span>
                     <span style={{ fontSize: 'var(--text-base)', lineHeight: 1.7, color: 'var(--text-secondary)' }}>{item}</span>
@@ -122,28 +129,30 @@ viewport={{ once: true }}
               </ul>
             </div>
 
-            {/* Value I Bring */}
+            {/* How I Work */}
             <div>
               <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 700, marginBottom: 'var(--space-4)', color: 'var(--text-primary)' }}>
-                Value I bring:
+                How I Work
               </h3>
               <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-                {valuePoints.map((item, i) => (
+                {howIWork.map(({ title, description }, i) => (
                   <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
                     <span style={{ color: 'var(--accent)', fontSize: 'var(--text-lg)', lineHeight: 1.7, flexShrink: 0 }}>→</span>
-                    <span style={{ fontSize: 'var(--text-base)', lineHeight: 1.7, color: 'var(--text-secondary)' }}>{item}</span>
+                    <span style={{ fontSize: 'var(--text-base)', lineHeight: 1.7, color: 'var(--text-secondary)' }}>
+                      <strong style={{ color: 'var(--text-primary)' }}>{title}:</strong> {description}
+                    </span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Recent Highlights */}
+            {/* Recent Product Contributions */}
             <div>
               <span className="badge badge--accent" style={{ marginBottom: 'var(--space-4)', display: 'inline-block' }}>
-                Recent Highlights
+                Recent Product Contributions
               </span>
               <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-                {recentHighlights.map((item, i) => (
+                {recentProductContributions.map((item, i) => (
                   <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
                     <span style={{ color: 'var(--success)', fontSize: '14px', lineHeight: 1.8, flexShrink: 0 }}>✦</span>
                     <span style={{ fontSize: 'var(--text-base)', lineHeight: 1.7, color: 'var(--text-secondary)' }}>{item}</span>

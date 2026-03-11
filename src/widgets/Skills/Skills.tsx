@@ -1,11 +1,12 @@
 'use client';
 
+import { useCallback, useEffect, useRef,useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
 
 import { SkillCard } from './components';
-import { SKILL_CATEGORIES,SKILLS } from './consts';
+import { SKILLS } from './consts';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -13,11 +14,28 @@ const fadeUp = {
 };
 
 export const Skills = () => {
-  const categoryKeys = Object.keys(SKILL_CATEGORIES);
-  const skillsByCategory: Record<string, typeof SKILLS> = {};
-  for (const category of categoryKeys) {
-    skillsByCategory[category] = SKILLS.filter(skill => skill.category === category);
-  }
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleExpand = useCallback((index: number | null) => {
+    setExpandedIndex(index);
+  }, []);
+
+  // Collapse on outside tap (mobile)
+  useEffect(() => {
+    const handleOutsideTap = (e: PointerEvent) => {
+      if (
+        expandedIndex !== null &&
+        containerRef.current &&
+        e.target instanceof Node &&
+        !containerRef.current.contains(e.target)
+      ) {
+        setExpandedIndex(null);
+      }
+    };
+    document.addEventListener('pointerdown', handleOutsideTap);
+    return () => document.removeEventListener('pointerdown', handleOutsideTap);
+  }, [expandedIndex]);
 
   return (
     <section id="skills" className="section" style={{ background: 'var(--bg-primary)', position: 'relative' }}>
@@ -36,10 +54,11 @@ export const Skills = () => {
       />
 
       <div className="container container--wide" style={{ position: 'relative', zIndex: 1 }}>
-        <motion.div variants={fadeUp}
-initial="hidden"
-whileInView="visible"
-viewport={{ once: true }}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
         >
           <ScrambleTitle text="Skills" />
           <p className="section-subtitle">
@@ -47,89 +66,35 @@ viewport={{ once: true }}
           </p>
         </motion.div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-12)', marginTop: 'var(--space-12)' }}>
-          {Object.entries(SKILL_CATEGORIES).map(([category, categoryName]) => {
-            const categorySkills = skillsByCategory[category];
-            if (!categorySkills || categorySkills.length === 0) return null;
-
-            return (
-              <motion.div
-                key={category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5 }}
-              >
-                <span className="badge badge--accent"
-style={{
-  marginBottom: 'var(--space-6)',
-  display: 'inline-block',
-  fontSize: 'var(--text-sm)',
-  padding: 'var(--space-2) var(--space-4)',
-}}
-                >
-                  {categoryName}
-                </span>
-
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: '-50px' }}
-                  variants={{
-                    hidden: { opacity: 0 },
-                    visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
-                  }}
-                >
-                  <div className="skills-grid">
-                    {categorySkills.map((skill, index) => (
-                      <div key={skill.title} className="skill-item">
-                        <SkillCard
-                          key={skill.title}
-                          src={skill.src}
-                          title={skill.title}
-                          index={index}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        <style jsx>{`
-          .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: var(--space-3);
-          }
-          .skill-item {
-            height: 100%;
-          }
-
-          @media (max-width: 768px) {
-            .skills-grid {
-              display: flex;
-              overflow-x: auto;
-              scroll-snap-type: x mandatory;
-              gap: var(--space-3);
-              padding-bottom: var(--space-4);
-              margin-right: -16px; /* Bleed to edge */
-              padding-right: 16px;
-              /* Hide scrollbar for cleaner look, or style it */
-              scrollbar-width: none; 
-            }
-            .skills-grid::-webkit-scrollbar {
-              display: none;
-            }
-            .skill-item {
-              flex: 0 0 auto;
-              width: 130px;
-              scroll-snap-align: start;
-            }
-          }
-        `}</style>
+        <motion.div
+          ref={containerRef}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-40px' }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.015 } },
+          }}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, 35px)',
+            gap: 6,
+            marginTop: 'var(--space-10)',
+            justifyContent: 'center',
+            padding: 'var(--space-4) 0',
+          }}
+        >
+          {SKILLS.map((skill, index) => (
+            <SkillCard
+              key={skill.title}
+              src={skill.src}
+              title={skill.title}
+              index={index}
+              isExpanded={expandedIndex === index}
+              onExpand={handleExpand}
+            />
+          ))}
+        </motion.div>
       </div>
     </section>
   );

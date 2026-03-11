@@ -9,20 +9,18 @@ const featuredProjects = [
     name: 'Enterprise AI Agent for love💗epil',
     role: 'Lead AI Architect',
     period: '2025 - Present',
-    description: 'Brain-First architecture AI Agent for European beauty chain (18 studios, 5 countries). Solo-delivered.',
+    description: 'Production AI consultant for a European beauty chain. Built as a brain-first system with strict business control and full observability.',
     myContributions: [
-      'Brain-First architecture with 21 orchestrated tools — booking, cart, services, studios, knowledge base, availability, handoff',
-      'Fine-tuned GPT-4.1 Mini with custom training data pipeline (merge, validate, audit, quality-check scripts)',
-      'LLM observability via Langfuse OpenTelemetry — traces every tool call, token usage, cost per conversation',
-      'pgvector semantic search with OpenAI text-embedding-3-small for FAQ, services, studios, cities, abonnements',
-      'Multi-channel deployment: website widget, Telegram Bot API, admin panel with incident review',
-      'Stateful booking sessions with funnel analytics (outcome tracking, drop-off analysis)',
-      'Support incident system — auto-captures conversation snapshots on handoff, dislike, or complaint',
+      'Designed brain-first orchestration with 21 tools across booking, services, support handoff, and knowledge retrieval',
+      'Built fine-tuned GPT-4.1 Mini pipeline with merge, validation, audit, and quality checks',
+      'Implemented Langfuse + OpenTelemetry tracing for every tool call, token usage, and cost visibility',
+      'Shipped semantic search on pgvector for FAQs, services, locations, and subscription content',
+      'Deployed across web and messaging channels with shared state, incident capture, and operator handoff',
     ],
     clientResults: [
       'Live in production across 18 studios in 5 countries',
-      'Near-zero hallucination rate via brain-first control flow',
-      '4 channels: Website, Telegram, Instagram, Facebook',
+      'Stable production behavior through tool-level validation and controlled flows',
+      '4 delivery channels: Website, Telegram, Instagram, Facebook',
     ],
     tech: ['OpenAI GPT-4.1 Mini', 'Vercel AI SDK', 'Langfuse', 'pgvector', 'Next.js 16', 'Prisma', 'PostgreSQL', 'Telegram Bot API', 'Vitest'],
     link: 'https://www.loveepil.com/consultation',
@@ -30,22 +28,20 @@ const featuredProjects = [
   },
   {
     name: 'UAES — Ukrainian Community Spain',
-    role: 'Full-Stack Engineer',
+    role: 'Full-Stack Product Engineer',
     period: '2026 - Present',
-    description: 'Community platform for Ukrainians in Spain — find Ukrainian businesses, events, jobs, housing, classifieds, and resources across Spanish cities. Multi-locale, verification flows, Google Maps integration.',
+    description: 'Community platform for Ukrainians in Spain with discovery, trust, and moderation workflows across multiple listing domains.',
     myContributions: [
-      'End-to-end architecture from scratch: public platform + admin & moderation panel',
-      'Multi-locale routing with next-intl (Ukrainian / Spanish)',
-      'Business directory with categories, filters, ratings, Google Maps integration',
-      'Events, jobs board, housing listings, classifieds, and resource directory',
-      'Full auth with NextAuth v5 + verification flows for businesses and listings',
-      'Mutation testing with Stryker, E2E coverage with Playwright',
-      'Sentry error tracking, Vercel Blob for media, Firebase for real-time features',
+      'Architected and shipped the platform from scratch: public portal, moderation workflows, and admin operations',
+      'Implemented multilingual routing and content model for Ukrainian and Spanish locales',
+      'Built listings ecosystem: businesses, events, jobs, housing, classifieds, and support resources',
+      'Added verification and moderation flows with role-aware access and review states',
+      'Established quality pipeline with Playwright E2E, Stryker mutation testing, and Sentry monitoring',
     ],
     clientResults: [
-      'Full community platform live: businesses, events, jobs, housing, classifieds',
+      'Full community platform live across core listing verticals',
       'Multi-locale support: Ukrainian and Spanish',
-      'Admin panel with RBAC, content moderation and verification system',
+      'Operational moderation and verification flows integrated into delivery',
     ],
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Prisma', 'PostgreSQL', 'NextAuth v5', 'next-intl', 'Firebase', 'Vercel Blob', 'Google Maps', 'TanStack Query', 'Zustand', 'Shadcn/Radix UI', 'Tailwind CSS v4', 'Sentry', 'Resend', 'Playwright', 'Vitest', 'Stryker'],
     link: 'https://uaes.app',
@@ -53,22 +49,20 @@ const featuredProjects = [
   },
   {
     name: 'love💗epil Multi-domain SaaS Ecosystem',
-    role: 'Senior Product Engineer E2E',
+    role: 'Lead AI Architect | Product Builder',
     period: '2024 - Present',
-    description: 'Comprehensively architected distributed ecosystem powering a European beauty chain — decoupling frontend, admin, analytics, AI service, and CMS.',
+    description: 'Unified product ecosystem across core frontend, regional domains, admin operations, analytics, AI service, CMS, and transactional messaging.',
     myContributions: [
-      'Architected multi-domain i18n system (5 countries, 6 domains, 6 languages, 4 currencies, GDPR-compliant)',
-      'Built custom analytics platform with cross-domain session stitching, multi-touch attribution, and Vercel Drains',
-      'Full admin panel with RBAC, Stripe payments, loyalty programs, booking management, FAQ editor, and content translations via DeepL',
-      'Enterprise-grade Prisma data layer implementing Domain-Driven Design (DDD) across Studio Management, Booking Engine, Loyalty Logic, and Content Delivery',
-      'Transactional email system with React Email + Resend, i18n-aware templates',
-      'Strapi CMS with auto-translation, drag-drop content types, REST cache plugin',
-      'Core Web Vitals optimization: LCP < 2.5s, INP < 200ms, 96% Real User Experience Score',
+      'Defined system boundaries across repositories: core frontend, country domains, admin panel, AI service, and analytics layer',
+      'Architected multi-domain localization for 5 countries, 6 domains, 6 languages, and 4 currencies',
+      'Built admin workflows for RBAC, payment operations, translation management, and booking control',
+      'Implemented attribution and analytics pipelines with cross-domain stitching and lifecycle reporting',
+      'Owned data architecture with Prisma and PostgreSQL across product, operations, and AI contexts',
     ],
     clientResults: [
       '30K+ monthly active users across 6 European domains',
       '96% Real User Experience Score (mobile)',
-      'End-to-End Architecture Ownership',
+      'Single ecosystem strategy connecting acquisition, conversion, operations, and analytics',
     ],
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'NextAuth', 'Strapi', 'Resend', 'React Email', 'Vercel', 'Google Maps API', 'Firebase', 'Microsoft Clarity', 'Zustand', 'TanStack Query', 'Zod', 'i18next', 'DeepL'],
     link: null,
@@ -91,7 +85,7 @@ export const FeaturedProjects = () => (
       >
         <ScrambleTitle text="Featured Projects" />
         <p className="section-subtitle">
-          Brain-first AI Agents, Agentic Workflows, and scalable multi-domain SaaS architectures.
+          Product ecosystems and AI systems built for real operations, scale, and long-term maintainability.
         </p>
       </motion.div>
 
@@ -170,7 +164,7 @@ export const FeaturedProjects = () => (
                   marginBottom: 'var(--space-3)',
                 }}
                 >
-                  My Contributions
+                  Ownership & Delivery
                 </h4>
                 <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
                   {project.myContributions.map((c, i) => (
