@@ -11,10 +11,17 @@ type UseCountUpParams = {
 };
 
 export const useCountUp = ({ target, isInView }: UseCountUpParams): number => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(target);
   const hasAnimated = useRef(false);
+  const hasHydrated = useRef(false);
 
   useEffect(() => {
+    if (!hasHydrated.current) {
+      hasHydrated.current = true;
+      setCount(0);
+      return;
+    }
+
     if (!isInView || hasAnimated.current) return;
     hasAnimated.current = true;
 

@@ -49,20 +49,27 @@ const fadeUp = {
 // Hooks
 // =============================================================================
 
-const useTypingEffect = (): string[] => {
-  const [lines, setLines] = useState<string[]>([]);
+const useTypingEffect = (): { lines: string[]; isAnimating: boolean } => {
+  const [lines, setLines] = useState<string[]>(TYPING_LINES);
+  const [isAnimating, setIsAnimating] = useState(false);
   const hasStarted = useRef(false);
 
   useEffect(() => {
     if (hasStarted.current) return;
     hasStarted.current = true;
 
+    setLines([]);
+    setIsAnimating(true);
+
     let lineIndex = 0;
     let charIndex = 0;
     const currentLines: string[] = [];
 
     const type = (): void => {
-      if (lineIndex >= TYPING_LINES.length) return;
+      if (lineIndex >= TYPING_LINES.length) {
+        setIsAnimating(false);
+        return;
+      }
 
       const line = TYPING_LINES[lineIndex];
 
@@ -82,7 +89,7 @@ const useTypingEffect = (): string[] => {
     setTimeout(type, 800);
   }, []);
 
-  return lines;
+  return { lines, isAnimating };
 };
 
 // =============================================================================
@@ -138,7 +145,7 @@ const CountUpStat = ({ value, suffix, label, sublabel }: {
 // =============================================================================
 
 export const Header = (): React.ReactElement => {
-  const typedLines = useTypingEffect();
+  const { lines: typedLines, isAnimating } = useTypingEffect();
 
   const scrollToSection = (id: string): void => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -227,7 +234,7 @@ export const Header = (): React.ReactElement => {
                 }}
               >
                 {line}
-                {i === typedLines.length - 1 && (
+                {isAnimating && i === typedLines.length - 1 && (
                   <span style={{
                     display: 'inline-block',
                     width: '2px',
@@ -241,16 +248,6 @@ export const Header = (): React.ReactElement => {
                 )}
               </div>
             ))}
-            {typedLines.length === 0 && (
-              <span style={{
-                display: 'inline-block',
-                width: '2px',
-                height: '1em',
-                background: 'var(--accent-light)',
-                animation: 'blink 1s step-end infinite',
-              }}
-              />
-            )}
           </motion.div>
 
           {/* Stats Grid */}
