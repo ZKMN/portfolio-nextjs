@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
-import { EcosystemIcon, EnvelopeIcon, UserIcon } from '@/shared/icons';
+import { EcosystemIcon, EnvelopeIcon, RobotIcon, UserIcon } from '@/shared/icons';
 
 type NavLink = {
   label: string;
@@ -34,6 +34,7 @@ const parseHashHref = (href: string): ParsedHref => {
 const MOBILE_NAV_ITEMS: MobileNavItem[] = [
   { label: 'About', href: '/#about-me', icon: <UserIcon /> },
   { label: 'Ecosystem', href: '/projects/loveepil', icon: <EcosystemIcon /> },
+  { label: 'AI Agent', href: '/projects/ai-agent', icon: <RobotIcon /> },
   { label: 'Contact', href: '#contact', icon: <EnvelopeIcon /> },
 ];
 

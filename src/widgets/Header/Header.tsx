@@ -285,13 +285,13 @@ export const Header = (): React.ReactElement => {
               </MagneticWrap>
               <MagneticWrap>
                 <a
-                  href="/projects/ai-agent"
+                  href="/resume"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn--ghost"
                   style={{ textDecoration: 'none' }}
                 >
-                  Read AI Case Study
+                  Download CV
                 </a>
               </MagneticWrap>
             </div>
