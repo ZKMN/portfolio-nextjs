@@ -73,6 +73,26 @@ export const Ecosystem = (): React.ReactElement => (
       }
 
       /* ── Repositories ──────────────────────────── */
+      .eco-repo-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px 8px;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border);
+        color: var(--text-tertiary);
+        font-size: 10px;
+        font-family: var(--font-mono);
+        font-weight: 500;
+        text-decoration: none;
+        line-height: 1.6;
+        transition: all var(--duration-normal) var(--ease-out);
+      }
+      .eco-repo-link:hover {
+        border-color: var(--repo-color);
+        color: var(--repo-color);
+        box-shadow: 0 0 8px color-mix(in srgb, var(--repo-color) 20%, transparent);
+      }
       .eco-repos-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
@@ -192,7 +212,7 @@ export const Ecosystem = (): React.ReactElement => (
           grid-template-columns: 1fr;
         }
         .eco-map-svg-container {
-          max-height: 400px;
+          max-height: none;
         }
         .eco-map-detail {
           position: static;
@@ -242,9 +262,8 @@ export const Ecosystem = (): React.ReactElement => (
           display: none;
         }
         .eco-map-svg-container {
-          max-height: 320px;
-          aspect-ratio: auto;
-          min-height: 280px;
+          max-height: none;
+          aspect-ratio: 1;
         }
       }
     `}</style>

@@ -66,7 +66,7 @@ export const OutcomesSection = (): React.ReactElement => (
       >
         <h2 className="section-title" style={{ fontSize: 'var(--text-2xl)' }}>My Role Across the Ecosystem</h2>
         <p className="section-subtitle" style={{ marginBottom: 'var(--space-8)' }}>
-          I didn&apos;t just write features - I designed the system architecture, implemented all seven services, and maintain sole ownership of every critical boundary.
+          I didn&apos;t just write features - I designed the system architecture, implemented all services, and maintain sole ownership of every critical boundary.
         </p>
       </motion.div>
 

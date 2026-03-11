@@ -23,6 +23,7 @@ export type Repository = {
   keyFeatures: string[];
   whySeparated: string;
   color: string;
+  links?: { label: string; href: string }[];
 };
 
 export type FlowStep = {

@@ -228,7 +228,7 @@ export const EcosystemMapSection = (): React.ReactElement => {
         >
           <ScrambleTitle text="Ecosystem Architecture" />
           <p className="section-subtitle">
-            Seven services, four databases, one connected system. Click any node to explore how it fits into the bigger picture.
+            Multiple services, four databases, one connected system. Click any node to explore how it fits into the bigger picture.
           </p>
         </motion.div>
 

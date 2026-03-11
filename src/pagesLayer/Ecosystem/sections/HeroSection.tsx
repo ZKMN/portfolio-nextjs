@@ -83,7 +83,7 @@ export const HeroSection = (): React.ReactElement => (
             WebkitTextFillColor: 'transparent',
           }}
         >
-          Building a 7-Service Product Ecosystem
+          Building a Multi-Service Product Ecosystem
         </motion.h1>
 
         <motion.h2

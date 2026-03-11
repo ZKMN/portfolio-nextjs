@@ -72,6 +72,7 @@ export const REPOSITORIES: Repository[] = [
     ],
     whySeparated: 'This is the conversion-critical path - it needs its own deployment cycle so booking and payments are never disrupted by content or admin changes.',
     color: 'var(--accent)',
+    links: [{ label: 'loveepil.com', href: 'https://loveepil.com' }],
   },
   {
     id: 'country',
@@ -88,6 +89,13 @@ export const REPOSITORIES: Repository[] = [
     ],
     whySeparated: 'Each country lives on its own domain with unique SEO requirements. Acquisition content changes frequently and independently from the core booking flow.',
     color: '#3b82f6',
+    links: [
+      { label: '.pl', href: 'https://loveepil.pl' },
+      { label: '.ua', href: 'https://loveepil.ua' },
+      { label: '.de', href: 'https://loveepil.de' },
+      { label: '.es', href: 'https://loveepil.es' },
+      { label: '.uk', href: 'https://loveepil.uk' },
+    ],
   },
   {
     id: 'admin',
@@ -363,7 +371,7 @@ export const OWNERSHIP_AREAS: OwnershipArea[] = [
   {
     category: 'Architectural Decisions',
     items: [
-      'Decomposition from monolith into 7 services along domain boundaries',
+      'Decomposition from monolith into multiple services along domain boundaries',
       'Feature-Sliced Design with custom naming for Next.js App Router',
       'Brain-first AI architecture instead of deterministic FSM',
       'Independent analytics platform with custom attribution model',

@@ -19,7 +19,7 @@ export const RepositoriesSection = (): React.ReactElement => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <ScrambleTitle text="Seven Services, One System" />
+          <ScrambleTitle text="Multiple Services, One System" />
           <p className="section-subtitle">
             Each repository has a clear responsibility, its own deployment cycle, and specific reasons for being separate. Together, they form a complete product platform.
           </p>
@@ -89,13 +89,29 @@ export const RepositoriesSection = (): React.ReactElement => {
                         <span style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)' }}>{repo.label}</span>
                       </div>
                     </div>
-                    <motion.span
-                      animate={{ rotate: isExpanded ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}
-                      style={{ color: 'var(--text-tertiary)', fontSize: 'var(--text-sm)' }}
-                    >
-                      ▼
-                    </motion.span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-1)' }}>
+                      {repo.links?.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="eco-repo-link"
+                          style={{ '--repo-color': repo.color } as React.CSSProperties}
+                          aria-label={`Visit ${link.label}`}
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                      <motion.span
+                        animate={{ rotate: isExpanded ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        style={{ color: 'var(--text-tertiary)', fontSize: 'var(--text-sm)', marginLeft: 'var(--space-1)' }}
+                      >
+                        ▼
+                      </motion.span>
+                    </div>
                   </div>
 
                   {/* Responsibility */}
