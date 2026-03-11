@@ -82,7 +82,11 @@ export const SkillCard: React.FC<SkillCardProps> = ({
         height={18}
         style={{
           objectFit: 'contain',
-          filter: src.includes('langfuse') || src.includes('rest-api') || src.includes('shadcnui') || src.includes('radixui')
+          filter: [
+            'nextdotjs', 'vercel', 'shadcnui', 'radixui',
+            'framer', 'prisma', 'opentelemetry',
+            'github', 'langfuse', 'zustand', 'anthropic',
+          ].some(name => src.includes(name))
             ? `invert(1) brightness(${isExpanded ? 1.2 : 0.8})`
             : `brightness(${isExpanded ? 1.2 : 0.9})`,
           opacity: isExpanded ? 1 : 0.7,
