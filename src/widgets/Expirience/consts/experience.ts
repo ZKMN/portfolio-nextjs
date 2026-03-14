@@ -39,7 +39,7 @@ export const EXPERIENCE: ExperienceItem[] = [{
     name: 'Analytics & Attribution Platform',
     description: 'Custom platform that tracks user journeys across 6 different country domains. Built a phone-based attribution system to tie CRM bookings back to Google/Meta ads.',
   }, {
-    name: '7-Service Ecosystem Architecture',
+    name: 'Multi-Service Ecosystem Architecture',
     link: '/projects/loveepil',
     description: 'Designed and implemented the core SaaS platform combining the booking frontend, localized domains, independent analytics, and a granular RBAC admin panel.',
   }],
