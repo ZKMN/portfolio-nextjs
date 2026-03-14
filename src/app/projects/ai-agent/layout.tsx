@@ -1,11 +1,7 @@
 import type { Metadata } from 'next';
 
-const title = 'Building a Production AI Agent | Brain-First Architecture Case Study';
-const description = [
-  'Deep-dive into building an enterprise AI agent with brain-first architecture,',
-  '21 orchestrated tools, fine-tuned GPT-4.1 Mini, Langfuse observability,',
-  'and pgvector semantic search. Near-zero hallucinations across 18 studios in 5 countries.',
-].join(' ');
+const title = 'Production AI Agent | Brain-First Architecture';
+const description = 'Enterprise AI agent: brain-first architecture, 21 tools, fine-tuned GPT-4.1 Mini, Langfuse observability, pgvector search. Near-zero hallucinations.';
 
 export const metadata: Metadata = {
   title,
@@ -19,7 +15,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Building a Production AI Agent - Brain-First Architecture',
+        alt: 'Production AI Agent — Brain-First Architecture',
       },
     ],
   },

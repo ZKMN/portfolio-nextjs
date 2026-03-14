@@ -1,11 +1,7 @@
 import type { Metadata } from 'next';
 
-const title = 'Building a Multi-Service Product Ecosystem | Architecture Case Study';
-const description = [
-  'How I designed and built a production SaaS ecosystem with multiple repositories, 4 databases,',
-  'multi-domain acquisition across 5 countries, AI-powered consultation, independent analytics,',
-  'and automated operations - all working as a single connected system.',
-].join(' ');
+const title = 'Multi-Service Product Ecosystem | Case Study';
+const description = 'Production SaaS ecosystem: multiple repos, 4 databases, multi-domain across 5 countries, AI consultation, and automated operations.';
 
 export const metadata: Metadata = {
   title,
@@ -16,10 +12,10 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: '/images/ecosystem-og.png',
+        url: '/images/ecosystem-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Building a Multi-Service Product Ecosystem - Architecture Case Study',
+        alt: 'Multi-Service Product Ecosystem — Architecture Case Study',
       },
     ],
   },
@@ -27,7 +23,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title,
     description,
-    images: ['/images/og-image.jpg'],
+    images: ['/images/ecosystem-og.jpg'],
   },
 };
 

@@ -24,8 +24,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteUrl = 'https://denovo.sh';
-const title = 'Denis Klymenko | Lead AI Architect | Product Builder';
-const description = 'Lead AI Architect | Product Builder. I design and ship production systems where product, AI, analytics, and operations work as one architecture.';
+const title = 'Denis Klymenko | Lead AI Architect';
+const description = 'I design and ship production systems where product, AI, analytics, and operations work as one architecture.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: '%s | Denis Klymenko',
   },
   description,
-  applicationName: 'Lead AI Architect | Product Builder',
+  applicationName: 'Denis Klymenko Portfolio',
   authors: [
     {
       name: 'Denis Klymenko',
@@ -48,13 +48,13 @@ export const metadata: Metadata = {
     url: siteUrl,
     title,
     description,
-    siteName: 'Lead AI Architect | Product Builder',
+    siteName: 'Denis Klymenko',
     images: [
       {
-        url: '/images/og-image.png',
+        url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Denis Klymenko - Lead AI Architect | Product Builder',
+        alt: 'Denis Klymenko — Lead AI Architect',
       },
     ],
   },
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title,
     description,
     creator: '@denisklymenko',
-    images: ['/images/og-image.png'],
+    images: ['/images/og-image.jpg'],
   },
   robots: {
     index: true,
