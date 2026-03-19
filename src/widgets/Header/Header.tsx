@@ -24,9 +24,9 @@ const LINE_PAUSE_MS = 400;
 
 const stats = [
   { value: 20, suffix: '+', label: 'Projects Delivered', sublabel: '14 built from scratch' },
-  { value: 5, suffix: '', label: 'Countries Served', sublabel: 'multi-domain operations' },
-  { value: 21, suffix: '', label: 'AI Tools Integrated', sublabel: 'in a single production agent' },
-  { value: 8, suffix: '+', label: 'Years of Experience', sublabel: 'product, platform, and AI' },
+  { value: 3, suffix: '', label: 'AI Systems in Prod', sublabel: 'agent, moderation, content pipeline' },
+  { value: 5, suffix: '', label: 'Live Products', sublabel: 'maintained & scaled solo' },
+  { value: 9, suffix: '+', label: 'Years of Experience', sublabel: 'full-stack, product & AI' },
 ];
 
 const socialLinks = [
@@ -34,6 +34,14 @@ const socialLinks = [
   { name: 'GitHub', href: 'https://github.com/ZKMN', icon: <GitHubIcon /> },
   { name: 'Telegram', href: 'https://t.me/denisklim01', icon: <TelegramIcon /> },
   { name: 'Instagram', href: 'https://www.instagram.com/denisklim01/', icon: <InstagramIcon /> },
+];
+
+const clientLogos = [
+  { name: 'Corva', href: 'https://www.corva.ai/' },
+  { name: 'S-PRO', href: 'https://s-pro.io/' },
+  { name: 'Modo Energy', href: 'https://modoenergy.com/' },
+  { name: 'Blackbird Lab', href: 'https://blackbird-lab.com/' },
+  { name: 'loveepil', href: 'https://www.loveepil.com/' },
 ];
 
 const fadeUp = {
@@ -203,10 +211,10 @@ export const Header = (): React.ReactElement => {
               lineHeight: 1.4,
             }}
           >
-            I build full platforms for multi-location businesses
+            I turn complex business problems into production platforms.
             <br />
             <span style={{ color: 'var(--text-tertiary)', fontWeight: 400 }}>
-              — from booking to AI support to analytics. Solo.
+              Architecture, code, AI, delivery - one person.
             </span>
           </motion.h2>
 
@@ -287,8 +295,6 @@ export const Header = (): React.ReactElement => {
               <MagneticWrap>
                 <a
                   href="/resume"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="btn btn--ghost"
                   style={{ textDecoration: 'none' }}
                 >
@@ -318,6 +324,39 @@ export const Header = (): React.ReactElement => {
               ))}
             </div>
           </motion.div>
+
+          {/* Client Logos */}
+          <motion.div custom={7}
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            style={{ marginTop: 'var(--space-12)', paddingTop: 'var(--space-8)', borderTop: '1px solid var(--border)' }}
+          >
+            <p style={{ fontSize: 'var(--text-xs)', color: 'var(--text-tertiary)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 'var(--space-6)' }}>
+              Worked with
+            </p>
+            <div style={{ display: 'flex', gap: 'var(--space-10)', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+              {clientLogos.map((client) => (
+                <a
+                  key={client.name}
+                  href={client.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="client-logo"
+                  style={{
+                    fontSize: 'var(--text-sm)',
+                    fontWeight: 600,
+                    color: 'rgba(255,255,255,0.55)',
+                    letterSpacing: '0.02em',
+                    transition: 'color 0.3s ease',
+                    textDecoration: 'none',
+                  }}
+                >
+                  {client.name}
+                </a>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
 
@@ -342,6 +381,9 @@ export const Header = (): React.ReactElement => {
         }
         .social-link:hover {
           color: var(--accent);
+        }
+        .client-logo:hover {
+          color: rgba(255,255,255,0.85) !important;
         }
         .stats-grid {
           display: grid;

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
-const title = 'Community Portal — AI-Driven Solo Delivery | Case Study';
-const description = 'Full-stack community platform: 857 TS files, 8 entity types, Google Places enrichment, checklist moderation — built solo with AI assistance.';
+const title = 'AI-Driven Delivery | Community Platform Case Study';
+const description = 'How AI enables one developer to build and maintain a full-stack community platform: 200+ auto-discovered businesses, 8 content verticals, automated content pipeline.';
 
 export const metadata: Metadata = {
   title,

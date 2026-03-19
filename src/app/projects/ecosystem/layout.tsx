@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 const title = 'Multi-Service Product Ecosystem | Case Study';
-const description = 'Production SaaS ecosystem: multiple repos, 4 databases, multi-domain across 5 countries, AI consultation, and automated operations.';
+const description = 'How one engineer built and maintains a production SaaS ecosystem: 5 countries, 7 repositories, AI agent, analytics, admin panel, and automated operations.';
 
 export const metadata: Metadata = {
   title,

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 const title = 'Production AI Agent | Brain-First Architecture';
-const description = 'Enterprise AI agent: brain-first architecture, 21 tools, fine-tuned GPT-4.1 Mini, Langfuse observability, pgvector search. Near-zero hallucinations.';
+const description = 'Production AI agent with brain-first architecture: 21 tools, fine-tuned GPT-4.1 Mini, Langfuse observability, pgvector search. $0.015 per dialog, near-zero hallucinations.';
 
 export const metadata: Metadata = {
   title,

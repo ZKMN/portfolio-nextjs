@@ -24,8 +24,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteUrl = 'https://denovo.sh';
-const title = 'Denis Klymenko | Lead AI Architect';
-const description = 'I design and ship production systems where product, AI, analytics, and operations work as one architecture.';
+const title = 'Denis Klymenko | Full-Stack Engineer & AI Architect';
+const description = 'I turn complex business problems into production platforms. Architecture, code, AI, delivery - one person. 9+ years, 20+ projects, 3 AI systems in production.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Denis Klymenko — Lead AI Architect',
+        alt: 'Denis Klymenko — Full-Stack Engineer & AI Architect',
       },
     ],
   },
@@ -77,16 +77,18 @@ export const metadata: Metadata = {
     },
   },
   keywords: [
-    'AI Agent Architect',
     'Full-Stack Engineer',
-    'LLM',
-    'AI Agent',
+    'AI Architect',
     'TypeScript',
     'React',
     'Next.js',
-    'Tool Orchestration',
-    'GPT',
+    'Node.js',
+    'PostgreSQL',
+    'AI Agent',
+    'LLM',
     'Production AI',
+    'SaaS',
+    'Product Engineer',
   ],
   category: 'technology',
   alternates: {
@@ -107,7 +109,7 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Denis Klymenko',
-    jobTitle: 'Lead AI Architect | Product Builder',
+    jobTitle: 'Full-Stack Engineer & AI Architect',
     url: siteUrl,
     sameAs: [
       'https://www.linkedin.com/in/denis-klymenko/',
@@ -140,8 +142,8 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
     },
     worksFor: {
       '@type': 'Organization',
-      name: 'Loveepil',
-      url: 'https://www.loveepil.com',
+      name: 'Corva',
+      url: 'https://www.corva.ai',
     },
   };
 

@@ -2,7 +2,7 @@ export interface ExperienceItem {
   name: string;
   role?: string;
   companyLink?: string;
-  time: string;
+  time?: string;
   stack?: string;
   testing?: string;
   responsibilities?: string;
@@ -17,7 +17,6 @@ export const EXPERIENCE: ExperienceItem[] = [{
   name: 'Corva',
   role: 'Senior Frontend Developer',
   companyLink: 'https://www.corva.ai/',
-  time: 'December 2025 - Present',
   stack: 'React, TypeScript, Redux, Highcharts, Styled Components, Jest, React Testing Library',
   responsibilities: 'Working on performance and stability for complex drilling analytics dashboards. Refactoring heavy React components to make data rendering faster and easier to maintain.',
   achievements: 'Sped up core visualization components, cutting down render times for large datasets. Cleaned up legacy modules to make future updates easier.',
@@ -27,7 +26,6 @@ export const EXPERIENCE: ExperienceItem[] = [{
   name: 'love💗epil',
   role: 'Lead AI Architect | Product Builder',
   companyLink: 'https://www.loveepil.com',
-  time: 'August 2024 - Present',
   stack: 'Next.js 16, React 19, TypeScript, Prisma, PostgreSQL, OpenAI API, Vercel AI SDK, Langfuse, Stripe, MUI, DeepL, Vercel Drains',
   responsibilities: 'Solo end-to-end ownership of a distributed system serving 5 countries. Built everything from scratch: the AI agent, analytics platform, admin panel, payments, CMS, and transactional emails.',
   achievements: 'Deployed a production AI agent running at $0.015 per dialog with near-zero hallucinations. Achieved a 96% Mobile Performance Score. Built cross-domain analytics with phone-based attribution.',
@@ -48,7 +46,6 @@ export const EXPERIENCE: ExperienceItem[] = [{
   name: 'Blackbird Lab',
   role: 'Senior Full-Stack Engineer',
   companyLink: 'https://jobs.dou.ua/companies/blackbird-lab/',
-  time: 'March 2021 - Present',
   stack: 'TypeScript, React 19, Next.js 15, Zustand, Redux, Redux-Saga, REST, GraphQL, MUI, Ant Design, Tailwind CSS, Prisma, PostgreSQL, Jest, React Testing Library, Google Analytics, Vercel',
   responsibilities: 'Led the modernization of the company\'s frontend stack, moving from legacy setups to a unified Next.js architecture. Improved security by integrating automated vulnerability checks into our CI/CD pipelines.',
   achievements: 'Secured sensitive data flows across 3 internal products by rewriting the authentication layer. Migrated 50K+ lines of code to TypeScript and Next.js, making the codebase much easier to work with.',
@@ -58,7 +55,6 @@ export const EXPERIENCE: ExperienceItem[] = [{
   name: 'S-PRO',
   role: 'Middle Frontend Developer',
   companyLink: 'https://jobs.dou.ua/companies/s-pro/',
-  time: 'March 2020 - March 2021',
   stack: 'React, Redux, Redux-Saga, React Router v4, Formik, SCSS, Ant Design, Flexbox Grid, Lodash, Moment.js, Nivo Rocks, ESLint (Airbnb)',
   testing: 'Jest, Enzyme',
   responsibilities: 'Built frontend applications from scratch and maintained existing products. Focused on clean code, performance, and solid test coverage.',
@@ -74,7 +70,6 @@ export const EXPERIENCE: ExperienceItem[] = [{
 }, {
   name: 'Noosyntech',
   companyLink: 'http://noosyntech.com/',
-  time: 'November 2018 - March 2020',
   stack: 'React, Redux, Redux-Saga, Redux-Form, SASS, ANTD, FlexBox Grid, Lodash, Moment, ReactDnD',
   testing: 'Jest, Enzyme',
   responsibilities: 'Built UI components, optimized rendering performance, and added unit tests for the main user flows.',
@@ -86,7 +81,6 @@ export const EXPERIENCE: ExperienceItem[] = [{
 }, {
   name: '7eminar',
   companyLink: 'https://7eminar.ua/',
-  time: 'November 2017 - November 2018',
   stack: 'JavaScript (jQuery), HTML/Pug, SASS, Laravel, JSON',
   responsibilities: 'Moved the main platform to a responsive layout using Bootstrap 3. Built UI interactions and complex email templates.',
   achievements: 'Created and styled over 80 responsive landing pages and email templates.',

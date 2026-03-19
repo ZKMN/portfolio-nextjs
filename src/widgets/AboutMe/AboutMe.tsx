@@ -27,156 +27,112 @@ const howIWork = [
   },
 ];
 
-const recentProductContributions = [
-  'Designed and launched the entire Loveepil ecosystem: frontend, admin, analytics, and AI.',
-  'Built a production AI assistant integrating 20+ tools with full Langfuse observability.',
-  'Implemented multi-domain localization supporting six countries, multiple languages, and currencies.',
-  'Set up analytics pipelines that securely tie web behavior to real business bookings.',
-];
-
-const competencies = [
-  'AI Architecture & Agents',
-  'OpenAI API, Vercel AI SDK, Langfuse, pgvector',
-  'Product Engineering: Next.js, React, TypeScript, Node.js',
-  'Data Modeling: Prisma, PostgreSQL, RBAC',
-  'Payments & Auth: Stripe, NextAuth',
-  'Global Localization: multi-domain, multi-currency',
-  'Quality Assurance: Vitest, Playwright, CI/CD',
-  'Vercel, AWS, Firebase, Telegram API',
-];
-
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
 };
 
 export const AboutMe = () => (
-    <section id="about-me" className="section" style={{ background: 'var(--bg-secondary)' }}>
-      <div className="container">
-        {/* Section Header */}
-        <motion.div variants={fadeUp}
-initial="hidden"
-whileInView="visible"
-viewport={{ once: true }}
-        >
-          <ScrambleTitle text="About Me" />
-          <p className="section-subtitle">
-            Lead AI Architect & Product Builder. I design and ship systems where product features, AI, and operations work seamlessly together.
-          </p>
-        </motion.div>
+  <section id="about-me" className="section" style={{ background: 'var(--bg-secondary)' }}>
+    <div className="container">
+      {/* Section Header */}
+      <motion.div variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <ScrambleTitle text="About Me" />
+        <p className="section-subtitle">
+          Lead AI Architect & Product Builder. I design and ship systems where product features, AI, and operations work seamlessly together.
+        </p>
+      </motion.div>
 
-        <div className="about-grid">
-          {/* Photo */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      <div className="about-grid">
+        {/* Photo */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div style={{
+            position: 'relative',
+            borderRadius: 'var(--radius-2xl)',
+            overflow: 'hidden',
+            background: 'var(--gradient-accent)',
+            padding: '3px',
+          }}
           >
-            <div style={{
-              position: 'relative',
-              borderRadius: 'var(--radius-2xl)',
-              overflow: 'hidden',
-              background: 'var(--gradient-accent)',
-              padding: '3px',
-            }}
-            >
-              <div style={{ borderRadius: 'calc(var(--radius-2xl) - 3px)', overflow: 'hidden' }}>
-                <Image
-                  width={400}
-                  height={500}
-                  alt="Denis Klymenko"
-                  src="/images/photo.jpg"
-                  style={{ objectFit: 'cover', width: '100%', height: 'auto', display: 'block' }}
-                  priority
-                />
-              </div>
-              {/* Photo glow */}
-              <div style={{
-                position: 'absolute',
-                bottom: '-20px',
-                left: '10%',
-                right: '10%',
-                height: '40px',
-                background: 'var(--accent-glow)',
-                filter: 'blur(30px)',
-                borderRadius: '50%',
-              }}
+            <div style={{ borderRadius: 'calc(var(--radius-2xl) - 3px)', overflow: 'hidden' }}>
+              <Image
+                width={400}
+                height={500}
+                alt="Denis Klymenko"
+                src="/images/photo.jpg"
+                style={{ objectFit: 'cover', width: '100%', height: 'auto', display: 'block' }}
+                priority
               />
             </div>
-          </motion.div>
+            {/* Photo glow */}
+            <div style={{
+              position: 'absolute',
+              bottom: '-20px',
+              left: '10%',
+              right: '10%',
+              height: '40px',
+              background: 'var(--accent-glow)',
+              filter: 'blur(30px)',
+              borderRadius: '50%',
+            }}
+            />
+          </div>
+        </motion.div>
 
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}
-          >
-            {/* Experience Snapshot */}
-            <div>
-              <span className="badge badge--accent" style={{ marginBottom: 'var(--space-4)', display: 'inline-block' }}>
-                Experience Snapshot
-              </span>
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-                {experienceSnapshot.map((item, i) => (
-                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
-                    <span style={{ color: 'var(--accent-light)', fontSize: 'var(--text-lg)', lineHeight: 1.7, flexShrink: 0 }}>◆</span>
-                    <span style={{ fontSize: 'var(--text-base)', lineHeight: 1.7, color: 'var(--text-secondary)' }}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        {/* Content */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+          style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}
+        >
+          {/* Experience Snapshot */}
+          <div>
+            <span className="badge badge--accent" style={{ marginBottom: 'var(--space-4)', display: 'inline-block' }}>
+              Experience Snapshot
+            </span>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+              {experienceSnapshot.map((item, i) => (
+                <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
+                  <span style={{ color: 'var(--accent-light)', fontSize: 'var(--text-lg)', lineHeight: 1.7, flexShrink: 0 }}>◆</span>
+                  <span style={{ fontSize: 'var(--text-base)', lineHeight: 1.7, color: 'var(--text-secondary)' }}>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            {/* How I Work */}
-            <div>
-              <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 700, marginBottom: 'var(--space-4)', color: 'var(--text-primary)' }}>
-                How I Work
-              </h3>
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-                {howIWork.map(({ title, description }, i) => (
-                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
-                    <span style={{ color: 'var(--accent)', fontSize: 'var(--text-lg)', lineHeight: 1.7, flexShrink: 0 }}>→</span>
-                    <span style={{ fontSize: 'var(--text-base)', lineHeight: 1.7, color: 'var(--text-secondary)' }}>
-                      <strong style={{ color: 'var(--text-primary)' }}>{title}:</strong> {description}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* How I Work */}
+          <div>
+            <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 700, marginBottom: 'var(--space-4)', color: 'var(--text-primary)' }}>
+              How I Work
+            </h3>
+            <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+              {howIWork.map(({ title, description }, i) => (
+                <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
+                  <span style={{ color: 'var(--accent)', fontSize: 'var(--text-lg)', lineHeight: 1.7, flexShrink: 0 }}>→</span>
+                  <span style={{ fontSize: 'var(--text-base)', lineHeight: 1.7, color: 'var(--text-secondary)' }}>
+                    <strong style={{ color: 'var(--text-primary)' }}>{title}:</strong> {description}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            {/* Recent Product Contributions */}
-            <div>
-              <span className="badge badge--accent" style={{ marginBottom: 'var(--space-4)', display: 'inline-block' }}>
-                Recent Product Contributions
-              </span>
-              <ul style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-                {recentProductContributions.map((item, i) => (
-                  <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
-                    <span style={{ color: 'var(--success)', fontSize: '14px', lineHeight: 1.8, flexShrink: 0 }}>✦</span>
-                    <span style={{ fontSize: 'var(--text-base)', lineHeight: 1.7, color: 'var(--text-secondary)' }}>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Core Competencies */}
-            <div style={{ paddingTop: 'var(--space-4)', borderTop: '1px solid var(--border)' }}>
-              <h3 style={{ fontSize: 'var(--text-xl)', fontWeight: 700, marginBottom: 'var(--space-4)', color: 'var(--text-primary)' }}>
-                Core Competencies
-              </h3>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
-                {competencies.map((comp) => (
-                  <span key={comp} className="chip">{comp}</span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
+        </motion.div>
       </div>
+    </div>
 
-      <style jsx>{`
+    <style jsx>{`
         .about-grid {
           display: grid;
           grid-template-columns: 1fr 2fr;
@@ -200,5 +156,5 @@ viewport={{ once: true }}
           }
         }
       `}</style>
-    </section>
+  </section>
 );

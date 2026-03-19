@@ -11,11 +11,11 @@ import { Skills } from '@/widgets/Skills';
 export const Home = () => (
   <>
     <Header />
+    <FeaturedProjects />
     <AboutMe />
     <Process />
-    <Skills />
-    <FeaturedProjects />
     <CareerTimeline />
+    <Skills />
     <Other />
   </>
 );
