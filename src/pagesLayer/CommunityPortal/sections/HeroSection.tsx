@@ -62,12 +62,12 @@ export const HeroSection = (): React.ReactElement => (
         >
           <span className="badge badge--accent" style={{ fontSize: 'var(--text-xs)', marginBottom: 'var(--space-8)', display: 'inline-flex', gap: 'var(--space-2)' }}>
             <span style={{ width: 8, height: 8, background: 'var(--success)', borderRadius: '50%', display: 'inline-block', boxShadow: '0 0 8px var(--success)' }} />
-            Product Ecosystem Case Study
+            Community Platform Case Study
           </span>
         </motion.div>
 
         <motion.h1
-          className="eco-hero-title"
+          className="cp-hero-title"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: EASE }}
@@ -83,11 +83,11 @@ export const HeroSection = (): React.ReactElement => (
             WebkitTextFillColor: 'transparent',
           }}
         >
-          Multi-Service Ecosystem for a European Beauty Chain
+          200+ Listings on Day One. Zero Content Team.
         </motion.h1>
 
         <motion.h2
-          className="eco-hero-subtitle"
+          className="cp-hero-subtitle"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
@@ -98,11 +98,11 @@ export const HeroSection = (): React.ReactElement => (
             lineHeight: 1.3,
           }}
         >
-          7 Services. 18 Studios. One Developer.
+          A Community Platform That Populates, Enriches, and Maintains Itself
         </motion.h2>
 
         <motion.p
-          className="eco-hero-description"
+          className="cp-hero-description"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45, ease: EASE }}
@@ -113,9 +113,9 @@ export const HeroSection = (): React.ReactElement => (
             lineHeight: 1.7,
           }}
         >
-          A European beauty chain that outgrew its tools. I designed and built a 7-service ecosystem
-          handling booking, payments, AI consultation, marketing analytics, and multi-country content -
-          each service deployed independently, all working as one system.
+          A community platform for Ukrainians in Spain with 8 content verticals. Businesses discovered
+          via Google Places API, events aggregated from public sources, data enriched automatically.
+          Built solo - from architecture and data pipelines to moderation system and production monitoring.
         </motion.p>
 
         <motion.div
@@ -125,7 +125,7 @@ export const HeroSection = (): React.ReactElement => (
           style={{ marginBottom: 'var(--space-8)' }}
         >
           <span className="badge badge--ghost" style={{ fontSize: 'var(--text-xs)', padding: 'var(--space-2) var(--space-4)' }}>
-            Sole Architect &nbsp;|&nbsp; Full-Stack Developer
+            Full-Stack Product Engineer
           </span>
         </motion.div>
 
@@ -134,7 +134,7 @@ export const HeroSection = (): React.ReactElement => (
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.65, ease: EASE }}
         >
-          <div className="eco-hero-stats-grid">
+          <div className="cp-hero-stats-grid">
             {HERO_STATS.map((stat) => (
               <CountUpStat key={stat.label} stat={stat} />
             ))}

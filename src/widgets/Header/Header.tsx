@@ -200,10 +200,14 @@ export const Header = (): React.ReactElement => {
               fontWeight: 500,
               color: 'var(--text-secondary)',
               marginBottom: 'var(--space-6)',
-              lineHeight: 1.3,
+              lineHeight: 1.4,
             }}
           >
-            Lead AI Architect | Product Builder
+            I build full platforms for multi-location businesses
+            <br />
+            <span style={{ color: 'var(--text-tertiary)', fontWeight: 400 }}>
+              — from booking to AI support to analytics. Solo.
+            </span>
           </motion.h2>
 
           {/* Terminal typing effect */}

@@ -45,7 +45,7 @@ const featuredProjects = [
     ],
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Prisma', 'PostgreSQL', 'NextAuth v5', 'next-intl', 'Firebase', 'Vercel Blob', 'Google Maps', 'TanStack Query', 'Zustand', 'Shadcn/Radix UI', 'Tailwind CSS v4', 'Sentry', 'Resend', 'Playwright', 'Vitest', 'Stryker'],
     link: 'https://uaes.app',
-    caseStudy: null,
+    caseStudy: '/projects/ai-driven-delivery',
   },
   {
     name: 'love💗epil Multi-domain SaaS Ecosystem',
@@ -66,7 +66,7 @@ const featuredProjects = [
     ],
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'NextAuth', 'Strapi', 'Resend', 'React Email', 'Vercel', 'Google Maps API', 'Firebase', 'Microsoft Clarity', 'Zustand', 'TanStack Query', 'Zod', 'i18next', 'DeepL'],
     link: null,
-    caseStudy: '/projects/loveepil',
+    caseStudy: '/projects/ecosystem',
   },
 ];
 

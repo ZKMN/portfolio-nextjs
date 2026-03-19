@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 
-import { MagneticWrap } from '@/shared/components/MagneticWrap';
 import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
 
 import { FADE_UP, RESULTS } from '../constants';
@@ -62,22 +60,21 @@ export const ResultsSection = (): React.ReactElement => (
           Interested in building something similar?
         </p>
         <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <MagneticWrap>
-            <Link href="/#contact" className="btn btn--primary" style={{ textDecoration: 'none' }}>
-              Get in Touch
-            </Link>
-          </MagneticWrap>
-          <MagneticWrap>
-            <a
-              href="https://www.loveepil.com/consultation"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn--ghost"
-              style={{ textDecoration: 'none' }}
-            >
-              Try the Agent Live
-            </a>
-          </MagneticWrap>
+          <button
+            className="btn btn--primary btn--lg"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Get in Touch
+          </button>
+          <a
+            href="https://www.loveepil.com/consultation"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--outline btn--lg"
+            style={{ textDecoration: 'none' }}
+          >
+            Try the Agent Live
+          </a>
         </div>
       </motion.div>
     </div>

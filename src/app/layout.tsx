@@ -96,8 +96,9 @@ export const metadata: Metadata = {
 
 const NAV_LINKS = [
   { label: 'About', href: '/#about-me' },
-  { label: 'Ecosystem', href: '/projects/loveepil' },
+  { label: 'Ecosystem', href: '/projects/ecosystem' },
   { label: 'AI Agent', href: '/projects/ai-agent' },
+  { label: 'AIDD', href: '/projects/ai-driven-delivery' },
   { label: 'Contact', href: '#contact' },
 ];
 

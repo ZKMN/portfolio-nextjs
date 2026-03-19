@@ -17,7 +17,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/projects/loveepil`,
+      url: `${baseUrl}/projects/ecosystem`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/projects/ai-driven-delivery`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,

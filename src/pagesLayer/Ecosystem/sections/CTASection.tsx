@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 
 export const CTASection = (): React.ReactElement => (
   <section
@@ -58,18 +57,19 @@ export const CTASection = (): React.ReactElement => (
         </p>
 
         <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-4)', flexWrap: 'wrap' }}>
-          <a
-            href="#contact"
+          <button
             className="btn btn--primary btn--lg"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Talk About Architecture
-          </a>
-          <Link
+          </button>
+          <a
             href="/projects/ai-agent"
             className="btn btn--outline btn--lg"
+            style={{ textDecoration: 'none' }}
           >
             View AI Agent Deep Dive →
-          </Link>
+          </a>
         </div>
       </motion.div>
     </div>

@@ -5,22 +5,24 @@ import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
 
 import { FADE_UP, OUTCOME_GROUPS } from '../constants';
 
-export const OutcomesSection = (): React.ReactElement => (
+export const ResultsSection = (): React.ReactElement => (
   <section className="section" style={{ background: 'var(--bg-primary)' }}>
     <div className="container">
+      {/* Outcomes */}
       <motion.div
         variants={FADE_UP}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <ScrambleTitle text="What the Ecosystem Delivers" />
+        <ScrambleTitle text="What AI-Driven Delivery Looks Like" />
         <p className="section-subtitle">
-          One developer. Seven services. A connected system serving 18 studios across 5 countries.
+          AI operates at every level: discovering content, building features, testing quality, and maintaining the platform.
+          Here is what one developer with AI delivers compared to a traditional team setup.
         </p>
       </motion.div>
 
-      <div className="eco-outcomes-grid" style={{ marginTop: 'var(--space-12)' }}>
+      <div className="cp-outcomes-grid" style={{ marginTop: 'var(--space-12)' }}>
         {OUTCOME_GROUPS.map((group, groupIndex) => (
           <motion.div
             key={group.title}
@@ -55,6 +57,36 @@ export const OutcomesSection = (): React.ReactElement => (
           </motion.div>
         ))}
       </div>
+
+      {/* CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        style={{ textAlign: 'center', marginTop: 'var(--space-16)' }}
+      >
+        <p style={{ fontSize: 'var(--text-lg)', color: 'var(--text-secondary)', marginBottom: 'var(--space-6)' }}>
+          Interested in building something similar?
+        </p>
+        <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <button
+            className="btn btn--primary btn--lg"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Talk About Architecture
+          </button>
+          <a
+            href="https://uaes.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--outline btn--lg"
+            style={{ textDecoration: 'none' }}
+          >
+            Visit UAES
+          </a>
+        </div>
+      </motion.div>
     </div>
   </section>
 );

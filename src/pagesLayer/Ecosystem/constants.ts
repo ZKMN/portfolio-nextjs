@@ -3,7 +3,6 @@ import type {
   Flow,
   HeroStat,
   OutcomeGroup,
-  OwnershipArea,
   ProblemPoint,
   Repository,
 } from './types';
@@ -21,10 +20,10 @@ export const STAGGER_CONTAINER = {
 // ─── Hero ────────────────────────────────────────────────────────────────────
 
 export const HERO_STATS: HeroStat[] = [
-  { value: '7', numericValue: 7, label: 'Repositories', sublabel: 'independently deployed services' },
-  { value: '4', numericValue: 4, label: 'Databases', sublabel: 'product, analytics, AI, CMS' },
+  { value: '18', numericValue: 18, label: 'Studios', sublabel: 'managed through one system' },
   { value: '5', numericValue: 5, label: 'Countries', sublabel: '6 languages, 4 currencies' },
   { value: '30k+', suffix: '+', label: 'MAU', sublabel: 'monthly active users' },
+  { value: '1', numericValue: 1, label: 'Developer', sublabel: '7 services, sole ownership' },
 ];
 
 // ─── Problem Context ─────────────────────────────────────────────────────────
@@ -196,19 +195,6 @@ export const FLOWS: Flow[] = [
     color: 'var(--accent)',
   },
   {
-    id: 'operations',
-    title: 'Core → Operations',
-    subtitle: 'From booking creation to business workflow',
-    steps: [
-      { step: 1, text: 'Booking created via Altegio API → webhook arrives at admin panel' },
-      { step: 2, text: 'Admin enriches data: binds Stripe PaymentIntent, creates Purchase record, tracks loyalty grants' },
-      { step: 3, text: 'Stripe webhook handler: upsert user → upsert payment → create purchase → grant loyalty → send email' },
-      { step: 4, text: 'Operators manage translations (DeepL), content, FAQ, staff, devices, and loyalty programs' },
-      { step: 5, text: 'RBAC controls access: 9 modules × 4 actions × role hierarchy' },
-    ],
-    color: '#f59e0b',
-  },
-  {
     id: 'ai-consultation',
     title: 'AI Consultation',
     subtitle: 'Multi-channel intelligent assistance',
@@ -235,51 +221,11 @@ export const FLOWS: Flow[] = [
     ],
     color: '#ec4899',
   },
-  {
-    id: 'content',
-    title: 'Content Lifecycle',
-    subtitle: 'From creation to multi-locale publishing',
-    steps: [
-      { step: 1, text: 'Content manager creates a blog post or career listing in Strapi (CKEditor WYSIWYG)' },
-      { step: 2, text: 'DeepL plugin translates content across 5 locales automatically' },
-      { step: 3, text: 'REST cache (1-hour TTL) serves content to frontends via ISR (1-hour revalidation)' },
-      { step: 4, text: 'Career CV submissions: form → Strapi saves → Telegram HR-bot notifies → PDF generated on demand' },
-    ],
-    color: '#06b6d4',
-  },
-  {
-    id: 'email-automation',
-    title: 'Email Automation',
-    subtitle: 'Trigger-based transactional communications',
-    steps: [
-      { step: 1, text: 'Booking created → admin webhook → emails render BookingNotifyEmail with staff, services, recommendations' },
-      { step: 2, text: 'Payment succeeded → Stripe webhook → admin → PurchaseSuccessEmail with itemized receipt' },
-      { step: 3, text: 'Visit completed → hourly cron → VisitFeedbackEmail with post-treatment care tips by gender and device' },
-      { step: 4, text: '18 days post-treatment → daily cron → TreatmentFeedbackEmail requesting treatment results review' },
-    ],
-    color: '#14b8a6',
-  },
 ];
 
 // ─── Architectural Decisions ─────────────────────────────────────────────────
 
 export const DECISIONS: Decision[] = [
-  {
-    title: 'Feature-Sliced Design across all frontends',
-    context: 'Three frontend applications (Booking App, Regional Sites, Admin Panel) growing in parallel. Needed a shared mental model.',
-    solution: 'Adopted Feature-Sliced Design (FSD) to enforce clear architectural boundaries and a standardized folder structure across all applications.',
-    alternative: 'Flat structure or Atomic Design.',
-    why: 'FSD gives every developer a single mental model. Someone who knows the structure of one app immediately understands the others - establishing consistency across the ecosystem.',
-    effect: 'Consistent architecture across all frontends. Clear import boundaries (shared → entities → features → widgets → pages-layer → app-layer) prevent circular dependencies.',
-  },
-  {
-    title: 'Shared modular database schema',
-    context: 'The Booking App, Regional Sites, Admin Panel, and Email Engine all work with the same PostgreSQL, but each needs different domain data.',
-    solution: 'Modular Prisma schema split into 12 domain files (auth, booking, studio, services, loyalty, purchases, feedbacks, translations, notifications, media, faq, admin).',
-    alternative: 'Separate schemas per repo or a single monolithic schema file.',
-    why: 'Modularity gives domain separation within a single database. Translation tables handle multi-language at the data level. Prisma auto-generates types so every repo gets type-safe database access.',
-    effect: 'Any repo can read the data it needs with full type safety. Schema changes in one domain don\'t touch others.',
-  },
   {
     title: 'Brain-first AI architecture (not FSM)',
     context: 'The AI agent needs to guide users toward booking, but people ask questions in unpredictable order - price before studio, FAQ mid-booking, changing their mind halfway through.',
@@ -306,14 +252,6 @@ export const DECISIONS: Decision[] = [
     effect: 'Multi-currency payments (EUR/PLN/GBP/UAH). Full lifecycle tracking (PENDING → SUCCEEDED → REFUNDED). Automated email chains triggered by payment state changes.',
   },
   {
-    title: 'DeepL-powered translation pipeline',
-    context: '6 languages × dozens of entities (services, categories, staff, FAQ, devices, banners, studios, cities, countries) = thousands of translation strings.',
-    solution: 'Integrated the DeepL API directly into the admin panel and CMS, enabling bulk machine translation with a mandatory human review workflow.',
-    alternative: 'Manual translation only or Google Translate.',
-    why: 'DeepL delivers the best quality for European languages. A dedicated review workflow ensures all automated translations are verified by native speakers before publishing.',
-    effect: 'Scaling to a new country: configure region + run DeepL translate + human review. Not weeks of manual translation work.',
-  },
-  {
     title: 'Cron-driven automation layer',
     context: 'Multiple business processes need scheduled execution: feedback collection, payment cleanup, analytics sync, exchange rate updates, stale lead expiration.',
     solution: 'Distributed 12 zero-infrastructure Vercel Cron jobs across the relevant services to handle all scheduled automation without maintaining a separate worker queue.',
@@ -327,81 +265,36 @@ export const DECISIONS: Decision[] = [
 
 export const OUTCOME_GROUPS: OutcomeGroup[] = [
   {
-    title: 'Architecture',
-    icon: '🏗️',
+    title: 'Scale',
+    icon: '🚀',
     items: [
-      '7 repositories, each independently deployed on Vercel',
-      '4 PostgreSQL databases (product, analytics, AI+pgvector, CMS)',
-      'Unified Feature-Sliced Design (FSD) architecture across all applications',
-      'Modular database schema driving 6 languages simultaneously',
-      'Zero shared runtime dependencies between repos (only contracts)',
+      '18 studios across 5 countries managed through one ecosystem',
+      '30K+ monthly active users across 6 localized domains',
+      'Multi-currency payments (EUR/PLN/GBP/UAH) via per-studio Stripe',
+      'New country launch: config + translations + domain, no core changes',
     ],
     color: 'var(--accent)',
   },
   {
-    title: 'Product',
-    icon: '🚀',
+    title: 'Intelligence',
+    icon: '🤖',
     items: [
-      '5 country domains built for fully localized SEO acquisition',
-      '18 studios managed through a single admin panel',
       'AI consultant: 21 tools, 4 channels, custom fine-tuned model',
-      '19 analytics dashboards with multi-touch attribution',
-      '7 transactional email templates with context-aware content',
-      'Full-featured Personal Cabinet for clients (visit history & loyalty tracking)',
+      'Custom attribution: first-touch + non-direct-last-click across 19 dashboards',
+      'Lead lifecycle: web event → phone match → booking → revenue attribution',
+      'Automated feedback chains: booking → 24h visit review → 18d treatment review',
     ],
     color: '#3b82f6',
   },
   {
-    title: 'Operations',
+    title: 'Automation',
     icon: '⚙️',
     items: [
-      'New country launch: config + translations + domain - no core changes',
-      'Admin RBAC: operator → editor → admin → super_admin hierarchy',
-      'Automated feedback: booking → 24h visit review → 18d treatment review',
-      '12 automated cron jobs across the entire ecosystem',
-      'Lead lifecycle: web event → phone match → booking status → revenue attribution',
+      '12 cron jobs handle feedback, cleanup, analytics sync, and email triggers',
+      'Stripe webhook pipeline: payment → purchase → loyalty → confirmation email',
+      'DeepL bulk translation across 6 locales with human review workflow',
+      'Full delivery: 7 services architected, built, and maintained by one developer',
     ],
     color: '#f59e0b',
-  },
-];
-
-// ─── Ownership ───────────────────────────────────────────────────────────────
-
-export const OWNERSHIP_AREAS: OwnershipArea[] = [
-  {
-    category: 'Architectural Decisions',
-    items: [
-      'Decomposition from monolith into multiple services along domain boundaries',
-      'Feature-Sliced Design with custom naming for Next.js App Router',
-      'Brain-first AI architecture instead of deterministic FSM',
-      'Independent analytics platform with custom attribution model',
-      'Modular Prisma schema (12 files) with translation layer',
-      'Per-studio Stripe integration model',
-      'Cron-driven automation layer (12 jobs across 3 repos)',
-    ],
-  },
-  {
-    category: 'Delivery & Implementation',
-    items: [
-      'Full-stack implementation of all 7 repositories',
-      'Stripe webhook pipeline (payment → purchase → email → CRM tracking)',
-      'AI fine-tuning pipeline (dialogue collection → JSONL → OpenAI → deploy → observe)',
-      'Analytics ingestion engine (Vercel Drain → normalization → attribution → lifecycle)',
-      'RBAC system design and implementation (3 permission categories)',
-      'Multi-domain deployment architecture (5 countries × Vercel)',
-      'Cross-repo integration contracts (shared types, webhook formats, API conventions)',
-    ],
-  },
-  {
-    category: 'Sole Ownership Boundaries',
-    items: [
-      'Product architecture and database schema design',
-      'AI agent behavior (prompts, tools, fine-tuning data)',
-      'Analytics attribution model and lifecycle sync',
-      'Stripe integration (webhook handler, per-studio keys)',
-      'Email template rendering (7 templates, 6 languages)',
-      'Content model (Strapi schema, 7 content types)',
-      'Cron automation across all repositories',
-    ],
   },
 ];
