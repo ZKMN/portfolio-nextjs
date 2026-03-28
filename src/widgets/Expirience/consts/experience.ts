@@ -17,9 +17,9 @@ export const EXPERIENCE: ExperienceItem[] = [{
   name: 'Corva',
   role: 'Senior Frontend Developer',
   companyLink: 'https://www.corva.ai/',
-  stack: 'React, TypeScript, Redux, Highcharts, Styled Components, Jest, React Testing Library',
-  responsibilities: 'Working on performance and stability for complex drilling analytics dashboards. Refactoring heavy React components to make data rendering faster and easier to maintain.',
-  achievements: 'Sped up core visualization components, cutting down render times for large datasets. Cleaned up legacy modules to make future updates easier.',
+  stack: 'React, TypeScript, Zustand, TanStack Query, Highcharts, Styled Components, Jest, React Testing Library',
+  responsibilities: 'Owned performance and architecture of drilling analytics dashboards used by enterprise oil & gas clients. Designed and executed a 7-phase refactoring playbook for a complex charting codebase.',
+  achievements: 'Cut page load from 5s to 1.5s (3x faster) by eliminating render cascades, fixing chart caching, and lazy-loading heavy modules. Restructured the codebase into a domain-driven architecture — zero regressions.',
   projects: [],
 }, {
   open: true,

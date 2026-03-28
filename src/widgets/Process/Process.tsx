@@ -27,7 +27,7 @@ export const Process = (): React.ReactElement => (
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <ScrambleTitle text="How I Work" />
+        <ScrambleTitle text="My Process" />
       </motion.div>
 
       <div className="process-grid">
