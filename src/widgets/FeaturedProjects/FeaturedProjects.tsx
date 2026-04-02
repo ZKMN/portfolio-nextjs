@@ -8,6 +8,7 @@ const featuredProjects = [
   {
     name: 'Enterprise AI Agent for love💗epil',
     role: 'Product Engineer & AI Architect',
+    isBuiltFromScratch: true,
     period: '2025 - Present',
     description: 'A production AI consultant for a European beauty chain. Built with strict business control and full observability.',
     myContributions: [
@@ -29,6 +30,7 @@ const featuredProjects = [
   {
     name: 'UAES - Ukrainian Community Spain',
     role: 'Product Engineer & AI Architect',
+    isBuiltFromScratch: true,
     period: '2026 - Present',
     description: 'A community platform for Ukrainians in Spain, connecting listings, events, and resources with a built-in moderation system.',
     myContributions: [
@@ -50,6 +52,7 @@ const featuredProjects = [
   {
     name: 'love💗epil Multi-domain SaaS Ecosystem',
     role: 'Product Engineer & AI Architect',
+    isBuiltFromScratch: true,
     period: '2024 - Present',
     description: 'A complete product ecosystem spanning the main website, regional domains, admin panel, analytics, CMS, and transactional tools.',
     myContributions: [
@@ -123,9 +126,16 @@ export const FeaturedProjects = () => (
               {/* Header */}
               <div style={{ marginBottom: 'var(--space-6)' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 'var(--space-3)' }}>
-                  <h3 className="project-title" style={{ fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
-                    {project.name}
-                  </h3>
+                  <div>
+                    <h3 className="project-title" style={{ fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
+                      {project.name}
+                    </h3>
+                    {project.isBuiltFromScratch && (
+                      <span className="badge badge--accent" style={{ fontSize: 'var(--text-xs)', padding: '2px 8px', marginTop: 'var(--space-1)', display: 'inline-block' }}>
+                        Built from scratch
+                      </span>
+                    )}
+                  </div>
                   {project.link && (
                     <a href={project.link}
                       target="_blank"

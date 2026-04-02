@@ -83,8 +83,13 @@ export default function ResumePage(): React.ReactElement {
           {EXPERIENCE.filter(e => e.open).map((exp) => (
             <div key={exp.name} style={{ borderLeft: '3px solid var(--accent)', paddingLeft: '14px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '4px', flexWrap: 'wrap', gap: '4px' }}>
-                <h4 style={{ fontSize: '1.05rem', fontWeight: 700 }}>
-                  {exp.role} <span style={{ fontWeight: 400, color: 'var(--text-secondary)' }}>at</span> <span style={{ color: 'var(--accent-light)' }}>{exp.name}</span>
+                <h4 style={{ fontSize: '1.05rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                  <span>{exp.role} <span style={{ fontWeight: 400, color: 'var(--text-secondary)' }}>at</span> <span style={{ color: 'var(--accent-light)' }}>{exp.name}</span></span>
+                  {exp.isBuiltFromScratch && (
+                    <span style={{ fontSize: '0.7rem', fontWeight: 500, color: 'var(--accent-light)', border: '1px solid var(--accent)', borderRadius: '4px', padding: '1px 6px' }}>
+                      Built from scratch
+                    </span>
+                  )}
                 </h4>
                 <span style={{ fontSize: '0.85rem', color: 'var(--text-tertiary)', flexShrink: 0 }}>{exp.time}</span>
               </div>

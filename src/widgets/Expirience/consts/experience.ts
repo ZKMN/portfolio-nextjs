@@ -10,6 +10,7 @@ export interface ExperienceItem {
   projects?: { name: string; link?: string; description: string }[];
   security?: string[];
   open?: boolean;
+  isBuiltFromScratch?: boolean;
 }
 
 export const EXPERIENCE: ExperienceItem[] = [{
@@ -23,6 +24,7 @@ export const EXPERIENCE: ExperienceItem[] = [{
   projects: [],
 }, {
   open: true,
+  isBuiltFromScratch: true,
   name: 'love💗epil',
   role: 'Product Engineer & AI Architect',
   companyLink: 'https://www.loveepil.com',

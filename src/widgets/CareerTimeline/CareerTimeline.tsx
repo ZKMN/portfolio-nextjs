@@ -110,8 +110,15 @@ export const CareerTimeline = () => (
                     </div>
 
                     {exp.role && (
-                      <div style={{ fontSize: 'var(--text-md)', color: 'var(--accent-light)', fontWeight: 500, marginBottom: 'var(--space-1)' }}>
-                        {exp.role}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', marginBottom: 'var(--space-1)' }}>
+                        <span style={{ fontSize: 'var(--text-md)', color: 'var(--accent-light)', fontWeight: 500 }}>
+                          {exp.role}
+                        </span>
+                        {exp.isBuiltFromScratch && (
+                          <span className="badge badge--accent" style={{ fontSize: 'var(--text-xs)', padding: '2px 8px' }}>
+                            Built from scratch
+                          </span>
+                        )}
                       </div>
                     )}
 
