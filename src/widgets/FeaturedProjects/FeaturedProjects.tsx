@@ -31,6 +31,7 @@ const featuredProjects = [
     name: 'UAES - Ukrainian Community Spain',
     role: 'Product Engineer & AI Architect',
     isBuiltFromScratch: true,
+    isOwner: true,
     period: '2026 - Present',
     description: 'A community platform for Ukrainians in Spain, connecting listings, events, and resources with a built-in moderation system.',
     myContributions: [
@@ -130,11 +131,18 @@ export const FeaturedProjects = () => (
                     <h3 className="project-title" style={{ fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
                       {project.name}
                     </h3>
-                    {project.isBuiltFromScratch && (
-                      <span className="badge badge--accent" style={{ fontSize: 'var(--text-xs)', padding: '2px 8px', marginTop: 'var(--space-1)', display: 'inline-block' }}>
-                        Built from scratch
-                      </span>
-                    )}
+                    <div style={{ display: 'flex', gap: 'var(--space-2)', marginTop: 'var(--space-1)', flexWrap: 'wrap' }}>
+                      {project.isBuiltFromScratch && (
+                        <span className="badge badge--accent" style={{ fontSize: 'var(--text-xs)', padding: '2px 8px' }}>
+                          Built from scratch
+                        </span>
+                      )}
+                      {project.isOwner && (
+                        <span className="badge badge--accent" style={{ fontSize: 'var(--text-xs)', padding: '2px 8px' }}>
+                          Own product
+                        </span>
+                      )}
+                    </div>
                   </div>
                   {project.link && (
                     <a href={project.link}

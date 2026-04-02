@@ -124,9 +124,9 @@ export const HeroSection = (): React.ReactElement => (
           transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
           style={{ marginBottom: 'var(--space-8)' }}
         >
-          <span style={{ display: 'inline-flex', gap: 'var(--space-2)', alignItems: 'center' }}>
+          <span style={{ display: 'inline-flex', gap: 'var(--space-2)', alignItems: 'center', flexWrap: 'wrap' }}>
             <span className="badge badge--ghost" style={{ fontSize: 'var(--text-xs)', padding: 'var(--space-2) var(--space-4)' }}>
-              Product Engineer & AI Architect
+              AI Architect
             </span>
             <span className="badge badge--accent" style={{ fontSize: 'var(--text-xs)', padding: 'var(--space-2) var(--space-4)' }}>
               Built from scratch
