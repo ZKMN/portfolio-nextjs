@@ -53,7 +53,7 @@ export default function ResumePage(): React.ReactElement {
       {/* Header */}
       <header style={{ marginBottom: '32px', borderBottom: '1px solid var(--border)', paddingBottom: '16px' }}>
         <h1 style={{ fontSize: '2.2rem', fontWeight: 700, marginBottom: '6px', color: 'var(--text-primary)' }}>Denis Klymenko</h1>
-        <h2 style={{ fontSize: '1.15rem', color: 'var(--accent-light)', marginBottom: '12px' }}>AI Agent Architect & Full-Stack Product Engineer</h2>
+        <h2 style={{ fontSize: '1.15rem', color: 'var(--accent-light)', marginBottom: '12px' }}>Product Engineer & AI Architect</h2>
         <div style={{ display: 'flex', gap: '16px', fontSize: '0.85rem', color: 'var(--text-secondary)', flexWrap: 'wrap' }}>
           <a href="mailto:klymdenis@gmail.com">klymdenis@gmail.com</a>
           <span>•</span>
@@ -69,10 +69,10 @@ export default function ResumePage(): React.ReactElement {
       <section style={{ marginBottom: '24px' }}>
         <h3 className="resume-section-title">Summary</h3>
         <p style={{ lineHeight: 1.7, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-          I build production AI agents and the full infrastructure behind them - solo, from scratch.
-          Most recently: a 21-tool booking agent for a European beauty chain (5 countries, 6 languages, $0.015/dialog)
-          plus the entire ecosystem around it - analytics with cross-domain attribution, admin panel with RBAC and Stripe,
-          CMS, transactional emails. 8+ years in software engineering, 20 projects delivered (14 from scratch).
+          I build production AI systems and the full infrastructure around them - solo, from scratch.
+          3 AI systems live in prod today: a 21-tool AI consultant — bookings, FAQs, service guidance across 4 channels ($0.015/dialog), an autonomous content engine (~70 articles/week),
+          and semantic search across 5 countries. Plus the entire ecosystem: analytics with cross-domain attribution,
+          admin panel with RBAC and Stripe, transactional emails. 9+ years in software engineering, 20 projects delivered (14 from scratch).
         </p>
       </section>
 

@@ -7,7 +7,7 @@ import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
 const featuredProjects = [
   {
     name: 'Enterprise AI Agent for love💗epil',
-    role: 'Lead AI Architect',
+    role: 'Product Engineer & AI Architect',
     period: '2025 - Present',
     description: 'A production AI consultant for a European beauty chain. Built with strict business control and full observability.',
     myContributions: [
@@ -28,7 +28,7 @@ const featuredProjects = [
   },
   {
     name: 'UAES - Ukrainian Community Spain',
-    role: 'Full-Stack Product Engineer',
+    role: 'Product Engineer & AI Architect',
     period: '2026 - Present',
     description: 'A community platform for Ukrainians in Spain, connecting listings, events, and resources with a built-in moderation system.',
     myContributions: [
@@ -49,7 +49,7 @@ const featuredProjects = [
   },
   {
     name: 'love💗epil Multi-domain SaaS Ecosystem',
-    role: 'Lead AI Architect | Product Builder',
+    role: 'Product Engineer & AI Architect',
     period: '2024 - Present',
     description: 'A complete product ecosystem spanning the main website, regional domains, admin panel, analytics, CMS, and transactional tools.',
     myContributions: [
@@ -60,8 +60,8 @@ const featuredProjects = [
       'Designed the data architecture using Prisma and PostgreSQL to serve product, operations, and AI',
     ],
     clientResults: [
-      '30K+ monthly active users across 6 European domains',
-      '96% Real User Experience Score (mobile)',
+      '30K+ monthly active users across 5 European domains',
+      '96% Mobile Performance Score',
       'Single ecosystem strategy connecting acquisition, conversion, operations, and analytics',
     ],
     tech: ['Next.js 16', 'React 19', 'TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'NextAuth', 'Strapi', 'Resend', 'React Email', 'Vercel', 'Google Maps API', 'Firebase', 'Microsoft Clarity', 'Zustand', 'TanStack Query', 'Zod', 'i18next', 'DeepL'],

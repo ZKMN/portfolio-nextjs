@@ -43,7 +43,7 @@ export const AboutMe = () => (
       >
         <ScrambleTitle text="About Me" />
         <p className="section-subtitle">
-          Lead AI Architect & Product Builder. I design and ship systems where product features, AI, and operations work seamlessly together.
+          Product Engineer & AI Architect. I design, build, and ship entire systems — from architecture and AI to frontend and operations.
         </p>
       </motion.div>
 

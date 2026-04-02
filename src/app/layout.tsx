@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteUrl = 'https://denovo.sh';
-const title = 'Denis Klymenko | Full-Stack Engineer & AI Architect';
+const title = 'Denis Klymenko | Product Engineer & AI Architect';
 const description = 'I turn complex business problems into production platforms. Architecture, code, AI, delivery - one person. 9+ years, 20+ projects, 3 AI systems in production.';
 
 export const metadata: Metadata = {
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Denis Klymenko — Full-Stack Engineer & AI Architect',
+        alt: 'Denis Klymenko — Product Engineer & AI Architect',
       },
     ],
   },
@@ -77,8 +77,8 @@ export const metadata: Metadata = {
     },
   },
   keywords: [
-    'Full-Stack Engineer',
-    'AI Architect',
+    'Product Engineer & AI Architect',
+    'Product Engineer',
     'TypeScript',
     'React',
     'Next.js',
@@ -109,7 +109,7 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Denis Klymenko',
-    jobTitle: 'Full-Stack Engineer & AI Architect',
+    jobTitle: 'Product Engineer & AI Architect',
     url: siteUrl,
     sameAs: [
       'https://www.linkedin.com/in/denis-klymenko/',

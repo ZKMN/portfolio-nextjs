@@ -98,7 +98,7 @@ export const HeroSection = (): React.ReactElement => (
             lineHeight: 1.3,
           }}
         >
-          7 Services. 18 Studios. One Developer.
+          8 Services. 3 AI Systems. One Developer.
         </motion.h2>
 
         <motion.p
@@ -125,7 +125,7 @@ export const HeroSection = (): React.ReactElement => (
           style={{ marginBottom: 'var(--space-8)' }}
         >
           <span className="badge badge--ghost" style={{ fontSize: 'var(--text-xs)', padding: 'var(--space-2) var(--space-4)' }}>
-            Sole Architect &nbsp;|&nbsp; Full-Stack Developer
+            Product Engineer & AI Architect
           </span>
         </motion.div>
 

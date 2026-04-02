@@ -2,9 +2,9 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Denis Klymenko | AI Agent Architect',
+    name: 'Denis Klymenko | Product Engineer & AI Architect',
     short_name: 'Denis Klymenko',
-    description: 'AI Agent Architect & Full-Stack Product Engineer. Brain-first AI Agents with 21 orchestrated tools.',
+    description: 'Product Engineer & AI Architect. Production AI systems, scalable architectures, 20+ projects delivered.',
     start_url: '/',
     display: 'standalone',
     background_color: '#000000',

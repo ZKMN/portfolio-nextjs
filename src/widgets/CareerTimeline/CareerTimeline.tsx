@@ -42,7 +42,7 @@ export const CareerTimeline = () => (
         />
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-8)' }}>
-          {EXPERIENCE.map((exp, index) => (
+          {EXPERIENCE.filter((exp) => exp.open).map((exp, index) => (
             <motion.div
               key={exp.name}
               initial={{ opacity: 0, y: 30 }}

@@ -31,7 +31,7 @@ const NODES: EcoNode[] = [
   { id: 'country', label: 'Country Domains', sublabel: '5 domains · localized SEO', x: 50, y: 24, color: '#3b82f6', size: 48 },
   { id: 'frontend', label: 'Core Frontend', sublabel: 'Booking · Payments · Loyalty', x: 26, y: 44, color: 'var(--accent)', size: 52 },
   { id: 'ai', label: 'AI Service', sublabel: '21 tools · 4 channels', x: 74, y: 44, color: '#8b5cf6', size: 48 },
-  { id: 'admin', label: 'Admin Panel', sublabel: '133 actions · RBAC', x: 26, y: 66, color: '#f59e0b', size: 48 },
+  { id: 'admin', label: 'Admin Panel', sublabel: '133 actions · AI content', x: 26, y: 66, color: '#f59e0b', size: 48 },
   { id: 'analytics', label: 'Analytics', sublabel: '19 dashboards', x: 74, y: 66, color: '#ec4899', size: 46 },
   { id: 'strapi', label: 'Strapi CMS', sublabel: '7 content types', x: 20, y: 86, color: '#06b6d4', size: 42 },
   { id: 'emails', label: 'Email Engine', sublabel: '7 templates · 6 langs', x: 50, y: 86, color: '#14b8a6', size: 42 },
@@ -48,6 +48,7 @@ const EDGES: EcoEdge[] = [
   { from: 'admin', to: 'analytics', label: 'Conversion events', dashed: true },
   { from: 'admin', to: 'emails', label: 'Trigger emails' },
   { from: 'admin', to: 'strapi', label: 'Content API' },
+  { from: 'admin', to: 'country', label: 'AI blog content' },
 ];
 
 const getNodeById = (id: string): EcoNode | undefined => NODES.find((n) => n.id === id);

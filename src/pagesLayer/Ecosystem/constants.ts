@@ -23,7 +23,7 @@ export const HERO_STATS: HeroStat[] = [
   { value: '18', numericValue: 18, label: 'Studios', sublabel: 'managed through one system' },
   { value: '5', numericValue: 5, label: 'Countries', sublabel: '6 languages, 4 currencies' },
   { value: '30k+', suffix: '+', label: 'MAU', sublabel: 'monthly active users' },
-  { value: '1', numericValue: 1, label: 'Developer', sublabel: '7 services, sole ownership' },
+  { value: '1', numericValue: 1, label: 'Developer', sublabel: '8 services, 3 AI systems, sole dev' },
 ];
 
 // ─── Problem Context ─────────────────────────────────────────────────────────
@@ -99,15 +99,18 @@ export const REPOSITORIES: Repository[] = [
   {
     id: 'admin',
     name: 'Internal Admin Panel',
-    label: 'Operations Control',
-    responsibility: 'The internal operations hub where the team manages everything - bookings, payments, translations, content, feedback, and studio configurations.',
-    scale: ['133 server actions', 'RBAC system', 'Stripe webhooks', '4 cron jobs'],
-    stack: ['Next.js 16', 'MUI 7 + Toolpad', 'Prisma 7', 'Zod 4', 'AI SDK'],
+    label: 'Operations & AI Content',
+    responsibility: 'The internal operations hub and AI content engine. Beyond managing bookings, payments, and studio configurations, it runs a fully autonomous content generation pipeline -from trend discovery through research-grounded article generation to multi-country publication with AI-generated imagery.',
+    scale: ['133 server actions', 'RBAC system', 'Stripe webhooks', '7 cron jobs', 'AI content pipeline'],
+    stack: ['Next.js 16', 'MUI 7 + Toolpad', 'Prisma 7', 'Zod 4', 'AI SDK', 'Tavily'],
     keyFeatures: [
       'RBAC with 3 permission categories and 4 action levels',
       'Stripe webhook pipeline handling full payment lifecycle',
-      'DeepL API integration for AI-powered translations across 6 locales',
-      '4 cron jobs automating feedback, reminders, and cleanup',
+      'AI content engine: 6 formats, research-grounded generation via GPT-5 + Tavily web research',
+      'Automated editorial calendar: ~14 topics/week across 5 countries, zero manual input',
+      'Zone-aware content rotation with medical safety filters and circuit breakers',
+      'AI hero image generation via GPT Image 1.5 matched to article topic and body zone',
+      '7 cron jobs: feedback, reminders, cleanup + trend discovery, article generation, image processing',
     ],
     whySeparated: 'Internal tools have different auth flows (RBAC), different deployment cadence, and different security requirements than the public-facing products.',
     color: '#f59e0b',
@@ -221,6 +224,20 @@ export const FLOWS: Flow[] = [
     ],
     color: '#ec4899',
   },
+  {
+    id: 'content-pipeline',
+    title: 'AI Content Pipeline',
+    subtitle: 'From trend discovery to published articles -fully autonomous',
+    steps: [
+      { step: 1, text: 'Cron job discovers trending topics via Tavily web research, filtered by country market and body treatment zone rotation schedule' },
+      { step: 2, text: 'Topics assigned to automated weekly editorial calendar (~14/week) across 6 content formats: SEO Evergreen, Weekly Digest, Man Series, FAQ, Zone-based' },
+      { step: 3, text: 'GPT-5 generates in two stages: structured metadata first, then full article body -both grounded in real web sources and business data from Prisma' },
+      { step: 4, text: 'Safety layer validates output: ~30 regex patterns filter invasive medical procedures, circuit breaker halts pipeline on consecutive failures' },
+      { step: 5, text: 'GPT Image 1.5 generates unique hero images for each article, matched to topic context and body treatment zone' },
+      { step: 6, text: 'Published articles flow to 5 Country Sites via API, rendering with ISR in the appropriate locale and domain' },
+    ],
+    color: '#f59e0b',
+  },
 ];
 
 // ─── Architectural Decisions ─────────────────────────────────────────────────
@@ -254,10 +271,18 @@ export const DECISIONS: Decision[] = [
   {
     title: 'Cron-driven automation layer',
     context: 'Multiple business processes need scheduled execution: feedback collection, payment cleanup, analytics sync, exchange rate updates, stale lead expiration.',
-    solution: 'Distributed 12 zero-infrastructure Vercel Cron jobs across the relevant services to handle all scheduled automation without maintaining a separate worker queue.',
+    solution: 'Distributed 15 zero-infrastructure Vercel Cron jobs across three services to handle all scheduled automation without maintaining a separate worker queue.',
     alternative: 'Event-driven queue (SQS, RabbitMQ).',
     why: 'Vercel Cron is zero-infrastructure - no queue to manage, no workers to scale. Each job is isolated in its own repository. Sufficient for current scale with room to grow.',
     effect: 'Automated feedback chains (visit → treatment), stale lead expiration, daily analytics aggregation, knowledge base sync - all running without any manual intervention.',
+  },
+  {
+    title: 'Autonomous content engine: ~70 articles/week across 5 countries, zero writers',
+    context: 'The business needed 14+ blog articles per week across 5 countries in the beauty and medical niche. Manual writing couldn\'t scale, and generic AI content risked hallucinations in a domain where medical accuracy matters.',
+    solution: 'Built a fully autonomous editorial pipeline inside the Admin Panel. Tavily discovers trending topics per country, extracts real web sources, then GPT-5 generates articles in two stages -structured metadata first, long-form body second -all grounded in actual service and device data from the database. Hero images auto-generated via GPT Image 1.5. The entire system runs unsupervised on cron.',
+    alternative: 'Hire copywriters for each country (~5 FTE), or use generic AI tools like Jasper that hallucinate freely in medical domains.',
+    why: 'Manual writing can\'t produce 70+ localized articles per week. Generic AI tools hallucinate -dangerous in medical content. By grounding generation in Tavily research and real service/device data from the database, every article is factually anchored.',
+    effect: 'Replaced a multi-person editorial team with a single cron pipeline. 6 content formats, zone-aware rotation to prevent repetition, medical safety filters with circuit breaker, cost tracking per article. From zero content to ~70 localized articles per week with no manual intervention.',
   },
 ];
 
@@ -280,6 +305,7 @@ export const OUTCOME_GROUPS: OutcomeGroup[] = [
     icon: '🤖',
     items: [
       'AI consultant: 21 tools, 4 channels, custom fine-tuned model',
+      'Autonomous content engine replacing manual editorial: trend research → GPT-5 generation → medical safety → publication, ~70 articles/week',
       'Custom attribution: first-touch + non-direct-last-click across 19 dashboards',
       'Lead lifecycle: web event → phone match → booking → revenue attribution',
       'Automated feedback chains: booking → 24h visit review → 18d treatment review',
@@ -290,10 +316,11 @@ export const OUTCOME_GROUPS: OutcomeGroup[] = [
     title: 'Automation',
     icon: '⚙️',
     items: [
-      '12 cron jobs handle feedback, cleanup, analytics sync, and email triggers',
+      '15 cron jobs handle feedback, cleanup, analytics sync, content generation, and email triggers',
+      'Zero-touch editorial pipeline across 5 countries: 6 formats, zone rotation, cost tracking, hero image generation -all on cron',
       'Stripe webhook pipeline: payment → purchase → loyalty → confirmation email',
       'DeepL bulk translation across 6 locales with human review workflow',
-      'Full delivery: 7 services architected, built, and maintained by one developer',
+      'Full delivery: 8 services and 3 AI systems, architected, built, and maintained by one developer',
     ],
     color: '#f59e0b',
   },

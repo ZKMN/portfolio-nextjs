@@ -6,11 +6,11 @@ import { motion } from 'framer-motion';
 import { ScrambleTitle } from '@/shared/components/ScrambleTitle';
 
 const STEPS = [
-  { number: '01', title: 'Discovery', description: 'Understand your business, users, and constraints' },
-  { number: '02', title: 'Architecture', description: 'Design services, data model, integrations' },
-  { number: '03', title: 'Build', description: 'Iterative delivery, working product from week 1' },
-  { number: '04', title: 'Launch', description: 'Deployment, monitoring, zero-downtime rollout' },
-  { number: '05', title: 'Support', description: 'Maintenance, new features, scaling' },
+  { number: '01', title: 'System thinking', description: 'I design boundaries, data flows, and contracts before writing code' },
+  { number: '02', title: 'Production-first', description: 'Every decision is validated against real traffic, real users, real cost' },
+  { number: '03', title: 'Measurable outcomes', description: '3x load speed, $0.015/dialog, 96% Lighthouse — I optimize what I can measure' },
+  { number: '04', title: 'Ship & iterate', description: 'Working product from week 1, not month 3' },
+  { number: '05', title: 'Full ownership', description: 'Architecture to deployment to monitoring — no handoffs, no excuses' },
 ];
 
 const fadeUp = {
@@ -27,7 +27,7 @@ export const Process = (): React.ReactElement => (
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <ScrambleTitle text="My Process" />
+        <ScrambleTitle text="Engineering Principles" />
       </motion.div>
 
       <div className="process-grid">

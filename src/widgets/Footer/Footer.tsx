@@ -147,18 +147,23 @@ export const Footer = () => {
                 </div>
               </div>
 
-              <MagneticWrap>
-                <a
-                  href="/resume"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn--outline"
-                  style={{ alignSelf: 'flex-start', textDecoration: 'none' }}
-                >
-                  <DownloadIcon />
-                  Download CV
-                </a>
-              </MagneticWrap>
+              <div>
+                <h3 className="contact-heading">
+                  Resume
+                </h3>
+                <MagneticWrap>
+                  <a
+                    href="/resume"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn--outline"
+                    style={{ alignSelf: 'flex-start', textDecoration: 'none' }}
+                  >
+                    <DownloadIcon />
+                    Download CV
+                  </a>
+                </MagneticWrap>
+              </div>
             </motion.div>
           </div>
         </div>

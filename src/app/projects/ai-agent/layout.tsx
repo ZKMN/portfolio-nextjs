@@ -36,7 +36,7 @@ const AIAgentLayout = ({ children }: React.PropsWithChildren) => {
     author: {
       '@type': 'Person',
       name: 'Denis Klymenko',
-      jobTitle: 'AI Agent Architect & Full-Stack Product Engineer',
+      jobTitle: 'Product Engineer & AI Architect',
       url: 'https://denovo.sh',
     },
     about: [

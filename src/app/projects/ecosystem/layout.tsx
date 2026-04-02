@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 const title = 'Multi-Service Product Ecosystem | Case Study';
-const description = 'How one engineer built and maintains a production SaaS ecosystem: 5 countries, 7 repositories, AI agent, analytics, admin panel, and automated operations.';
+const description = 'One engineer, 8 production services, 3 AI systems: booking agent, content engine, semantic search. Serving 5 countries with 15 cron jobs and zero ops team.';
 
 export const metadata: Metadata = {
   title,
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         url: '/images/ecosystem-og.jpg',
         width: 1200,
         height: 630,
-        alt: 'Multi-Service Product Ecosystem — Architecture Case Study',
+        alt: 'Multi-Service Product Ecosystem - Architecture Case Study',
       },
     ],
   },
@@ -36,14 +36,16 @@ const EcosystemLayout = ({ children }: React.PropsWithChildren) => {
     author: {
       '@type': 'Person',
       name: 'Denis Klymenko',
-      jobTitle: 'Lead AI Architect | Product Builder',
+      jobTitle: 'Product Engineer & AI Architect',
       url: 'https://denovo.sh',
     },
     about: [
       'Multi-Service Architecture',
       'SaaS Ecosystem Design',
-      'Full-Stack Product Engineering',
+      'Product Engineer & AI Architecting',
       'AI Agent Integration',
+      'AI Content Generation',
+      'Autonomous Editorial Pipeline',
       'Multi-Domain Deployment',
       'Marketing Attribution',
       'Feature-Sliced Design',
@@ -53,6 +55,8 @@ const EcosystemLayout = ({ children }: React.PropsWithChildren) => {
       'Multi-Service Architecture',
       'Product Engineering',
       'AI Agent',
+      'AI Content Engine',
+      'Tavily',
       'Multi-Domain',
       'Stripe Integration',
       'Analytics Platform',

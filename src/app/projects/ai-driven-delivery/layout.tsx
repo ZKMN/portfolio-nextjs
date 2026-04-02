@@ -27,7 +27,7 @@ const CommunityPortalLayout = ({ children }: React.PropsWithChildren) => {
     author: {
       '@type': 'Person',
       name: 'Denis Klymenko',
-      jobTitle: 'Full-Stack Product Engineer',
+      jobTitle: 'Product Engineer & AI Architect',
       url: 'https://denovo.sh',
     },
     about: [
@@ -36,7 +36,7 @@ const CommunityPortalLayout = ({ children }: React.PropsWithChildren) => {
       'Google Places Enrichment',
       'Content Moderation Systems',
       'Feature-Sliced Design',
-      'Full-Stack Product Engineering',
+      'Product Engineer & AI Architecting',
     ],
     keywords: [
       'Community Portal',

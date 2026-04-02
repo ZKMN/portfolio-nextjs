@@ -125,7 +125,7 @@ export const HeroSection = (): React.ReactElement => (
           style={{ marginBottom: 'var(--space-8)' }}
         >
           <span className="badge badge--ghost" style={{ fontSize: 'var(--text-xs)', padding: 'var(--space-2) var(--space-4)' }}>
-            Full-Stack Product Engineer
+            Product Engineer & AI Architect
           </span>
         </motion.div>
 
