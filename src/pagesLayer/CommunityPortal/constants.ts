@@ -18,7 +18,7 @@ export const FADE_UP = {
 export const HERO_STATS: HeroStat[] = [
   { value: '200+', numericValue: 200, suffix: '+', label: 'Businesses', sublabel: 'discovered and enriched automatically' },
   { value: '8', numericValue: 8, label: 'Verticals', sublabel: 'each with its own data pipeline' },
-  { value: '2', numericValue: 2, label: 'Production Apps', sublabel: 'portal + admin, zero sync' },
+  { value: '0', label: 'Content Team', sublabel: 'platform markets itself from its own data' },
   { value: '1', numericValue: 1, label: 'Developer', sublabel: 'architecture to production' },
 ];
 
@@ -66,15 +66,28 @@ export const CONTENT_FLOWS: ContentFlow[] = [
   {
     id: 'aggregation',
     title: 'Event Aggregation',
-    subtitle: 'Community events collected from public sources and normalized',
+    subtitle: 'AI-powered search discovers events, pipeline normalizes and publishes them',
     steps: [
-      { step: 1, text: 'Aggregate event data from Ukrainian diaspora platforms, ticketing services, and community channels' },
-      { step: 2, text: 'Normalize unstructured data into structured listings: title, date, venue, price, ticket URL' },
-      { step: 3, text: 'Deduplicate by external URL to prevent the same concert from appearing twice' },
-      { step: 4, text: 'Google Geocoding API resolves venue addresses to coordinates for interactive map placement' },
-      { step: 5, text: 'Result: 80+ events covering concerts, stand-up, exhibitions, cultural festivals - no content team needed' },
+      { step: 1, text: 'Tavily AI search queries 20+ ticketing platforms and community sources across Spanish cities for upcoming events' },
+      { step: 2, text: 'Structured extraction pipeline normalizes raw results into listings: title, dates, venue, price, ticket URL' },
+      { step: 3, text: 'Deduplication by external URL and source domain prevents the same event from appearing twice' },
+      { step: 4, text: 'Google Geocoding API resolves venue addresses to coordinates for interactive map and city-based filtering' },
+      { step: 5, text: 'Result: 100+ events covering concerts, exhibitions, festivals, stand-up - discovered and published without manual research' },
     ],
     color: '#3b82f6',
+  },
+  {
+    id: 'content',
+    title: 'Content Generation & Distribution',
+    subtitle: 'Platform data becomes social media content — no copywriter, no designer, no scheduler',
+    steps: [
+      { step: 1, text: 'Cron job queries the database for upcoming events, new businesses, and community activity' },
+      { step: 2, text: 'Rendering engine generates branded story images with event details, dates, and venue info using Sharp' },
+      { step: 3, text: 'Scheduling system rotates content types throughout the day: events, promotions, stats, community highlights' },
+      { step: 4, text: 'Instagram Graph API publishes stories and carousels automatically — token refresh handled via long-lived token exchange' },
+      { step: 5, text: 'Result: consistent daily social media presence generated entirely from platform data — zero manual content creation' },
+    ],
+    color: '#ec4899',
   },
   {
     id: 'lifecycle',
@@ -141,7 +154,7 @@ export const OUTCOME_GROUPS: OutcomeGroup[] = [
     icon: '🔍',
     items: [
       '200+ businesses discovered and enriched via Google Places before the first user signed up',
-      '80+ events aggregated from public community sources across Spain',
+      '100+ events found via AI-powered search across 20+ ticketing platforms',
       '31 shipping services pre-populated and verified for the ES-UA corridor',
       'One CLI command populates a new city with enriched, verified data',
     ],
@@ -152,8 +165,8 @@ export const OUTCOME_GROUPS: OutcomeGroup[] = [
     icon: '⚙️',
     items: [
       'Cron-driven lifecycle: expired content auto-archives, orphaned files auto-clean, digests auto-send',
+      'Social media content generated from platform data and published automatically — no content team',
       '8-point moderation checklist with full audit trail for every decision',
-      'E2E test coverage of full CRUD lifecycle for all 8 entity types',
       'Sentry monitoring + Vercel Analytics in production from day one',
     ],
     color: '#3b82f6',
@@ -181,9 +194,9 @@ export const ROADMAP_ITEMS: RoadmapItem[] = [
     color: 'var(--accent)',
   },
   {
-    title: 'Auto-Publishing to Social Media',
-    description: 'New approved listings, events, and community meetups automatically generate localized posts for Instagram and Telegram. AI adapts tone and format per channel - the platform markets itself without a social media manager.',
-    icon: '📣',
+    title: 'AI-Powered Event Discovery',
+    description: 'LLM analyzes raw web pages from ticketing platforms to extract structured event data - dates, venues, prices - without brittle scraping. Falls back gracefully when page structure changes, replacing manual source maintenance entirely.',
+    icon: '🔍',
     color: '#3b82f6',
   },
   {

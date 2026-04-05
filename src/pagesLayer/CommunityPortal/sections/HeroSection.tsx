@@ -98,7 +98,7 @@ export const HeroSection = (): React.ReactElement => (
             lineHeight: 1.3,
           }}
         >
-          A Community Platform That Populates, Enriches, and Maintains Itself
+          A Community Platform That Populates, Enriches, and Markets Itself
         </motion.h2>
 
         <motion.p
@@ -114,8 +114,8 @@ export const HeroSection = (): React.ReactElement => (
           }}
         >
           A community platform for Ukrainians in Spain with 8 content verticals. Businesses discovered
-          via Google Places API, events aggregated from public sources, data enriched automatically.
-          Built solo - from architecture and data pipelines to moderation system and production monitoring.
+          via Google Places API, events found by AI-powered search across multiple sources, social media content
+          generated and published automatically from platform data. Built solo - from data pipelines to production.
         </motion.p>
 
         <motion.div
