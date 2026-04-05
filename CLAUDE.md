@@ -33,13 +33,6 @@ When working on case studies or project descriptions, these are the actual codeb
 | `doppio-shakeshack` | `/Users/macbook/doppio-shakeshack` | Shake Shack brand fork — same architecture, different branding |
 | `hazelnut` | `/Users/macbook/hazelnut` | Hazelnut brand — ordering app, Apollo/GraphQL, MUI, Relay compiler |
 
-### Shake Shack (restaurant website + CMS)
-
-| Repo | Path | Description |
-|------|------|-------------|
-| `shake-shack-website` | `/Users/macbook/shake-shack-website` | Restaurant website — Next.js, Google Maps, Mailchimp, React Email |
-| `shake-shack-cms` | `/Users/macbook/shake-shack-cms` | Headless CMS — Strapi, CKEditor, i18n, SEO plugin, AWS S3 uploads |
-
 ### Templates (reusable starters)
 
 | Repo | Path | Description |
